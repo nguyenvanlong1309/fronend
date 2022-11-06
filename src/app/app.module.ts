@@ -12,37 +12,13 @@ import { NewsComponent } from './components/news/news.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FinanceComponent } from './components/finance/finance.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { DonateComponent } from './components/donate/donate.component';
+import { SettingComponent } from './components/setting/setting.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes : Routes = [
-  {
-    path : '',
-    redirectTo : 'home',
-    pathMatch : 'full'
-  },
-  {
-    path : 'home',
-    component: HomeComponent
-  },
-  {
-    path : 'introduce',
-    component: IntroduceComponent
-  },
-  {
-    path : 'finace',
-    component: FinanceComponent
-  },
-  {
-    path : 'log-in',
-    component: LoginComponent
-  },
-  {
-    path : 'sign-up',
-    component: SignupComponent
-  },
-  {
-    path : '**',
-    component: NotfoundComponent
-  }
+
 ];
 
 @NgModule({
@@ -54,7 +30,11 @@ const routes : Routes = [
     NewsComponent,
     LoginComponent,
     SignupComponent,
-    FinanceComponent
+    FinanceComponent,
+    ProjectsComponent,
+    DonateComponent,
+    SettingComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
