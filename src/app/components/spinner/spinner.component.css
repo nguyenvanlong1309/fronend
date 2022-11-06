@@ -1,0 +1,9 @@
+.spinner1 {
+    background: white;
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

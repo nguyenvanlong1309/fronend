@@ -1,44 +1,18 @@
-import { HomeComponent } from './components/home/home.component';
-import { IntroduceComponent } from './components/introduce/introduce.component';
-import { NewsComponent } from './components/news/news.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { FinanceComponent } from './components/finance/finance.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'',
-    component: HomeComponent
+    path: '',
+    loadChildren: () => import('./layout/main/main.module').then(m => m.MainLayoutModule)
   },
+  
   {
-    path:'home',
-    component: HomeComponent
+    path: 'auth',
+    loadChildren: () => import('./layout/auth/auth.module').then(m => m.AuthLayoutModule)
   },
-  {
-    path:'introduce',
-    component: IntroduceComponent
-  },
-  {
-    path:'news',
-    component: NewsComponent
-  },
-  {
-    path:'finace',
-    component: FinanceComponent
-  },
-  {
-    path:'log-in',
-    component: LoginComponent
-  },
-  {
-    path:'sign-up',
-    component: SignupComponent
-  },
-
   {
     // khi một router nào được gọi mà không có trong phần appRouter thì NotFoundComponent được gọi ra
     path : '**',

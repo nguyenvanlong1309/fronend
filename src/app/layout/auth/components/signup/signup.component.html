@@ -1,0 +1,62 @@
+<header id="header" class="ex-2-header pt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>ĐĂNG KÝ</h1>
+        <div class="form-container">
+          <form [formGroup]="formGroup" (submit)="ngSubmitForm()" class="form py-0" id="form-1">
+            <div class="form-group text-left">
+              <label class="required form-label">Họ và tên</label>
+              <input 
+                placeholder="Nhập họ và tên"
+                class="form-control"
+                formControlName="fullName"
+              />
+            </div>
+            <div class="form-group text-left">
+              <label class="required form-label">Tên đăng nhập</label>
+              <input
+                placeholder="Nhập tên đăng nhập"
+                class="form-control"
+                formControlName="username"
+              />
+            </div>
+
+            <div class="form-group text-left">
+              <label class="required form-label">Mật khẩu</label>
+              <input
+                type="password"
+                placeholder="Nhập mật khẩu"
+                class="form-control"
+                formControlName="password"
+              />
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-group text-left">
+              <label class="required form-label">Nhập lại mật khẩu</label>
+              <input
+                placeholder="Nhập lại mật khẩu"
+                type="password"
+                class="form-control"
+                formControlName="passwordConfirmation"
+              />
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-group text-left">
+              <button class="form-control-submit-button">
+                Đăng ký
+              </button>
+            </div>
+          </form>
+          <p class="mb-2" style="color: #b0b0b0">
+            Điền vào biểu mẫu bên dưới để đăng ký.<br>
+            Đã đăng ký? Hãy <a  class="text-primary" [routerLink]="['/auth', 'log-in']"> Đăng nhập</a>
+          </p>
+          <a class="text-primary" [routerLink]="['/home']">Về trang chủ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
