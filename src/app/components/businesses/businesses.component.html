@@ -1,0 +1,95 @@
+<div id="details" class="basic-1">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4 class="text-right">TÀI TRỢ</h4>
+              </div>
+              <div class="row mt-3">
+                  <div class="col-md-12">
+                      <label class="labels" style="margin-bottom: 0;">TÊN DOANH NGHIỆP</label>
+                      <input type="text" class="form-control" placeholder="Nguyễn Văn A" value="">
+                  </div>
+                  <div class="area-image">
+                      <label class="labels" style="margin-bottom: 0;">LOGO CÔNG TY</label>
+                      <div class="dow-image">
+                          <div class="image">
+                              <img src="" alt="" id="load-logo">
+                          </div>
+                          <div class="content">
+                              <div class="text">
+                                  Chọn Logo bên dưới
+                              </div>
+                          </div>
+                          <div id="cancel-btn">
+                              <i class="fa fa-times"></i>
+                          </div>
+                      </div>
+                      <button onclick="defaultBtnActive()" style="border: 1px solid #ced4da; margin-top: 5px;">Chọn Logo</button>
+                      <input id="default-btn" type="file" hidden>
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels" style="margin-bottom: 0;">EMAIL</label>
+                      <input type="email" class="form-control" placeholder="vana@gmail.com" value="">
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels" style="margin-bottom: 0;">HÌNH THỨC TÀI TRỢ</label>
+                      <input type="text" class="form-control" placeholder="Chuyển tiền online" value="">
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels" style="margin-bottom: 0;">SỐ TIỀN TÀI TRỢ</label>
+                      <input type="number" class="form-control" placeholder="10.000.000" value="">
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels" style="margin-bottom: 0;">CHƯƠNG TRÌNH TỪ THIỆN</label>
+                      <input type="text" class="form-control" placeholder="Xây dựng điểm trường tại bản làng dân tộc Hà Giang" value="">
+                  </div>
+                  <div class="col-md-12">
+                      <label class="labels" style="margin-bottom: 0;">LỜI NHẮN</label>
+                      <input type="text" class="form-control" placeholder="Nhập lời nhắn của bạn" value="">
+                  </div>
+              </div>
+              <div class="form-button text-center">
+                  <a class="btn-solid-reg" href="">TÀI TRỢ</a>
+              </div>
+          </div>
+
+          <div class="col-lg-6">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4 class="text-right">DỰ ÁN QUAN TRỌNG</h4>
+              </div>
+              <div class="row mt-3">
+                  <div id="features" class="tabs2 container row">
+                      <div class="col-lg-6 tin-tuc">
+                          <div class="image-container ">
+                              <img class="img-fluid" src="assets/images/duan1/main.png" alt="alternative">
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="">
+                              <h5>Xây dựng điểm trường tại bản làng dân tộc Hà Giang</h5>
+                              <p>Nhằm đưa giáo dục đến gần hơn với trẻ em vùng cao nói chung và học sinh tỉnh Hà Giang nói riêng,...</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div id="features" class="tabs2 container row">
+                      <div class="col-lg-6">
+                          <div class="image-container">
+                              <img class="img-fluid" src="assets/images/duan2/main.png" alt="alternative">
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="">
+                              <h5>Bữa sáng cho trẻ em tới tường</h5>
+                              <p>Bữa sáng được nhiều chuyên gia đánh giá là một trong những bữa ăn quan trọng nhất của ngày....</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-button text-center">
+                  <a class="btn-solid-reg" [routerLink]="['/news']">XEM THÊM</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

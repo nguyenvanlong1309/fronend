@@ -1,0 +1,11 @@
+.news{
+  justify-content: center;
+  display: flex;
+  padding-top: 4rem;
+  text-align: center;
+}
+
+a{
+  color: #000;
+  text-decoration: none;
+}

@@ -1,32 +1,32 @@
-<header id="header" class="ex-2-header">
+<header id="header" class="ex-2-header pt-4">
   <div class="container">
       <div class="row">
           <div class="col-lg-12">
               <h1>ĐĂNG NHẬP</h1>
-              <p>Bạn chưa có tài khoản? Hãy<a class="white" [routerLink]="['/sign-up']"> Đăng ký</a></p>
               <div class="form-container">
-                  <form action="" method="POST" class="form" id="form-2" style="padding-bottom: 2rem;">
+                  <form (submit)="ngSubmitForm()" [formGroup]="formGroup" class="form pt-0" id="form-2" style="padding-bottom: 2rem;">
 
-                      <div class="form-group" style="text-align: left;">
-                          <label for="account" class="form-label">Tên đăng nhập</label>
-                          <input id="account" name="account" type="text" placeholder="Tên đăng nhập" class="form-control">
+                      <div class="form-group text-left">
+                          <label class="form-label">Tên đăng nhập</label>
+                          <input placeholder="Tên đăng nhập" class="form-control" formControlName="username">
                           <span class="form-message"></span>
                       </div>
 
-                      <div class="form-group" style="text-align: left;">
-                        <label for="password" class="form-label">Mật khẩu</label>
-                        <div class="" style="position: relative;">
-                          <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control show-mk">
+                      <div class="form-group text-left">
+                        <label class="form-label">Mật khẩu</label>
+                        <div class="position-relative">
+                          <input type="password" placeholder="Nhập mật khẩu" class="form-control show-mk" formControlName="password">
                           <span class="form-message"></span>
                         </div>
                       </div>
 
                       <div class="form-group">
-                          <button type="submit" class="form-control-submit-button">Đăng nhập</button>
+                          <button class="form-control-submit-button">Đăng nhập</button>
                       </div>
                   </form>
-                  <h4>Đăng Nhập Bằng Mạng Xã Hội</h4>
-                  <div class="form">
+                  <p style="color: #b0b0b0">Bạn chưa có tài khoản? Hãy<a class="btn-login" [routerLink]="['/auth', 'sign-up']"> Đăng ký</a></p>
+                  <h5 style="color: #b0b0b0">Đăng Nhập Bằng Mạng Xã Hội</h5>
+                  <div class="form p-0">
                       <div class="icon-container">
                           <span class="fa-stack">
                               <a [routerLink]="['/**']">
@@ -47,6 +47,9 @@
                               </a>
                           </span>
                       </div>
+                  </div>
+                  <div>
+                    <a class="btn-login" [routerLink]="['/home']">Về trang chủ</a>
                   </div>
               </div>
           </div>

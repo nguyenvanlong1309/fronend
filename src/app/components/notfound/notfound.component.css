@@ -31,3 +31,7 @@
     margin: 20px 0;
     display: inline-block;}
 	.contant_box_404{ margin-top:-50px;}
+
+  .col-sm-10{
+    width: 100%;
+  }

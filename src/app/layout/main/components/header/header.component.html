@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand logo-image" [routerLink]="['/home']" routerLinkActive="active">
+            <img src="assets/images/logo-webtuthien.png" class="hv-img" alt="alternative">
+        </a>
+
+        <!-- Tìm kiếm -->
+        <div class="wrap">
+            <form action="" class="search">
+                <input type="text" class="searchTerm" placeholder="Tìm kiếm">
+                <button type="submit" class="searchButton " style="font-size: 14px">
+                    <i class="fa fa-search" style="color: white"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- Thanh trang chủ -->
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <!-- style="border-bottom: 1px solid #9db937;" -->
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" [routerLink]="['/home']" routerLinkActive="active">TRANG CHỦ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" [routerLink]="['/introduce']" routerLinkActive="active">GIỚI THIỆU</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" [routerLink]="['/news']" routerLinkActive="active">TIN TỨC</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" [routerLink]="['/project']" routerLinkActive="active">DỰ ÁN</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" [routerLink]="['/finace']" routerLinkActive="active">BÁO CÁO TÀI CHÍNH</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-scroll" [routerLink]="['/donate']" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">TÀI TRỢ</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" [routerLink]="['/donate-personal']"><span class="item-text">CÁ NHÂN</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" [routerLink]="['/donate-businesses']"><span class="item-text">DOANH NGHIỆP</span></a>
+                    </div>
+                </li>
+            </ul>
+            <span class="nav-item">
+                <a *ngIf="!isLoggedIn" class="btn-outline-sm" [routerLink]="['/auth','log-in']">ĐĂNG NHẬP</a>
+                <div *ngIf="isLoggedIn" class="dropdown position-relative">
+                    <span class="nav-link dropdown-toggle page-scroll" style="cursor: default;" id="navbarDropdown">{{ user.fullName }}</span>
+                    <div class="dropdown-menu end-0" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-truncate" [routerLink]="['/profile']">Thông tin</a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <button class="dropdown-item text-truncate" (click)="ngLogout()">Đăng xuất</button>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+  </nav>
