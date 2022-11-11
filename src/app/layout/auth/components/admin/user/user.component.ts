@@ -1,20 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { UserResponseModel } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {  ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
-  selector: 'app-setting',
-  templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class SettingComponent implements OnInit {
+export class UserComponent implements OnInit {
 
   isModal: boolean = false;
-  user: UserResponseModel;
   formGroup: FormGroup;
 
   closeResult: string;
@@ -26,9 +24,7 @@ export class SettingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user = this.authService.currentUser$.getValue().user;
-    this.ngBuildForm();
-    this.formGroup.patchValue(this.user);
+
   }
 
   ngBuildForm(): void {

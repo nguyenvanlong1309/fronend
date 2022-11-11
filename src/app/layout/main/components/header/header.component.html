@@ -44,8 +44,20 @@
                         <a class="dropdown-item" [routerLink]="['/donate-businesses']"><span class="item-text">DOANH NGHIỆP</span></a>
                     </div>
                 </li>
+                <li class="nav-item dropdown " style="bottom: 5px" *ngIf="isLoggedIn">
+                  <img src="assets/images/logo-ui.png" alt="" class="header_navbar-user-img" style="border-radius: 50%; cursor:pointer">
+                  <span class="header_navbar-user-name" style="color: #cce7dc">{{ user.fullName }}</span>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" [routerLink]="['/profile']"><span class="item-text">THÔNG TIN</span></a>
+                      <div class="dropdown-items-divide-hr"></div>
+                      <a class="dropdown-item" (click)="ngLogout()" style="cursor: pointer"><span class="item-text">ĐĂNG XUẤT</span></a>
+                  </div>
+                </li>
             </ul>
             <span class="nav-item">
+              <a *ngIf="!isLoggedIn" class="btn-outline-sm" [routerLink]="['/auth','log-in']">ĐĂNG NHẬP</a>
+            </span>
+            <!-- <span class="nav-item">
                 <a *ngIf="!isLoggedIn" class="btn-outline-sm" [routerLink]="['/auth','log-in']">ĐĂNG NHẬP</a>
                 <div *ngIf="isLoggedIn" class="dropdown position-relative">
                     <span class="nav-link dropdown-toggle page-scroll" style="cursor: default;" id="navbarDropdown">{{ user.fullName }}</span>
@@ -55,7 +67,7 @@
                         <button class="dropdown-item text-truncate" (click)="ngLogout()">Đăng xuất</button>
                     </div>
                 </div>
-            </span>
+            </span> -->
         </div>
     </div>
   </nav>

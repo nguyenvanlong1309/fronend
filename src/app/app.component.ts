@@ -2,6 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 
+import {NgbAlertConfig} from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     public routerService : Router,
-    private loginService: AuthService
+    private loginService: AuthService,
   ) {}
 
   ngOnInit(): void {

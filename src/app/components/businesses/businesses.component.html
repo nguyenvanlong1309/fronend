@@ -12,21 +12,17 @@
                   </div>
                   <div class="area-image">
                       <label class="labels" style="margin-bottom: 0;">LOGO CÔNG TY</label>
-                      <div class="dow-image">
-                          <div class="image">
-                              <img src="" alt="" id="load-logo">
-                          </div>
-                          <div class="content">
-                              <div class="text">
-                                  Chọn Logo bên dưới
-                              </div>
-                          </div>
-                          <div id="cancel-btn">
-                              <i class="fa fa-times"></i>
-                          </div>
+                      <div class="dow-image" style="display: flex">
+                        <img [src]="url" title="Profile Picture" height="150px" width="150px" />
+                        <input
+                          type="file"
+                          id="img"
+                          style="display:none"
+                          accept="image/*"
+                          (change)="onSelect($event)"
+                        />
                       </div>
-                      <button onclick="defaultBtnActive()" style="border: 1px solid #ced4da; margin-top: 5px;">Chọn Logo</button>
-                      <input id="default-btn" type="file" hidden>
+                      <label for="img" class="chose-img">Chọn hình ảnh</label>
                   </div>
                   <div class="col-md-12">
                       <label class="labels" style="margin-bottom: 0;">EMAIL</label>
@@ -46,7 +42,7 @@
                   </div>
                   <div class="col-md-12">
                       <label class="labels" style="margin-bottom: 0;">LỜI NHẮN</label>
-                      <input type="text" class="form-control" placeholder="Nhập lời nhắn của bạn" value="">
+                      <textarea class="form-control" placeholder="Nhập lời nhắn"></textarea>
                   </div>
               </div>
               <div class="form-button text-center">
@@ -87,7 +83,7 @@
                   </div>
               </div>
               <div class="form-button text-center">
-                  <a class="btn-solid-reg" [routerLink]="['/news']">XEM THÊM</a>
+                  <a class="btn-solid-reg" [routerLink]="['/project']">XEM THÊM</a>
               </div>
           </div>
       </div>

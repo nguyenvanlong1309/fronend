@@ -1,3 +1,21 @@
 .basic-1{
   background: #f3f7fd;
 }
+
+.chose-img{
+  cursor: pointer;
+  margin-top: 4px;
+  display: inline-block;
+	padding: 15px 18px;
+	border: 0.125rem solid #37B984;
+	border-radius: 5px;
+	background-color: #37B984;
+	color: #fff;
+	font: 700 0.875rem/0 "Open Sans", sans-serif;
+	text-decoration: none;
+	transition: all 0.2s;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}

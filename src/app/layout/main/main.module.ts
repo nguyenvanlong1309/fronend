@@ -9,12 +9,18 @@ import { HomeComponent } from 'src/app/components/home/home.component';
 import { IntroduceComponent } from 'src/app/components/introduce/introduce.component';
 import { NewsComponent } from 'src/app/components/news/news.component';
 import { ProjectsComponent } from 'src/app/components/projects/projects.component';
+import { Project1Component } from 'src/app/components/projects/project1/project1.component';
+import { Project2Component } from 'src/app/components/projects/project2/project2.component';
+import { Project3Component } from 'src/app/components/projects/project3/project3.component';
+import { PostComponent } from 'src/app/components/post/post.component';
+
 import { FinanceComponent } from 'src/app/components/finance/finance.component';
 import { DonateComponent } from 'src/app/components/donate/donate.component';
 import { PersonalComponent } from 'src/app/components/personal/personal.component';
 import { BusinessesComponent } from 'src/app/components/businesses/businesses.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthenGuard } from 'src/app/guards/authen.guard';
+
 
 const routes: Routes = [
     {
@@ -45,6 +51,21 @@ const routes: Routes = [
           path:'project',
           component: ProjectsComponent
         },
+
+        {
+          path:'du-an-xay-dung-truong-tai-ban-lang-dan-toc',
+          component: Project1Component
+        },
+
+        {
+          path:'du-an-xay-lop-hoc-tinh-thuong',
+          component: Project2Component
+        },
+
+        {
+          path:'du-an-bua-sang-cho-em-toi-truong',
+          component: Project3Component
+        },
         {
           path:'donate',
           component: DonateComponent
@@ -61,10 +82,16 @@ const routes: Routes = [
         },
 
         {
+          path:'post',
+          component: PostComponent
+        },
+
+        {
           path: 'profile',
           component: SettingComponent,
           canActivate: [ AuthenGuard ]
-        }
+        },
+
       ]
     }
 ]
@@ -88,7 +115,12 @@ const declarations: Array<Type<any> | any[]> = [
     PersonalComponent,
     BusinessesComponent,
     ProjectsComponent,
-    SettingComponent
+    Project1Component,
+    Project2Component,
+    Project3Component,
+    PostComponent,
+    SettingComponent,
+
 ]
 
 @NgModule({

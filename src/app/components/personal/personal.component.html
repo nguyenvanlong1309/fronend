@@ -7,12 +7,30 @@
               </div>
               <div class="row mt-3">
                   <div class="col-md-12">
-                      <label class="labels">HỌ VÀ TÊN NGƯỜI TÀI TRỢ</label>
-                      <input type="text" class="form-control" placeholder="Nguyễn Văn A" value="">
+                    <label class="labels">HỌ VÀ TÊN NGƯỜI TÀI TRỢ</label>
+                    <input type="text" class="form-control" placeholder="Nguyễn Văn A" value="">
+                  </div>
+
+                  <div class="col-md-12">
+                    <label class="labels">TÊN CÔNG BỐ</label>
+                    <input type="text" class="form-control" placeholder="Văn A" value="">
                   </div>
                   <div class="col-md-12">
-                      <label class="labels">TÊN CÔNG BỐ</label>
-                      <input type="text" class="form-control" placeholder="Văn A" value="">
+                    <label class="labels">CHẾ ĐỘ DONATE</label>
+                    <div class="card">
+                      <div class="ul-card">
+                        <div class="li-card col-md-6">
+                          <input class="ip-card" type="radio" name="name" id="one" checked />
+                          <label class="lb-card" for="one">Công khai</label>
+                          <div class="check"></div>
+                        </div>
+                        <div class="li-card col-md-6">
+                          <input class="ip-card" type="radio" name="name" id="two" />
+                          <label for="two" style="cursor: pointer;">Ẩn danh</label>
+                          <div class="check"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="col-md-12">
                       <label class="labels">EMAIL</label>
@@ -36,7 +54,7 @@
                   </div>
                   <div class="col-md-12">
                       <label class="labels">LỜI NHẮN</label>
-                      <input type="text" class="form-control" placeholder="Nhập lời nhắn của bạn" value="">
+                      <textarea class="form-control" placeholder="Nhập lời nhắn"></textarea>
                   </div>
               </div>
               <div class="form-button text-center">
@@ -77,7 +95,7 @@
                   </div>
               </div>
               <div class="form-button text-center">
-                  <a class="btn-solid-reg" [routerLink]="['/news']">XEM THÊM</a>
+                  <a class="btn-solid-reg" [routerLink]="['/project']">XEM THÊM</a>
               </div>
           </div>
       </div>

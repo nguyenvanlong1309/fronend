@@ -4,7 +4,13 @@ import { NgModule } from "@angular/core";
 import { LoginComponent } from 'src/app/layout/auth/components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { DbpComponent } from './components/admin/dbp/dbp.component';
+import { UserComponent } from './components/admin/user/user.component';
+import { DonateComponent } from './components/admin/donate/donate.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthenGuard } from 'src/app/guards/authen.guard';
 
 const routes: Routes = [
     {
@@ -17,9 +23,29 @@ const routes: Routes = [
       },
       {
         path:'admin',
-        component: SignupComponent
+        component: AdminComponent,
+        canActivate: [ AuthenGuard ]
       },
-
+      {
+        path:'dbp',
+        component: DbpComponent,
+        canActivate: [ AuthenGuard ]
+      },
+      {
+        path:'user',
+        component: UserComponent,
+        canActivate: [ AuthenGuard ]
+      },
+      {
+        path:'donate',
+        component: DonateComponent,
+        canActivate: [ AuthenGuard ]
+      },
+      {
+        path:'dashboard',
+        component: DashboardComponent,
+        canActivate: [ AuthenGuard ]
+      },
 ]
 
 @NgModule({
@@ -32,7 +58,11 @@ const routes: Routes = [
     declarations: [
         LoginComponent,
         SignupComponent,
-        AdminComponent
+        AdminComponent,
+        DbpComponent,
+        UserComponent,
+        DonateComponent,
+        DashboardComponent
     ]
 })
 export class AuthLayoutModule {}

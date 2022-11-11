@@ -30,6 +30,9 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.modal {
+  width: 1000px;
+}
 *,
 *::before,
 *::after {
@@ -5959,7 +5962,7 @@ a.close.disabled {
 .modal-dialog {
   position: relative;
   width: auto;
-  margin: 0.5rem;
+  margin: 0;
   pointer-events: none;
 }
 
