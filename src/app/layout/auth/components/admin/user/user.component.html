@@ -32,6 +32,9 @@
             </div>
         </div>
         <hr />
+        <div class="add-dbp">
+          <a class="btn-outline-reg fa fa-plus" (click)="openScrollableContent(longContent)"> THÊM MỚI</a>
+        </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="panel panel-default">
@@ -48,7 +51,7 @@
                           <th>Địa chỉ</th>
                           <th>Lịch sử tài trợ</th>
                           <th>Lịch sử đăng bài</th>
-                          <th style="width:80px; height:50px;">Tác vụ</th>
+                          <th class="action">Tác vụ</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -69,10 +72,10 @@
                           </td>
                           <td>
                               <div>
-                                <a class="fas fa-edit" style="text-decoration: none; color: blue;"> Sửa</a>
+                                <a class="fas fa-edit edit"> Sửa</a>
                               </div>
                               <div>
-                                <a class="fas fa-unlink" style="text-decoration: none; color: red;"> Khoá</a>
+                                <a class="fas fa-unlink unlink"> Khoá</a>
                               </div>
                           </td>
                       </tr>
@@ -92,17 +95,17 @@
                           </td>
 
                           <td>
-                            <a class="donate">
+                            <a class="donate" (click)="openVerticallyCentered(alert)">
                               Xem chi tiết
                             </a>
                           </td>
 
                           <td>
                               <div>
-                                  <a class="fas fa-edit" style="text-decoration: none; color: blue;"> Sửa</a>
+                                  <a class="fas fa-edit edit"> Sửa</a>
                               </div>
                               <div>
-                                  <a class="fas fa-unlink" style="text-decoration: none; color: red;"> Khoá</a>
+                                  <a class="fas fa-unlink unlink"> Khoá</a>
                               </div>
                           </td>
                       </tr>
@@ -125,14 +128,14 @@
                           </td>
                           <td>
                               <div>
-                                  <a class="fas fa-edit" style="text-decoration: none; color: blue;"> Sửa</a>
+                                  <a class="fas fa-edit edit"> Sửa</a>
                               </div>
                               <div>
-                                  <a class="fas fa-unlink" style="text-decoration: none; color: red;"> Khoá</a>
+                                  <a class="fas fa-unlink unlink"> Khoá</a>
                               </div>
                           </td>
                       </tr>
-                  </tbody>
+                </tbody>
               </table>
             </div>
           </div>
@@ -217,13 +220,13 @@
                           <table class="table table-striped table-bordered table-hover">
                               <thead>
                                   <tr>
-                                      <th>ID</th>
-                                      <th>Hình thức</th>
-                                      <th>Tiêu đề</th>
-                                      <th>Thời gian</th>
-                                      <th>Hình ảnh</th>
-                                      <th>Trạng thái</th>
-                                      <th>Tổng số tiền</th>
+                                    <th>ID</th>
+                                    <th>Hình thức</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Thời gian</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Trạng thái</th>
+                                    <th>Tổng số tiền</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -265,3 +268,79 @@
   </div>
 </ng-template>
 <!-- ------------------- -->
+
+<!-- Thêm user -->
+<ng-template #longContent let-modal>
+  <div class="modal-body">
+    <div class="container">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h3>THÊM BÀI VIẾT</h3>
+      <form form id="newsletterForm" data-toggle="validator" data-focus="false">
+        <div class="form-group">
+          <label class="labels required">PO/USER</label>
+          <select style="text-align: center; width: 100%; height: 36px;border: 1px solid #c4d8dc;border-radius: 0.25rem;">
+              <option >PO</option>
+              <option >USER</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label class="labels required">TÊN NGƯỜI DÙNG</label>
+            <input type="text" class="form-control" placeholder="Tên người dùng" >
+        </div>
+        <div class="form-group">
+            <label class="labels required">TÊN TÀI KHOẢN</label>
+            <input type="text" class="form-control" placeholder="Tên tài khoản" >
+        </div>
+        <div class="form-group">
+            <label class="labels required">MẬT KHẨU</label>
+            <input type="password" class="form-control" placeholder="Mật khẩu" >
+        </div>
+        <div class="form-group">
+            <label class="labels required">SỐ ĐIỆN THOẠI</label>
+            <input type="text" class="form-control" placeholder="Số điện thoại" >
+        </div>
+        <div class="form-group">
+            <label class="labels">EMAIL</label>
+            <input type="email" class="form-control" placeholder="Email" >
+        </div>
+
+        <div class="form-group">
+            <label class="labels">ĐỊA CHỈ</label>
+            <input type="text" class="form-control" placeholder="Địa chỉ" >
+        </div>
+        <div class="form-group text-center">
+            <button type="submit" class="form-control-submit-button btn-solid-reg">XÁC NHẬN</button>
+        </div>
+        <div class="form-message">
+            <div id="nmsgSubmit" class="h3 text-center hidden"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<!-- ---------------------- -->
+
+
+<!-- Thông báo -->
+<ng-template #alert let-modal class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="material-icons fas fa-edit"></i>
+        </div>
+        <h4 class="modal-title w-100">Thông báo !</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Lịch sử đăng bài trống</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success btn-block" (click)="modal.dismiss('Cross click')">OK</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- ---------------------- -->

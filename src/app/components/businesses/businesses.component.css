@@ -19,3 +19,11 @@
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
+.charity{
+  padding: 0 0 0 20px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #c4d8dc;
+  border-radius: 0.25rem;
+}
