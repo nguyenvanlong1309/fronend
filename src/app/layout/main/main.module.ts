@@ -15,7 +15,6 @@ import { Project3Component } from 'src/app/components/projects/project3/project3
 import { PostComponent } from 'src/app/components/post/post.component';
 
 import { FinanceComponent } from 'src/app/components/finance/finance.component';
-import { DonateComponent } from 'src/app/components/donate/donate.component';
 import { PersonalComponent } from 'src/app/components/personal/personal.component';
 import { BusinessesComponent } from 'src/app/components/businesses/businesses.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -66,10 +65,6 @@ const routes: Routes = [
           path:'du-an-bua-sang-cho-em-toi-truong',
           component: Project3Component
         },
-        {
-          path:'donate',
-          component: DonateComponent
-        },
 
         {
           path:'donate-businesses',
@@ -89,7 +84,7 @@ const routes: Routes = [
         {
           path: 'profile',
           component: SettingComponent,
-          canActivate: [ AuthenGuard ]
+          // canActivate: [ AuthenGuard ]
         },
 
       ]
@@ -111,7 +106,6 @@ const declarations: Array<Type<any> | any[]> = [
     IntroduceComponent,
     NewsComponent,
     FinanceComponent,
-    DonateComponent,
     PersonalComponent,
     BusinessesComponent,
     ProjectsComponent,

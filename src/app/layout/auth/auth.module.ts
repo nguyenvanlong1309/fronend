@@ -25,32 +25,32 @@ const routes: Routes = [
       {
         path:'admin',
         component: AdminComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'dbp',
         component: DbpComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'user',
         component: UserComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'donate',
         component: DonateComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'dashboard',
         component: DashboardComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'browser-post',
         component: BrowserPostComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
 ]
 
