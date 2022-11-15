@@ -15,6 +15,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'admin',
+    loadChildren: () => import('./layout/admin/admin.module').then(m => m.AdminModule)
+  },
+
+  {
     // khi một router nào được gọi mà không có trong phần appRouter thì NotFoundComponent được gọi ra
     path : '**',
     component: NotfoundComponent
