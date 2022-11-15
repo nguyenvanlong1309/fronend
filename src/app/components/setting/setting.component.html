@@ -3,58 +3,46 @@
       <div class="container rounded bg-white mb-5">
           <div class="row">
               <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <div class="d-flex flex-column align-items-center text-center p-3">
                     <img class="rounded-circle" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                    <span class="font-weight-bold">Văn Long</span>
-                    <span class="text-black-50">longvannguyen200076@mail.com</span>
+                    <span class="font-weight-bold">{{ user.user.fullName }}</span>
+                    <span class="text-black-50">{{ user.user.email }}</span>
                 </div>
 
                 <!-- Chức năng đăng bài của PO -->
-                <div class="mt-5 text-center ">
-                  <a class="btn-solid-reg " (click)="openScrollableContent(longContent)">Đăng bài viết</a>
+                <div class="d-flex justify-content-center">
+                  <a class="btn-solid-reg" (click)="openPostForm()">Đăng bài viết</a>
                 </div>
               </div>
               <div class="col-md-5 border-right">
-                  <form [formGroup]="formGroup" class="p-3 py-5">
-                      <div class="d-flex justify-content-between align-items-center mb-3">
-                          <h4 class="text-right">CÀI ĐẶT THÔNG TIN</h4>
+                  <form [formGroup]="formGroup" (submit)="ngOnSubmit()" class="row gap-2 p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">CÀI ĐẶT THÔNG TIN</h4>
+                    </div>
+                    <div class="col-md-12">
+                      <label class="labels required">HỌ VÀ TÊN</label>
+                      <input class="form-control" placeholder="Tên" formControlName="fullName">
+                    </div>
+                      <div class="col-md-12">
+                        <label class="labels">SỐ ĐIỆN THOẠI</label>
+                        <input class="form-control" placeholder="Nhập số điện thoại" formControlName="phone">
                       </div>
-                      <div class="row mt-2">
-                          <div class="col-md-12">
-                            <label class="labels required">HỌ VÀ TÊN</label>
-                            <input class="form-control" placeholder="Tên" formControlName="fullName">
-                          </div>
+                      <div class="col-md-12">
+                        <label class="labels">EMAIL</label>
+                        <input type="email" class="form-control" placeholder="Nhập Email" formControlName="email">
                       </div>
-                      <div class="row mt-3">
-                          <div class="col-md-12">
-                            <label class="labels">SỐ ĐIỆN THOẠI</label>
-                            <input class="form-control" placeholder="Nhập số điện thoại" formControlName="phone">
-                          </div>
-                          <div class="col-md-12">
-                            <label class="labels">EMAIL</label>
-                            <input type="email" class="form-control" placeholder="Nhập Email">
-                          </div>
-                          <div class="col-md-12">
-                            <label class="labels required">TÊN TÀI KHOẢN</label>
-                            <input type="text" class="form-control" placeholder="Tên tài khoản">
-                          </div>
-                          <div class="col-md-12">
-                            <label class="labels required">MẬT KHẨU</label>
-                            <input type="password" class="form-control" formControlName="Password">
-                          </div>
+                      <div class="col-md-12">
+                        <label class="labels required">TÊN TÀI KHOẢN</label>
+                        <input type="text" class="form-control" placeholder="Tên tài khoản" formControlName="username">
                       </div>
-                      <div class="row mt-3">
-                          <div class="col-md-6">
-                            <label class="labels">ĐỊA CHỈ</label>
-                            <input type="text" class="form-control" placeholder="Địa chỉ">
-                          </div>
-                          <div class="col-md-6">
-                            <label class="labels">THÀNH PHỐ</label>
-                            <input type="text" class="form-control" placeholder="Thành phố">
-                          </div>
+                      <div class="col-md-12">
+                        <label class="labels">ĐỊA CHỈ</label>
+                        <input type="text" class="form-control" placeholder="Địa chỉ" formControlName="address">
                       </div>
 
-                      <div class="mt-5 text-center"><button class="btn-solid-reg profile-button" type="button">Chỉnh sửa</button></div>
+                      <div class="text-center">
+                        <button class="btn-solid-reg profile-button">Chỉnh sửa</button>
+                      </div>
                   </form>
               </div>
 
@@ -62,14 +50,12 @@
                   <div class="p-3 py-5">
                       <ul style="list-style: none; margin: 0px; padding: 0px;">
                         <li class="li-history">
-                          <button class="history-hv btn-history" (click)="openXl2(historyDonate)">Lịch sử tài trợ</button>
+                          <button class="history-hv btn-history px-0 ps-2 text-left" (click)="openMyDonate()">Lịch sử tài trợ</button>
                         </li>
-
                         <!-- PO -->
                         <li class="li-history">
-                          <button class="history-hv btn-history" (click)="openXl(content)">Lịch sử đăng bài</button>
+                          <button class="history-hv btn-history px-0 ps-2 text-left" (click)="openMyProject()">Lịch sử đăng bài</button>
                         </li>
-
                       </ul>
                   </div>
               </div>
@@ -77,173 +63,3 @@
       </div>
   </div>
 </div>
-
-<!-- Lịch sử đăng bài -->
-<ng-template #content let-modal>
-  <div class="modal-body">
-    <div class="container">
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <h3>LỊCH SỬ ĐĂNG BÀI</h3>
-      <hr>
-      <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="panel panel-default">
-                  <div class="panel-body">
-                      <div class="table-responsive">
-                          <table class="table table-striped table-bordered table-hover">
-                              <thead>
-                                  <tr>
-                                      <th>ID</th>
-                                      <th>Hình thức</th>
-                                      <th>Tiêu đề</th>
-                                      <th>Thời gian</th>
-                                      <th>Hình ảnh</th>
-                                      <th>Trạng thái</th>
-                                      <th>Tổng số tiền</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>Đi từ thiện</td>
-                                      <td>Nụ cười - Em đến trường</td>
-                                      <td>18/09/2022 - 18/12/2022</td>
-                                      <td>https://img.youtube.com/vi/mYaoZRR1u4E/sddefault.jpg</td>
-                                      <td style="background-color: #e85757">Đang vận động</td>
-                                      <td>50.000.000</td>
-                                  </tr>
-                                  <tr>
-                                      <td>2</td>
-                                      <td>Chương trình từ thiện</td>
-                                      <td>Nụ cười - Em đến trường</td>
-                                      <td>18/09/2022 - 18/12/2022</td>
-                                      <td>https://img.youtube.com/vi/mYaoZRR1u4E/sddefault.jpg</td>
-                                      <td style="background-color: #5ad1e8">Không thời hạn</td>
-                                      <td>50.000.000</td>
-                                  </tr>
-                                  <tr>
-                                      <td>3</td>
-                                      <td>Đi từ thiện</td>
-                                      <td>Nụ cười - Em đến trường</td>
-                                      <td>18/09/2022 - 18/12/2022</td>
-                                      <td>https://img.youtube.com/vi/mYaoZRR1u4E/sddefault.jpg</td>
-                                      <td style="background-color: #65df87">Đã hoàn thành</td>
-                                      <td>50.000.000</td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-  </div>
-</ng-template>
-<!-- ------------------- -->
-
-<!-- Lịch sử tài trợ -->
-<ng-template #historyDonate let-modal>
-  <div class="modal-body">
-    <div class="container">
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <h3>LỊCH SỬ TÀI TRỢ</h3>
-      <hr>
-      <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="panel panel-default">
-              <div class="panel-body">
-                  <div class="table-responsive">
-                      <table class="table table-striped table-bordered table-hover">
-                          <thead>
-                              <tr>
-                                  <th>ID</th>
-                                  <th>Hình thức</th>
-                                  <th>Tiêu đề</th>
-                                  <th>Thời gian</th>
-                                  <th>Số tiền</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>Chương trình từ thiện</td>
-                                  <td>Nụ cười - Em đến trường</td>
-                                  <td>18/09/2022 7:00</td>
-                                  <td>50.000.000</td>
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>Đi từ thiện</td>
-                                  <td>Nụ cười - Em đến trường</td>
-                                  <td>18/09/2022 7:00</td>
-                                  <td>50.000.000</td>
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>Đi từ thiện</td>
-                                  <td>Nụ cười - Em đến trường</td>
-                                  <td>18/09/2022 7:00</td>
-                                  <td>50.000.000</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-  </div>
-</ng-template>
-<!-- ------------------- -->
-
-<!-- Thêm bài viết mới -->
-<ng-template #longContent let-modal>
-  <div class="modal-body">
-    <div class="container">
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <h3>THÊM BÀI VIẾT</h3>
-      <form id="newsletterForm" data-toggle="validator" data-focus="false">
-          <div class="form-group">
-              <label class="labels">CHỌN TỈNH/THÀNH PHỐ</label>
-              <select style="text-align: center; width: 100%; height: 36px;border: 1px solid #c4d8dc;border-radius: 0.25rem;">
-                  <option>Chọn Tỉnh/Thành Phố</option>
-                  <option>Đà Nẵng</option>
-                  <option>Quảng Bình</option>
-                  <option>Quảng Trị</option>
-              </select>
-          </div>
-          <div class="form-group">
-              <label class="labels">TIÊU ĐỀ</label>
-              <input type="text" class="form-control" placeholder="Tiêu đề">
-          </div>
-          <div class="form-group">
-              <label class="labels">NỘI DUNG</label>
-              <textarea class="form-control" placeholder="Nội dung"></textarea>
-          </div>
-          <div class="form-group">
-              <label class="labels">HÌNH ẢNH</label>
-              <input type="text" class="form-control" placeholder="Hình ảnh">
-          </div>
-          <div class="form-group" style="display: flex">
-            <div class="col-md-6" style="padding-left: 0">
-              <label class="labels">BẮT ĐẦU</label>
-              <input type="date" class="form-control">
-            </div>
-            <div class="col-md-6" style="padding-right: 0">
-              <label class="labels">HẠN KẾT THÚC</label>
-              <input type="date" class="form-control">
-            </div>
-          </div>
-          <div class="form-group text-center">
-            <a type="submit" class="btn-solid-reg">Đăng bài</a>
-          </div>
-      </form>
-    </div>
-  </div>
-</ng-template>

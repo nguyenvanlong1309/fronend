@@ -1,3 +1,35 @@
+:host ::ng-deep app-project-card > div {
+	background-color: #f3f7fd !important;
+	padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+:host ::ng-deep app-project-card h3 {
+	color: #333;
+    font: 1.125rem/1.5rem "Open Sans", sans-serif;
+    letter-spacing: -0.1px;
+}
+
+:host ::ng-deep app-project-card .hoat-dong {
+	display: none;
+}
+
+:host ::ng-deep app-project-card .btn-ct {
+	display: none;
+}
+
+:host ::ng-deep app-project-card .btn-tt {
+	display: none;
+}
+
+:host ::ng-deep app-project-card .desc {
+	display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .basic-1{
   background: #f3f7fd;
 }

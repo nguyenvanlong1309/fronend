@@ -1,0 +1,23 @@
+<div class="modal-body">
+    <div class="container">
+      <button type="button" class="close" aria-label="Close" (click)="activedModal.close()" >
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h3>LỊCH SỬ ĐĂNG BÀI</h3>
+      <hr>
+      <div class="row">
+        <ag-grid-angular
+            style="height: 400px"
+            class="w-100 ag-theme-alpine"
+            [headerHeight]="56"
+            [rowHeight]="110"
+            [columnDefs]="columnDefs"
+            [rowData]="project$ | async"
+            [tooltipShowDelay]="0"
+            [context]="this"
+
+            (gridReady)="$event.api.sizeColumnsToFit()"
+        ></ag-grid-angular>
+      </div>
+    </div>
+  </div>

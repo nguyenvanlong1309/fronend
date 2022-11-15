@@ -7,7 +7,10 @@ export interface User {
     username: string;
     password: string;
     fullName: string;
-    role: string;
+    id: string;
+    address: string;
+    phone: string;
+    email: string;
 }
 
 export interface UserModel {
@@ -20,4 +23,7 @@ export interface UserResponseModel {
     username: string;
     fullName: string;
     role: string;
+    address: string;
+    phone: string;
+    email: string;
 }

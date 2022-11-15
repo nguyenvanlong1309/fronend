@@ -1,0 +1,20 @@
+<div *ngIf="project" class="tabs py-4">
+    <div class="container bg-white rounded py-3">
+        <div class="title" >
+            <h2>{{ project.title }}</h2>
+        </div>
+        <div class="row py-3">
+            <h5>{{ project.description }}</h5>
+            <div [innerHTML]="project.content | safe:'html'"></div>
+        </div>
+        <div>
+            <a class="btn-outline-reg h-5" (click)="naviateDonate('/donate-businesses')" >
+                <i class="fas fa-city"></i> Doanh nghiệp tài trợ
+            </a>
+            <a class="btn-outline-reg h-5" (click)="naviateDonate('/donate-personal')">
+                <i class="fas fa-address-book"></i> Cá nhân tài trợ
+            </a>
+        </div>
+    </div>
+      
+</div>

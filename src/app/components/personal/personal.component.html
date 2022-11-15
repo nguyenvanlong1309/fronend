@@ -1,103 +1,89 @@
-<div id="details" class="basic-1">
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4 class="text-right">TÀI TRỢ</h4>
-              </div>
-              <div class="row mt-3">
-                  <div class="col-md-12">
-                    <label class="labels">HỌ VÀ TÊN NGƯỜI TÀI TRỢ</label>
-                    <input type="text" class="form-control" placeholder="Nguyễn Văn A" value="">
-                  </div>
-
-                  <div class="col-md-12">
-                    <label class="labels">TÊN CÔNG BỐ</label>
-                    <input type="text" class="form-control" placeholder="Văn A" value="">
-                  </div>
-                  <div class="col-md-12">
-                    <label class="labels">CHẾ ĐỘ DONATE</label>
-                    <div class="card">
-                      <div class="ul-card">
-                        <div class="li-card col-md-6">
-                          <input class="ip-card" type="radio" name="name" id="one" checked />
-                          <label class="lb-card" for="one">Công khai</label>
-                          <div class="check"></div>
-                        </div>
-                        <div class="li-card col-md-6">
-                          <input class="ip-card" type="radio" name="name" id="two" />
-                          <label for="two" style="cursor: pointer;">Ẩn danh</label>
-                          <div class="check"></div>
-                        </div>
-                      </div>
+<div *ngIf="project" id="details" class="py-4" style="background-color: #f3f7fd;">
+    <div class="container bg-white rounded py-3">
+        <div class="row">
+            <form class="col-lg-6" [formGroup]="formGroup" (submit)="ngSubmitForm()">
+                <h4 class="text-left">TÀI TRỢ</h4>
+                <div *ngIf="isLogin">
+                    <input id="checkbox" type="checkbox" [(ngModel)]="isUseSessionUser" [ngModelOptions]="{standalone: true}" (change)="ngUseSessionUser()" />
+                    <label for="checkbox">Sử dụng thông tin đăng nhập</label>
+                </div>
+                <div class="row gap-2">
+                    <div class="col-md-12">
+                        <label class="labels required">HỌ VÀ TÊN</label>
+                        <input type="text" class="form-control" placeholder="Nguyễn Văn A" formControlName="fullName">
                     </div>
-                  </div>
-                  <div class="col-md-12">
-                      <label class="labels">EMAIL</label>
-                      <input type="email" class="form-control" placeholder="vana@gmail.com" value="">
-                  </div>
-                  <div class="col-md-12">
-                      <label class="labels">SỐ ĐIỆN THOẠI</label>
-                      <input type="text" class="form-control" placeholder="Số điện thoại" value="">
-                  </div>
-                  <div class="col-md-12">
-                      <label class="labels">HÌNH THỨC TÀI TRỢ</label>
-                      <input type="text" class="form-control" placeholder="Chuyển tiền online" value="">
-                  </div>
-                  <div class="col-md-12">
-                      <label class="labels">SỐ TIỀN TÀI TRỢ</label>
-                      <input type="number" class="form-control" placeholder="10.000.000" value="">
-                  </div>
-                  <div class="col-md-12">
-                      <label class="labels">CHƯƠNG TRÌNH TỪ THIỆN</label>
-                      <input type="text" class="form-control" placeholder="Xây dựng điểm trường tại bản làng dân tộc Hà Giang" value="">
-                  </div>
-                  <div class="col-md-12">
-                      <label class="labels">LỜI NHẮN</label>
-                      <textarea class="form-control" placeholder="Nhập lời nhắn"></textarea>
-                  </div>
-              </div>
-              <div class="form-button text-center">
-                  <a class="btn-solid-reg" href="">TÀI TRỢ</a>
-              </div>
-          </div>
+                    <div class="col-md-12">
+                        <label class="labels required">TÊN CÔNG BỐ</label>
+                        <input type="text" class="form-control" placeholder="Văn A" formControlName="publicName">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels required">CHẾ ĐỘ DONATE</label>
+                        <div class="card w-100">
+                            <div class="ul-card">
+                                <div class="li-card col-md-6">
+                                    <input class="ip-card" type="radio" id="one" formControlName="mode" value="0" />
+                                    <label class="lb-card" for="one">Công khai</label>
+                                    <div class="check"></div>
+                                </div>
+                                <div class="li-card col-md-6">
+                                    <input class="ip-card" type="radio" id="two" formControlName="mode" value="1"/>
+                                    <label for="two" style="cursor: pointer;">Ẩn danh</label>
+                                    <div class="check"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels required">EMAIL</label>
+                        <input type="email" class="form-control" placeholder="vana@gmail.com" formControlName="email">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels required">SỐ ĐIỆN THOẠI</label>
+                        <input type="text" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels required">HÌNH THỨC TÀI TRỢ</label>
+                        <app-select
+                            [items]="methodDonate"
+                            [bindLabel]="'name'"
+                            [bindValue]="'id'"
+                            [defaultFistItem]="true"
+                            [control]="formGroup.get('methodDonate')"
+                        ></app-select>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels required">SỐ TIỀN TÀI TRỢ</label>
+                        <input type="number" class="form-control" placeholder="10.000.000" formControlName="money">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels required">CHƯƠNG TRÌNH TỪ THIỆN</label>
+                        <input class="form-control" [value]="project.title" disabled>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">LỜI NHẮN</label>
+                        <textarea class="form-control" placeholder="Nhập lời nhắn" formControlName="comment"></textarea>
+                    </div>
+                    <div class="form-button text-center">
+                        <button class="btn-solid-reg">TÀI TRỢ</button>
+                    </div>
+                </div>
+            </form>
 
-          <div class="col-lg-6">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4 class="text-right">DỰ ÁN QUAN TRỌNG</h4>
-              </div>
-              <div class="row mt-3">
-                  <div id="features" class="tabs2 container row">
-                      <div class="col-lg-6 tin-tuc">
-                          <div class="image-container ">
-                              <img class="img-fluid" src="assets/images/duan1/main.png" alt="alternative">
-                          </div>
-                      </div>
-                      <div class="col-lg-6">
-                          <div class="">
-                              <h5>Xây dựng điểm trường tại bản làng dân tộc Hà Giang</h5>
-                              <p>Nhằm đưa giáo dục đến gần hơn với trẻ em vùng cao nói chung và học sinh tỉnh Hà Giang nói riêng,...</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div id="features" class="tabs2 container row">
-                      <div class="col-lg-6">
-                          <div class="image-container">
-                              <img class="img-fluid" src="assets/images/duan2/main.png" alt="alternative">
-                          </div>
-                      </div>
-                      <div class="col-lg-6">
-                          <div class="">
-                              <h5>Bữa sáng cho trẻ em tới tường</h5>
-                              <p>Bữa sáng được nhiều chuyên gia đánh giá là một trong những bữa ăn quan trọng nhất của ngày....</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="form-button text-center">
-                  <a class="btn-solid-reg" [routerLink]="['/project']">XEM THÊM</a>
-              </div>
-          </div>
-      </div>
-  </div>
+            <div class="col-lg-6">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">DỰ ÁN QUAN TRỌNG</h4>
+                </div>
+                <div class="mt-3">
+                    <app-project-card
+                        *ngFor="let p of project$ | async"
+                        [project]="p"
+                        [animatedBorder]="false"
+                    ></app-project-card>
+                </div>
+                <div class="form-button text-center">
+                    <a class="btn-solid-reg" [routerLink]="['/project']">XEM THÊM</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

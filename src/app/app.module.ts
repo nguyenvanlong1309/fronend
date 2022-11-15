@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -11,8 +11,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { JwtService } from './services/jwt.service';
-import { CommonModule } from '@angular/common';
-import { FormsModule  } from '@angular/forms';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -21,8 +21,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     NotfoundComponent,
     SpinnerComponent,
-
-
   ],
   imports: [
     CommonModule,
@@ -32,9 +30,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     ToastrModule.forRoot(),
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtService, multi: true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtService, multi: true}, CurrencyPipe ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

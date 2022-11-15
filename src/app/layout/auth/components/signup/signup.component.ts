@@ -33,7 +33,8 @@ export class SignupComponent implements OnInit,OnDestroy {
       fullName: [null, [Validators.required]],
       username: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      passwordConfirmation: [null, [Validators.required]]
+      passwordConfirmation: [null, [Validators.required]],
+      phone: [null, [Validators.required]]
     })
   }
 

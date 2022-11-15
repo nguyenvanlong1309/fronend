@@ -1,4 +1,25 @@
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+.toast-container {
+    position: fixed !important;
+}
+
 .required:after {
     content: ' *';
     color: red;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+/* ag-grid style */
+.ag-cell-value {
+    font-weight: 500;
+}
+
+.ag-cell-value:focus-within {
+    border: none !important;
+    outline: none !important;
 }

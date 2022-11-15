@@ -1,6 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom position-fixed w-100 top-0" style="z-index: 1000;">
     <div class="container">
-
         <!-- Logo -->
         <a class="navbar-brand logo-image" [routerLink]="['/home']" routerLinkActive="active">
             <img src="assets/images/logo-webtuthien.png" class="hv-img" alt="alternative">
@@ -57,17 +56,6 @@
             <span class="nav-item">
               <a *ngIf="!isLoggedIn" class="btn-outline-sm" [routerLink]="['/auth','log-in']">ĐĂNG NHẬP</a>
             </span>
-            <!-- <span class="nav-item">
-                <a *ngIf="!isLoggedIn" class="btn-outline-sm" [routerLink]="['/auth','log-in']">ĐĂNG NHẬP</a>
-                <div *ngIf="isLoggedIn" class="dropdown position-relative">
-                    <span class="nav-link dropdown-toggle page-scroll" style="cursor: default;" id="navbarDropdown">{{ user.fullName }}</span>
-                    <div class="dropdown-menu end-0" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-truncate" [routerLink]="['/profile']">Thông tin</a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <button class="dropdown-item text-truncate" (click)="ngLogout()">Đăng xuất</button>
-                    </div>
-                </div>
-            </span> -->
         </div>
     </div>
   </nav>

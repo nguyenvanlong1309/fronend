@@ -1,76 +1,80 @@
-import { HttpClient } from '@angular/common/http';
-import { UserResponseModel } from './../../models/user.model';
+import { MyDonateComponent } from 'src/app/components/setting/my-donate/my-donate.component';
+import { ToastrService } from 'ngx-toastr';
+import { Utils } from './../../base/utils';
+import { UserModel } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PostFormComponent } from './post-form/post-form.component';
+import { UserService } from 'src/app/services/user.service';
+import { MyProjectComponent } from './my-project/my-project.component';
 
 @Component({
-  selector: 'app-setting',
-  templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.css']
+  	selector: 'app-setting',
+  	templateUrl: './setting.component.html',
+	styleUrls: ['./setting.component.css'],
 })
 export class SettingComponent implements OnInit {
+	isModal: boolean = false;
+	user: UserModel;
+	formGroup: FormGroup;
+	closeResult: string;
 
-  isModal: boolean = false;
-  user: UserResponseModel;
-  formGroup: FormGroup;
+	constructor(
+		private authService: AuthService,
+		private fb: FormBuilder,
+		private modalService: NgbModal,
+		private userService: UserService,
+		private toastService: ToastrService
+	) {}
 
-  closeResult: string;
-  constructor(
-    private authService: AuthService,
-    private fb: FormBuilder,
-    private HttpClient: HttpClient,
-    private modalService: NgbModal
-  ) { }
-
-  ngOnInit(): void {
-    this.user = this.authService.currentUser$.getValue().user;
-    this.ngBuildForm();
-    this.formGroup.patchValue(this.user);
-  }
-
-  ngBuildForm(): void {
-    this.formGroup = this.fb.group({
-      fullName: [null, [Validators.required]],
-      Password: [null, [Validators.required]],
-      phone: [null],
-    })
-  }
-
-  ngModal(): void {
-
-  }
-
-  open(content:any){
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
-
-  openXl(content:any) {
-		this.modalService.open(content, { size: 'xl' });
+	ngOnInit(): void {
+		this.user = this.authService.currentUser$.getValue();
+		this.ngBuildForm();
+		this.formGroup.patchValue(this.user.user);
 	}
 
-  openXl2(historyDonate:any) {
-		this.modalService.open(historyDonate, { size: 'xl' });
+	ngBuildForm(): void {
+		this.formGroup = this.fb.group({
+			fullName: [null, [Validators.required]],
+			phone: [null],
+			username: [{ value: null, disabled: true }],
+			address: [null],
+			email: [null],
+			id: [null],
+		});
 	}
 
-  openScrollableContent(longContent:any) {
-		this.modalService.open(longContent, { scrollable: true });
+	ngOnSubmit(): void {
+		Utils.beforeSubmitFomr(this.formGroup);
+		if (this.formGroup.invalid) return;
+		this.userService
+			.updateInfo(this.formGroup.getRawValue())
+			.subscribe((res) => {
+				this.toastService.success('Cập nhật thông tin thành công');
+				this.authService.currentUser$.next({
+				token: this.user.token,
+				user: res,
+				});
+				this.user.user = res;
+			});
 	}
 
+	openMyProject() {
+		this.modalService.open(MyProjectComponent, { size: 'xl' });
+	}
+
+	openMyDonate() {
+		this.modalService.open(MyDonateComponent, { size: 'xl' });
+	}
+
+	openPostForm(): void {
+		this.modalService.open(PostFormComponent, {
+			scrollable: true,
+			centered: true,
+			animation: true,
+			size: 'lg',
+		});
+	}
 }

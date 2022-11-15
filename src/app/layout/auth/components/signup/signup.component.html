@@ -14,6 +14,14 @@
               />
             </div>
             <div class="form-group text-left">
+              <label class="required form-label">Số điện thoại</label>
+              <input
+                placeholder="Nhập số điện thoại"
+                class="form-control"
+                formControlName="phone"
+              />
+            </div>
+            <div class="form-group text-left">
               <label class="required form-label">Tên đăng nhập</label>
               <input
                 placeholder="Nhập tên đăng nhập"
@@ -41,18 +49,14 @@
                 class="form-control"
                 formControlName="passwordConfirmation"
               />
-              <span class="form-message"></span>
             </div>
-
             <div class="form-group text-left">
-              <button class="form-control-submit-button">
-                Đăng ký
-              </button>
+              <button class="form-control-submit-button">Đăng ký</button>
             </div>
           </form>
           <p class="mb-2" style="color: #b0b0b0">
             Điền vào biểu mẫu bên dưới để đăng ký.<br>
-            Đã đăng ký? Hãy <a  class="btn-login" [routerLink]="['/auth', 'log-in']"> Đăng nhập</a>
+            Đã đăng ký? Hãy <a class="btn-login" [routerLink]="['/auth', 'log-in']"> Đăng nhập</a>
           </p>
           <a class="btn-login" [routerLink]="['/home']">Về trang chủ</a>
         </div>

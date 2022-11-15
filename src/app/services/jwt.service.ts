@@ -23,7 +23,7 @@ export class JwtService implements HttpInterceptor {
         const currentUser = this.loginService.currentUser$.getValue();
         const request = req.clone({
             headers: new HttpHeaders({
-                'Authorization': currentUser?.token ?? ''
+                'Authorization': 'Bearer ' + (currentUser?.token ?? '')
             })
         });
         return next.handle(request)
@@ -40,6 +40,7 @@ export class JwtService implements HttpInterceptor {
                         // nếu lỗi là chưa đăng nhập hoặc không có quyền thực hiện
                         // thì sẽ router tới trang login.
                         if (e.status == HttpStatusCode.Unauthorized || e.status == HttpStatusCode.Forbidden) {
+                            this.toastrService.error('Bạn không có quyền thực hiện');
                             this.router.navigate(['/auth', 'log-in']);
                             return;
                         }

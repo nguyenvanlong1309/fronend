@@ -1,0 +1,19 @@
+.preview-image {
+    height: 450px;
+}
+
+.btn-delete-image {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    height: 30p;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
