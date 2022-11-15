@@ -14,7 +14,6 @@ import { ProjectsComponent } from 'src/app/components/projects/projects.componen
 import { PostComponent } from 'src/app/components/post/post.component';
 
 import { FinanceComponent } from 'src/app/components/finance/finance.component';
-import { DonateComponent } from 'src/app/components/donate/donate.component';
 import { PersonalComponent } from 'src/app/components/personal/personal.component';
 import { BusinessesComponent } from 'src/app/components/businesses/businesses.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -46,7 +45,6 @@ const declarations: Array<Type<any> | any[]> = [
     IntroduceComponent,
     NewsComponent,
     FinanceComponent,
-    DonateComponent,
     PersonalComponent,
     BusinessesComponent,
     ProjectsComponent,

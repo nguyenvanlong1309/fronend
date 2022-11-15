@@ -69,4 +69,8 @@ export class UserComponent implements OnInit {
 		this.modalService.open(longContent, { scrollable: true });
 	}
 
+  openVerticallyCentered(alert:any) {
+		this.modalService.open(alert, { centered: true });
+	}
+
 }

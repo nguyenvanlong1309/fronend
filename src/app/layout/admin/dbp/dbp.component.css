@@ -388,3 +388,15 @@ a:hover {
   margin-right: 15px;
   display: inline-block;
 }
+
+/* ----------------- */
+
+.edit{
+  text-decoration: none;
+  color: blue;
+}
+
+.unlink{
+  text-decoration: none;
+  color: red;
+}

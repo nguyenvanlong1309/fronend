@@ -8,6 +8,7 @@ import { DbpComponent } from './components/admin/dbp/dbp.component';
 import { UserComponent } from './components/admin/user/user.component';
 import { DonateComponent } from './components/admin/donate/donate.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { BrowserPostComponent } from './components/admin/browser-post/browser-post.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenGuard } from 'src/app/guards/authen.guard';
@@ -24,27 +25,32 @@ const routes: Routes = [
       {
         path:'admin',
         component: AdminComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'dbp',
         component: DbpComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'user',
         component: UserComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'donate',
         component: DonateComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
       },
       {
         path:'dashboard',
         component: DashboardComponent,
-        canActivate: [ AuthenGuard ]
+        // canActivate: [ AuthenGuard ]
+      },
+      {
+        path:'browser-post',
+        component: BrowserPostComponent,
+        // canActivate: [ AuthenGuard ]
       },
 ]
 
@@ -62,7 +68,8 @@ const routes: Routes = [
         DbpComponent,
         UserComponent,
         DonateComponent,
-        DashboardComponent
+        DashboardComponent,
+        BrowserPostComponent
     ]
 })
 export class AuthLayoutModule {}
