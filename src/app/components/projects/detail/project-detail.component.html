@@ -5,7 +5,7 @@
         </div>
         <div class="row py-3">
             <h5>{{ project.description }}</h5>
-            <div [innerHTML]="project.content | safe:'html'"></div>
+            <div class="contents" [innerHTML]="project.content | safe:'html'"></div>
         </div>
         <div>
             <a class="btn-outline-reg h-5" (click)="naviateDonate('/donate-businesses')" >
@@ -16,5 +16,5 @@
             </a>
         </div>
     </div>
-      
+
 </div>

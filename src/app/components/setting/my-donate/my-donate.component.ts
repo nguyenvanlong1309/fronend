@@ -43,7 +43,7 @@ export class MyDonateComponent implements OnInit {
                     return params.node.rowIndex + 1;
                 }
             },
-            
+
             {
                 headerName: 'TIÊU ĐỀ',
                 headerTooltip: 'TIÊU ĐỀ',
@@ -66,14 +66,14 @@ export class MyDonateComponent implements OnInit {
                     'top': '4px'
                 }
             },
-           
+
             {
                 headerName: 'SỐ TIỀN',
                 headerTooltip: 'SỐ TIỀN',
                 minWidth: 100,
-                
+
                 valueGetter: ({data}) => {
-                    return this.currencyPipe.transform(data.total || 0, 'VND');
+                    return this.currencyPipe.transform(data.money || 0, 'VND');
                 },
                 cellStyle: {
                     'top': '4px'

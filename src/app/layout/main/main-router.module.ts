@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { BusinessesComponent } from "src/app/components/businesses/businesses.component";
-import { DonateComponent } from "src/app/components/donate/donate.component";
 import { FinanceComponent } from "src/app/components/finance/finance.component";
 import { HomeComponent } from "src/app/components/home/home.component";
 import { IntroduceComponent } from "src/app/components/introduce/introduce.component";
@@ -47,11 +46,6 @@ const routes: Routes = [
           path: 'project/:id',
           component: ProjectDetailComponent
         },
-        {
-          path:'donate',
-          component: DonateComponent
-        },
-
         {
           path:'donate-businesses',
           component: BusinessesComponent

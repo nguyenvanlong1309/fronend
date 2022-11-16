@@ -1,3 +1,9 @@
+:host ::ng-deep app-project-card  .d-flex{
+  /* box-shadow: 0px 7px 5px 7px rgba(0, 0, 0, 0.26);
+  border-radius: 0 !important; */
+  background-color: #f3f7fd;
+}
+
 .cls-1 {
   fill: #37B984;
 }
