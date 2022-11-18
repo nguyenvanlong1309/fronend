@@ -1,87 +1,112 @@
 
-<div class="image-container" style="padding-top: 50px; text-align: center;">
-    <iframe width="80%" height="600px" frameborder="0" allowfullscreen="" style="border: 0.2rem solid #d8d0d081;border-radius: 2rem;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15739728.195975516!2d96.86849995868954!3d15.607291555090418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31157a4d736a1e5f%3A0xb03bb0c9e2fe62be!2zVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1664697946873!5m2!1svi!2s"></iframe>
+<div class="image-container">
+  <iframe width="80%" height="600px" frameborder="0" allowfullscreen="" style="border: 0.2rem solid #d8d0d081;border-radius: 2rem;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15739728.195975516!2d96.86849995868954!3d15.607291555090418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31157a4d736a1e5f%3A0xb03bb0c9e2fe62be!2zVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1664697946873!5m2!1svi!2s"></iframe>
 </div>
 
 <div class="ex-basic-2">
-    <div class="container" style="border-bottom: 1px solid #37B984;">
-        <h2>THÔNG TIN CÁC DỰ ÁN CHÍNH</h2>
-    </div>
+  <div class="container text-center" style="border-bottom: 1px solid #37B984;">
+    <h2>CÁC DỰ ÁN</h2>
+  </div>
 </div>
 
-<div class="ex-basic-2" style="padding: 0.2rem;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-container">
-                    <p style="font-size: 25px">Các chương trình từ thiện</p>
-                    <p style="font-size: 18px">Với niềm tin chỉ thông qua giáo dục mới có thể giúp trẻ em nghèo cơ may thay đổi được số phận. Quỹ Từ thiện CWE đã triển khai một số Dự án Giáo dục giúp trẻ em nghèo có thêm điều kiện đến trường. Quỹ vọng nhận được sự tiếp sức của quý nhà hảo tâm.</p>
-                    <p style="font-size: 18px">Dưới đây là một số dự án CWE đang triển khai:</p>
-                    <p style="font-size: 18px">+) <a [routerLink]="['/**']" class="btn-link">Chương trình 1 - Xây dựng điểm trường</a></p>
-                    <p style="font-size: 18px">Chủ nhiệm dự án: Bà Nguyễn Thị B</p>
-                    <p style="font-size: 18px">Kêu gọi tài trợ cho trẻ em mồ côi có được mái trường để học tập, vui chơi, giải trí</p>
-                    <p style="font-size: 18px">+) <a [routerLink]="['/**']" class="btn-link">Chương trình 2 - Xây dựng lớp học tình thương</a></p>
-                    <p style="font-size: 18px">Chủ nhiệm dự án: Ông Nguyễn Văn Tính</p>
-                    <p style="font-size: 18px">Kêu gọi tài trợ cho trẻ em mồ côi tại các trại trẻ mồ côi, nhà tình thương, mái ấm.</p>
-                    <p style="font-size: 18px">+ <a [routerLink]="['/**']" class="btn-link">Chương trình 3 - Bữa sáng cho trẻ em tại Hà Giang</a></p>
-                    <p style="font-size: 18px">Chủ nhiệm dự án: Bà Hà Văn Thị Nga</p>
-                    <p style="font-size: 18px">Kêu gọi bữa sáng cho trẻ em vùng cao tới trường</p>
-                </div>
-            </div>
+<div class="project-1">
+  <div class="row">
+    <div class="col-md-4">
+      <article class="aa-blog-single eleven" style="border: 0.125rem solid #ccc; height: 100%; ">
+        <figure class="aa-blog-img">
+          <img src="assets/images/duan1/main.png" [routerLink]="['/du-an-xay-dung-truong-tai-ban-lang-dan-toc']" alt="img">
+          <a class="aa-date-tag indefinite">KHÔNG THỜI HẠN</a>
+        </figure>
+        <div class="aa-blog-single-content">
+          <h3><a [routerLink]="['/du-an-xay-dung-truong-tai-ban-lang-dan-toc']" routerLinkActive="active" style="text-decoration: none">Xây dựng điểm trường tại bản làng dân tộc Hà Giang</a></h3>
+          <p>Nhằm đưa giáo dục đến gần hơn với trẻ em vùng cao nói chung và học sinh tỉnh Hà Giang nói riêng</p>
+          <a [routerLink]="['/du-an-xay-dung-truong-tai-ban-lang-dan-toc']" routerLinkActive="active" class="btn-tt" style="text-align: center">TÀI TRỢ</a>
         </div>
+      </article>
     </div>
-</div>
-<section #project id="aa-latest-blog" >
-    <div class="container" id="khongthoihan">
-        <div class="row">
-            <div class="col-md-12" >
-                <div class="aa-latest-blog-area">
-                    <div class="aa-latest-blog-content" >
-                        <div class="row" data-aos="zoom-in-down" data-aos-duration="2000">
-                          <div class="col-md-4">
-                            <article class="aa-blog-single" style="border: 0.125rem solid #ccc; height: 100%; ">
-                                <figure class="aa-blog-img">
-                                    <img src="assets/images/duan1/main.png" alt="img">
-                                    <a class="aa-date-tag" style="background-color: #5ad1e8; text-decoration: none;">KHÔNG THỜI HẠN</a>
-                                </figure>
-                                <div class="aa-blog-single-content">
-                                    <h3><a [routerLink]="['/du-an-xay-dung-truong-tai-ban-lang-dan-toc']" routerLinkActive="active" style="text-decoration: none">Xây dựng điểm trường tại bản làng dân tộc Hà Giang</a></h3>
-                                    <p>Nhằm đưa giáo dục đến gần hơn với trẻ em vùng cao nói chung và học sinh tỉnh Hà Giang nói riêng</p>
-                                    <a [routerLink]="['/du-an-xay-dung-truong-tai-ban-lang-dan-toc']" routerLinkActive="active" class="btn-tt" style="text-align: center">TÀI TRỢ</a>
-                                </div>
-                            </article>
-                          </div>
-                          <div class="col-md-4" >
-                            <article class="aa-blog-single" style="border: 0.125rem solid #ccc; height: 100%;">
-                                <figure class="aa-blog-img">
-                                    <img src="assets/images/duan3/main.jpg" alt="img">
-                                    <a class="aa-date-tag" style="background-color: #65df87; text-decoration: none;">ĐÃ HOÀN THÀNH</a>
-                                </figure>
-                                <div class="aa-blog-single-content">
-                                    <h3><a [routerLink]="['/du-an-xay-lop-hoc-tinh-thuong']" style="text-decoration: none">Xây lớp học tình thương</a></h3>
-                                    <p>Cuộc sống như một bức tranh đầy màu sắc, bên cạnh những mảng màu sáng luôn có sự xuất hiện của những gam màu u tối.......</p>
-                                    <a [routerLink]="['/du-an-xay-lop-hoc-tinh-thuong']" class="btn-ct" style="text-align: center">CHI TIẾT</a>
-                                </div>
-                            </article>
-                          </div>
-                          <div class="col-md-4">
-                              <article class="aa-blog-single " style="border: 0.125rem solid #ccc; height: 100%;">
-                                  <figure class="aa-blog-img">
-                                      <img src="assets/images/duan2/main.png" alt="img">
-                                      <a class="aa-date-tag" style="background-color: #e85757; text-decoration: none;">ĐANG VẬN ĐỘNG</a>
-                                  </figure>
-                                  <div class="aa-blog-single-content">
-                                      <h3><a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" style="text-decoration: none">Bữa sáng cho trẻ em tới tường</a></h3>
-                                      <p>Bữa sáng được nhiều chuyên gia đánh giá là một trong những bữa ăn quan trọng nhất của ngày.</p>
-                                      <a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" class="btn-tt" style="text-align:center">TÀI TRỢ</a>
-                                  </div>
-                              </article>
-                          </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="col-md-4">
+      <article class="aa-blog-single eleven" style="border: 0.125rem solid #ccc; height: 100%;">
+        <figure class="aa-blog-img">
+          <img src="assets/images/duan3/main.jpg" [routerLink]="['/du-an-xay-lop-hoc-tinh-thuong']" alt="img">
+          <a class="aa-date-tag complete">ĐÃ HOÀN THÀNH</a>
+        </figure>
+        <div class="aa-blog-single-content">
+          <h3><a [routerLink]="['/du-an-xay-lop-hoc-tinh-thuong']" style="text-decoration: none">Xây lớp học tình thương</a></h3>
+          <p>Cuộc sống như một bức tranh đầy màu sắc, bên cạnh những mảng màu sáng luôn có sự xuất hiện của những gam màu u tối.......</p>
+          <a [routerLink]="['/du-an-xay-lop-hoc-tinh-thuong']" class="btn-ct" style="text-align: center">CHI TIẾT</a>
         </div>
+      </article>
     </div>
-</section>
+
+    <div class="col-md-4">
+      <article class="aa-blog-single eleven" style="border: 0.125rem solid #ccc; height: 100%;">
+        <figure class="aa-blog-img">
+          <img src="assets/images/duan2/main.png" [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" alt="img">
+          <a class="aa-date-tag motion">ĐANG VẬN ĐỘNG</a>
+        </figure>
+        <div class="aa-blog-single-content">
+          <h3><a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" style="text-decoration: none">Bữa sáng cho trẻ em tới tường</a></h3>
+          <p>Bữa sáng được nhiều chuyên gia đánh giá là một trong những bữa ăn quan trọng nhất của ngày.</p>
+          <a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" class="btn-tt" style="text-align:center">TÀI TRỢ</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-md-4">
+      <article class="aa-blog-single eleven" style="border: 0.125rem solid #ccc; height: 100%;">
+        <figure class="aa-blog-img">
+          <img src="assets/images/duan2/main.png" [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" alt="img">
+          <a class="aa-date-tag motion">ĐANG VẬN ĐỘNG</a>
+        </figure>
+        <div class="aa-blog-single-content">
+          <h3><a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" style="text-decoration: none">Bữa sáng cho trẻ em tới tường</a></h3>
+          <p>Bữa sáng được nhiều chuyên gia đánh giá là một trong những bữa ăn quan trọng nhất của ngày.</p>
+          <a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" class="btn-tt" style="text-align:center">TÀI TRỢ</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-md-4">
+      <article class="aa-blog-single eleven" style="border: 0.125rem solid #ccc; height: 100%;">
+        <figure class="aa-blog-img">
+          <img src="assets/images/duan2/main.png" [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" alt="img">
+          <a class="aa-date-tag motion">ĐANG VẬN ĐỘNG</a>
+        </figure>
+        <div class="aa-blog-single-content">
+          <h3><a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" style="text-decoration: none">Bữa sáng cho trẻ em tới tường</a></h3>
+          <p>Bữa sáng được nhiều chuyên gia đánh giá là một trong những bữa ăn quan trọng nhất của ngày.</p>
+          <a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" class="btn-tt" style="text-align:center">TÀI TRỢ</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-md-4">
+      <article class="aa-blog-single eleven" style="border: 0.125rem solid #ccc; height: 100%;">
+        <figure class="aa-blog-img">
+          <img src="assets/images/duan2/main.png" [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" alt="img">
+          <a class="aa-date-tag motion">ĐANG VẬN ĐỘNG</a>
+        </figure>
+        <div class="aa-blog-single-content">
+          <h3><a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" style="text-decoration: none">Bữa sáng cho trẻ em tới tường</a></h3>
+          <p>Bữa sáng được nhiều chuyên gia đánh giá là một trong những bữa ăn quan trọng nhất của ngày.</p>
+          <a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" class="btn-tt" style="text-align:center">TÀI TRỢ</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-md-4">
+      <article class="aa-blog-single eleven" style="border: 0.125rem solid #ccc; height: 100%;">
+        <figure class="aa-blog-img">
+          <img src="assets/images/duan2/main.png" [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" alt="img">
+          <a class="aa-date-tag motion">ĐANG VẬN ĐỘNG</a>
+        </figure>
+        <div class="aa-blog-single-content">
+          <h3><a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" style="text-decoration: none">Bữa sáng cho trẻ em tới tường</a></h3>
+          <p>Bữa sáng được nhiều chuyên gia đánh giá là một trong những bữa ăn quan trọng nhất của ngày.</p>
+          <a [routerLink]="['/du-an-bua-sang-cho-em-toi-truong']" class="btn-tt" style="text-align:center">TÀI TRỢ</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

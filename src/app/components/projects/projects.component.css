@@ -1,0 +1,60 @@
+.text-center{
+  border-bottom: 1px solid #37B984;
+}
+
+.image-container{
+  padding-top: 50px;
+  text-align: center;
+  background-color: #f3f7fd;
+}
+
+.ex-basic-2,
+.project-1{
+  background-color: #f3f7fd;
+}
+
+#aa-latest-blog{
+  padding-bottom: 150px;
+}
+
+.indefinite{
+  background-color: #5ad1e8;
+  text-decoration: none;
+}
+
+.complete{
+  background-color: #65df87;
+  text-decoration: none;
+}
+
+.motion{
+  background-color: #e85757;
+  text-decoration: none;
+}
+
+.project-1{
+  justify-content: center;
+  display: flex;
+  padding-top: 4rem;
+  text-align: center;
+}
+
+img{
+  cursor: pointer;
+}
+
+.col-md-4{
+  padding: 0 4rem 4rem 4rem;
+}
+
+
+.eleven{
+	border: 2px solid #000;
+	transition: all 0.3s ease;
+	transform: translate(0px 10px);
+}
+
+.eleven:hover{
+	box-shadow: 0px 17px 15px -8px #000;;
+	transform: translate(0px 0px);
+}
