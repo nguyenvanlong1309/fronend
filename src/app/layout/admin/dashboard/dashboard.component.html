@@ -10,15 +10,15 @@
       <div class="sidebar-collapse">
 
           <ul class="chinhul">
-              <li class="chinhli "><a [routerLink]="['/auth','admin']" class="fas fa-table"> Quản lý đăng bài</a>
+              <li class="chinhli "><a [routerLink]="['/admin']" class="fas fa-table"> Quản lý đăng bài</a>
               </li>
-              <li class="chinhli"><a [routerLink]="['/auth','dbp']" class="fas fa-pen"> Quản lý bài viết</a>
+              <li class="chinhli"><a [routerLink]="['/admin','dbp']" class="fas fa-pen"> Quản lý bài viết</a>
               </li>
-              <li class="chinhli"><a [routerLink]="['/auth','user']" class="fas fa-user"> Quản lý người dùng</a>
+              <li class="chinhli"><a [routerLink]="['/admin','user']" class="fas fa-user"> Quản lý người dùng</a>
               </li>
-              <li class="chinhli"><a [routerLink]="['/auth','donate']" class="fas fa-user-tie"> Quản lý Donate</a>
+              <li class="chinhli"><a [routerLink]="['/admin','donate']" class="fas fa-user-tie"> Quản lý Donate</a>
               </li>
-              <li class="chinhli active-menu"><a [routerLink]="['/auth','dashboard']" class="fas fa-calendar-alt"> Dashboard</a>
+              <li class="chinhli active-menu"><a [routerLink]="['/admin','dashboard']" class="fas fa-calendar-alt"> Dashboard</a>
               </li>
           </ul>
       </div>
@@ -33,74 +33,48 @@
         </div>
         <hr />
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="row">
-                <div class="col-md-9 col-sm-12 col-xs-12">
-                    <div class="panel panel-default">
-                      <div class="panel-heading" style="font-size: 30px; font-weight: 1000;">
-                          Dashboard tài trợ theo năm
-                      </div>
-                      <!-- dashboard -->
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div style="font-size: 24px">
-                                Chú thích:
-                            </div>
-                            <div style="display: flex; padding-bottom: 10px;">
-                                <a class="db" style="background-color: rgb(11, 98, 164);margin: 15px 5px; height: 35px;width: 35px;"></a>
-                                <p>Dự kiến</p>
-                            </div>
-                            <div style="display: flex; padding-top: 10px;">
-                                <a class="db" style="background-color: rgb(122, 146, 163);margin: 15px 5px;height: 35px; width: 35px;"></a>
-                                <p>Thực tế</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="form-group">
+            <label class="labels">Năm</label>
+            <select class="year">
+                <option >2022</option>
+                <option >2023</option>
+                <option >2024</option>
+            </select>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <div class="chart-container">
+              <canvas  id="MyChart" >{{ chart }}</canvas>
             </div>
-            <hr/>
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" style="font-size: 30px; font-weight: 1000">
-                            Dashboard loại dự án
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-donut-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div style="font-size: 24px">
-                                Chú thích:
-                            </div>
-                            <div style="display: flex; padding-bottom: 10px;">
-                                <a class="db" style="background-color: red;margin: 15px 5px; height: 35px;width: 35px;"></a>
-                                <p>Tiền xây dựng</p>
-                            </div>
-                            <div style="display: flex; padding-top: 10px;">
-                                <a class="db" style="background-color: green;margin: 15px 5px; height: 35px;width: 35px;"></a>
-                                <p>Sách vở, quần áo</p>
-                            </div>
-                            <div style="display: flex; padding-top: 10px;">
-                                <a class="db" style="background-color: blue;margin: 15px 5px; height: 35px;width: 35px;"></a>
-                                <p>Các thiết bị học</p>
-                            </div>
-                            <div style="display: flex; padding-top: 10px;">
-                                <a class="db" style="background-color: gray;margin: 15px 5px; height: 35px;width: 35px;"></a>
-                                <p>Các loại khác</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="panel panel-default ">
+              <h4 >
+                Biểu đồ thể hiện số tiền quyên góp theo tháng qua từng năm
+              </h4>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 text-center">
+            <div class="chart-container ">
+              <canvas  id="barChart" >{{ bar }}</canvas>
+            </div>
+            <div class="panel panel-default ">
+              <h4 >
+                Biểu đồ thể hiện tổng các dự án
+              </h4>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-xs-12 text-center">
+            <div class="chart-container ">
+              <canvas  id="pieChart" >{{ pie }}</canvas>
+            </div>
+            <div class="panel panel-default ">
+              <h4 >
+                Biểu đồ thể hiện số dự án theo vùng miền
+              </h4>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>

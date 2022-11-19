@@ -35,14 +35,14 @@
                 <li class="nav-item">
                     <a class="nav-link page-scroll" [routerLink]="['/finace']" routerLinkActive="active">BÁO CÁO TÀI CHÍNH</a>
                 </li>
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle page-scroll" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">TÀI TRỢ</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" [routerLink]="['/donate-personal']"><span class="item-text">CÁ NHÂN</span></a>
                         <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" [routerLink]="['/donate-businesses']"><span class="item-text">DOANH NGHIỆP</span></a>
                     </div>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown " style="bottom: 5px" *ngIf="isLoggedIn">
                   <img src="assets/images/logo-ui.png" alt="" class="header_navbar-user-img" style="border-radius: 50%; cursor:pointer">
                   <span class="header_navbar-user-name" style="color: #cce7dc">{{ user.fullName }}</span>
