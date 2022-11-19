@@ -1,0 +1,11 @@
+<div class="action position-relative">
+    <i class="fas fa-ellipsis-v"></i>
+    <div class="menu p-3 d-none position-absolute">
+        <div class="d-flex flex-column bg-white w-100">
+            <span *ngIf="params.data.status == 0" class="text-center" (click)="approveProject()">Duyệt</span>
+            <ng-container *ngIf="params.data.status != 0">
+                <span class="text-center" (click)="updateProject()">Sửa</span>
+            </ng-container>
+        </div>
+    </div>
+</div>

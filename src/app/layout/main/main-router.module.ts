@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { BusinessesComponent } from "src/app/components/businesses/businesses.component";
+import { BusinessesComponent } from "src/app/components/donate/businesses/businesses.component";
 import { DonateComponent } from "src/app/components/donate/donate.component";
+import { PersonalComponent } from "src/app/components/donate/personal/personal.component";
 import { FinanceComponent } from "src/app/components/finance/finance.component";
 import { HomeComponent } from "src/app/components/home/home.component";
 import { IntroduceComponent } from "src/app/components/introduce/introduce.component";
 import { NewsComponent } from "src/app/components/news/news.component";
-import { PersonalComponent } from "src/app/components/personal/personal.component";
 import { PostComponent } from "src/app/components/post/post.component";
 import { ProjectDetailComponent } from "src/app/components/projects/detail/project-detail.component";
 import { ProjectsComponent } from "src/app/components/projects/projects.component";
@@ -47,20 +47,6 @@ const routes: Routes = [
           path: 'project/:id',
           component: ProjectDetailComponent
         },
-        {
-          path:'donate',
-          component: DonateComponent
-        },
-
-        {
-          path:'donate-businesses',
-          component: BusinessesComponent
-        },
-
-        {
-          path:'donate-personal',
-          component: PersonalComponent
-        },
 
         {
           path:'post',
@@ -72,6 +58,21 @@ const routes: Routes = [
           component: SettingComponent,
           canActivate: [ AuthenGuard ]
         },
+
+        {
+          path: 'donate',
+          component: DonateComponent,
+          children: [
+            {
+              path: 'personal',
+              component: PersonalComponent
+            },
+            {
+              path: 'business',
+              component: BusinessesComponent
+            }
+          ]
+        }
 
       ]
     }

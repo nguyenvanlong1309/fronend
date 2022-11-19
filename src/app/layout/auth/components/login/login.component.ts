@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Role } from 'src/app/base/role.enum';
 
 @Component({
   selector: 'app-login',
@@ -40,8 +41,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginService.login(this.formGroup.value)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(res => {
-        this.router.navigate(['/home']);
         this.toastService.success('Đăng nhập thành công')
+        if (res.user.role == Role.ADMIN) {
+          this.router.navigate(['/admin', 'home']);
+          return;
+        }
+        this.router.navigate(['/home']);
       })
 
   }

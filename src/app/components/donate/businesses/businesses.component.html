@@ -1,0 +1,45 @@
+<form [formGroup]="formGroup" (submit)="ngSubmitForm()">
+  <h4 class="text-left text-truncate text-uppercase">TÀI TRỢ: <span [title]="project.title">{{ project.title }}</span></h4>
+  <div class="row gap-2">
+      <div class="col-md-12">
+          <label class="labels required">TÊN DOANH NGHIỆP</label>
+          <input class="form-control" placeholder="Nguyễn Văn A" formControlName="publicName">
+      </div>
+      <div class="area-image">
+          <label class="labels" style="margin-bottom: 0;">LOGO CÔNG TY</label>
+          <div class="dow-image" style="display: flex">
+            <img [src]="avatar.url" title="Profile Picture" height="150px" width="150px" />
+            <input type="file" id="img" class="d-none" accept="image/*" (change)="onSelect($event)" />
+          </div>
+          <label for="img" class="chose-img">Chọn hình ảnh</label>
+      </div>
+      <div class="col-md-12">
+          <label class="labels required">EMAIL</label>
+          <input type="email" class="form-control" placeholder="vana@gmail.com" formControlName="email">
+      </div>
+      <div class="col-md-12">
+        <label class="labels required">SỐ ĐIỆN THOẠI</label>
+        <input type="text" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+      </div>
+      <div class="col-md-12">
+          <label class="labels required">HÌNH THỨC TÀI TRỢ</label>
+          <app-select
+                [items]="methodDonate"
+                [bindLabel]="'name'"
+                [bindValue]="'id'"
+                formControlName="methodDonate"
+            ></app-select>
+      </div>
+      <div class="col-md-12">
+          <label class="labels required">SỐ TIỀN TÀI TRỢ</label>
+          <input type="number" class="form-control" placeholder="10.000.000" formControlName="money">
+      </div>
+      <div class="col-md-12">
+          <label class="labels">LỜI NHẮN</label>
+          <textarea class="form-control" placeholder="Nhập lời nhắn" formControlName="comment"></textarea>
+      </div>
+  </div>
+  <div class="form-button text-center">
+      <button class="btn-solid-reg">TÀI TRỢ</button>
+  </div>
+</form>

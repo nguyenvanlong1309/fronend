@@ -5,6 +5,7 @@ import { Component, OnInit } from "@angular/core";
 import { CurrencyPipe, formatDate } from '@angular/common';
 import { Donate } from 'src/app/models/donate.model';
 import { DonateService } from 'src/app/services/donate.service';
+import { COLUMN_STT } from 'src/app/base/constant';
 
 @Component({
     selector: 'app-my-donate',
@@ -14,7 +15,7 @@ import { DonateService } from 'src/app/services/donate.service';
 export class MyDonateComponent implements OnInit {
 
     public columnDefs: ColDef[];
-    public donate$: Observable<Donate[]>;
+    public data$: Observable<Donate[]>;
 
     constructor(
         public activedModal: NgbActiveModal,
@@ -23,27 +24,15 @@ export class MyDonateComponent implements OnInit {
     ) {}
 
     public ngOnInit(): void {
-        this.donate$ = this.donateService.findMyDonate();
+        if (!this.data$) {
+            this.data$ = this.donateService.findMyDonate();
+        }
         this.ngOnInitColumn();
     }
 
     private ngOnInitColumn(): void {
         this.columnDefs = [
-            {
-                headerName: 'STT',
-                headerTooltip: 'STT',
-                minWidth: 60,
-                maxWidth: 60,
-                cellStyle: {
-                    'display': 'flex',
-                    'align-items': 'center',
-                    'justify-content': 'center'
-                },
-                valueGetter: (params: ValueGetterParams) => {
-                    return params.node.rowIndex + 1;
-                }
-            },
-            
+            COLUMN_STT,
             {
                 headerName: 'TIÊU ĐỀ',
                 headerTooltip: 'TIÊU ĐỀ',
@@ -73,7 +62,7 @@ export class MyDonateComponent implements OnInit {
                 minWidth: 100,
                 
                 valueGetter: ({data}) => {
-                    return this.currencyPipe.transform(data.total || 0, 'VND');
+                    return this.currencyPipe.transform(data.money || 0, 'VND');
                 },
                 cellStyle: {
                     'top': '4px'

@@ -11,7 +11,7 @@
             [headerHeight]="56"
             [rowHeight]="50"
             [columnDefs]="columnDefs"
-            [rowData]="donate$ | async"
+            [rowData]="data$ | async"
             [tooltipShowDelay]="0"
 
             (gridReady)="$event.api.sizeColumnsToFit()"

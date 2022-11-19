@@ -1,8 +1,8 @@
 import { Project } from 'src/app/models/project.model';
 import { takeUntil } from 'rxjs/operators';
 import { Utils } from './../../../base/utils';
-import { EXTENSION_IMAGE, PROJECT_STATUS } from './../../../base/constant';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { TYPE_PROJECT } from './../../../base/constant';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CityService } from "src/app/services/city.service";
@@ -16,7 +16,7 @@ import { environment } from 'src/environments/environment';
 @Component({
     selector: 'app-post-form',
     templateUrl: './post-form.component.html',
-    styleUrls: ['./post-form.component.css']
+    styleUrls: ['./post-form.component.css'],
 })
 export class PostFormComponent implements OnInit, OnDestroy {
 
@@ -26,6 +26,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
     public formGroup: FormGroup;
     public avatarFile: {file: File, url: string};
     public project: Project;
+    public typeProject;
 
     constructor(
         private cityService: CityService,
@@ -36,6 +37,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
     ) {}
 
     public ngOnInit(): void {
+        this.typeProject = TYPE_PROJECT;
         this.city$ = this.cityService.findAll();
         this.ngOnBuildForm();
         if (this.project) {
@@ -50,23 +52,33 @@ export class PostFormComponent implements OnInit, OnDestroy {
     private ngOnBuildForm(): void {
         this.formGroup = this.fb.group({
             id: [null],
-            cityId: [null, [Validators.required]],
+            cityId: [1, [Validators.required]],
             title: [null, [Validators.required]],
             content: [null, [Validators.required]],
             startDate: [null],
             endDate: [null],
-            description: [null, [Validators.required]]
+            description: [null, [Validators.required]],
+            type: [0],
+            money: [null, [Validators.required]]
         });
         this.formGroup.get('startDate').setValidators([Validators.required, customValidateDate(this.formGroup, 'endDate')])
         this.formGroup.get('endDate').setValidators([Validators.required, customValidateDate(this.formGroup, 'startDate')])
+        this.formGroup.get('type').valueChanges.subscribe(res => {
+            if (res == 0) {
+                this.formGroup.get('endDate').setValidators([Validators.required, customValidateDate(this.formGroup, 'startDate')]);
+            } else {
+                this.formGroup.get('endDate').setValidators([]);
+            }
+            this.formGroup.get('endDate').updateValueAndValidity()
+        })
     }
 
     public ngOnChangeAvatarFile(event: any): void {
         const { files } = event.target;
         if (files && files.length) {
             const [ file ] = files;
-            
-            if (EXTENSION_IMAGE.every(extension => !file.name.toLowerCase().endsWith(extension))) {
+            const { type } = file;
+            if (!type.match(/image\/*/)) {
                 this.toastService.error('Ảnh không đúng định dạng');
                 return;
             }

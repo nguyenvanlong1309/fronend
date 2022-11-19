@@ -14,8 +14,7 @@ import { ProjectsComponent } from 'src/app/components/projects/projects.componen
 import { PostComponent } from 'src/app/components/post/post.component';
 
 import { FinanceComponent } from 'src/app/components/finance/finance.component';
-import { PersonalComponent } from 'src/app/components/personal/personal.component';
-import { BusinessesComponent } from 'src/app/components/businesses/businesses.component';
+import { PersonalComponent } from 'src/app/components/donate/personal/personal.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PostFormComponent } from 'src/app/components/setting/post-form/post-form.component';
 import { SelectComponent } from 'src/app/components/shared/select/select.component';
@@ -27,6 +26,8 @@ import { MyProjectComponent } from 'src/app/components/setting/my-project/my-pro
 import { AgGridModule } from 'ag-grid-angular';
 import { MyProjectActionComponent } from 'src/app/components/setting/my-project/action/action.component';
 import { MyDonateComponent } from 'src/app/components/setting/my-donate/my-donate.component';
+import { BusinessesComponent } from 'src/app/components/donate/businesses/businesses.component';
+import { DonateComponent } from 'src/app/components/donate/donate.component';
 
 const imports:  Array<Type<any> | ModuleWithProviders<{}> | any[]> = [
     CommonModule,
@@ -45,8 +46,7 @@ const declarations: Array<Type<any> | any[]> = [
     IntroduceComponent,
     NewsComponent,
     FinanceComponent,
-    PersonalComponent,
-    BusinessesComponent,
+    
     ProjectsComponent,
     PostComponent,
     SettingComponent,
@@ -58,6 +58,10 @@ const declarations: Array<Type<any> | any[]> = [
     MyProjectComponent,
     MyProjectActionComponent,
     MyDonateComponent,
+
+    DonateComponent,
+    PersonalComponent,
+    BusinessesComponent,
 
     SafePipe,
     ImagePipe
