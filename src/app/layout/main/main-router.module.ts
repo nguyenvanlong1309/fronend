@@ -7,7 +7,6 @@ import { FinanceComponent } from "src/app/components/finance/finance.component";
 import { HomeComponent } from "src/app/components/home/home.component";
 import { IntroduceComponent } from "src/app/components/introduce/introduce.component";
 import { NewsComponent } from "src/app/components/news/news.component";
-import { PostComponent } from "src/app/components/post/post.component";
 import { ProjectDetailComponent } from "src/app/components/projects/detail/project-detail.component";
 import { ProjectsComponent } from "src/app/components/projects/projects.component";
 import { SettingComponent } from "src/app/components/setting/setting.component";
@@ -47,12 +46,6 @@ const routes: Routes = [
           path: 'project/:id',
           component: ProjectDetailComponent
         },
-
-        {
-          path:'post',
-          component: PostComponent
-        },
-
         {
           path: 'profile',
           component: SettingComponent,

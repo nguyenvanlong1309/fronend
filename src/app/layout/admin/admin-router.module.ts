@@ -13,11 +13,11 @@ const routes: Routes = [
 		component: AdminLayoutComponent,
 		children: [
 			{
-				path:'home',
+				path:'dbp',
 				component: DbpComponent,
 			},
 			{
-				path:'dbp',
+				path:'dbp1',
 				component: DbpComponent,
 			},
 			{

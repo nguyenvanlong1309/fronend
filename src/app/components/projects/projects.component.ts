@@ -1,4 +1,7 @@
+import { Project } from 'src/app/models/project.model';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  public project$: Observable<Project[]>;
+
+  constructor(
+    private projectService: ProjectService
+  ) {}
 
   ngOnInit(): void {
+    this.project$ = this.projectService.findAll();
   }
-
-
 }

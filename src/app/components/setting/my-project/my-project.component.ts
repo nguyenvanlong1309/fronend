@@ -19,6 +19,8 @@ export class MyProjectComponent implements OnInit {
 
     public columnDefs: ColDef[];
     public data$: Observable<Project[]>;
+    public title: string = 'LỊCH SỬ ĐĂNG BÀI';
+    public onlyView: boolean = false;
 
     constructor(
         public activedModal: NgbActiveModal,
@@ -118,7 +120,10 @@ export class MyProjectComponent implements OnInit {
                     'top': '30px'
                 }
             },
-            {
+        ];
+
+        if (!this.onlyView) {
+            this.columnDefs.push({
                 headerName: 'THAO TÁC',
                 headerTooltip: 'THAO TÁC',
                 minWidth: 110,
@@ -129,7 +134,7 @@ export class MyProjectComponent implements OnInit {
                     'justify-content': 'center'
                 },
                 cellRenderer: MyProjectActionComponent
-            }
-        ]
+            });
+        }
     }
 }

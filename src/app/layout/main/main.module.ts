@@ -1,3 +1,4 @@
+import { MapComponent } from './../../components/map/map.component';
 import { ProjectCardComponent } from './../../components/projects/project-card/project-card.component';
 import { ImagePipe } from './../../pipe/image.pipe';
 import { MainRouterModule } from './main-router.module';
@@ -62,6 +63,8 @@ const declarations: Array<Type<any> | any[]> = [
     DonateComponent,
     PersonalComponent,
     BusinessesComponent,
+
+    MapComponent,
 
     SafePipe,
     ImagePipe

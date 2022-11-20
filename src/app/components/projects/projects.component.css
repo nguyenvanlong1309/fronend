@@ -1,0 +1,70 @@
+:host ::ng-deep app-project-card > div {
+  padding: 15px 0;
+}
+
+:host ::ng-deep app-project-card p {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+  margin: 0;
+  height: 75px;
+}
+
+:host ::ng-deep app-project-card h3 {
+  color: var(--bs-link-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  margin: 0;
+  height: 48px;
+}
+
+:host ::ng-deep app-project-card .layout {
+  flex-direction: column !important;
+}
+
+:host ::ng-deep app-project-card .layout > div {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+:host ::ng-deep app-project-card .hoat-dong {
+  top: 20px;
+}
+
+:host ::ng-deep app-project-card img {
+  max-height: 216px;
+}
+
+:host ::ng-deep app-project-card .text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.image-container{
+  padding-top: 50px;
+  text-align: center;
+  background-color: #f3f7fd;
+}
+
+.ex-basic-2{
+  background-color: #f3f7fd;
+}
+
+app-project-card:hover{
+	box-shadow: 0 7px 5px 0 rgb(59, 59, 59);
+	transform: translate(0px 0px);
+}

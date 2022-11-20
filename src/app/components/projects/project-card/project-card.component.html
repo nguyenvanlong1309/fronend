@@ -3,14 +3,14 @@
         <div class="col-lg-12">
             <div class="tab-content" id="argoTabsContent">
                 <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-                    <div class="row list-posts">
+                    <div class="list-posts">
                         <ng-container *ngIf="animatedBorder">
                             <span class="hv"></span>
                             <span class="hv"></span>
                             <span class="hv"></span>
                             <span class="hv"></span>
                         </ng-container>
-                        <div class="d-flex" [class.flex-row-reverse]="project.status != 2">
+                        <div class="layout d-flex" [class.flex-row-reverse]="project.status != 2">
                             <div class="col-lg-6">
                                 <div class="image-container">
                                     <h5 [class]="'status' + project.status" class="hoat-dong ms-2">{{ status[project.status].name }}</h5>
@@ -19,8 +19,8 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="text-container">
-                                    <h3 class="cursor-pointer" (click)="navigate(project)">{{ project.title }}</h3>
-                                    <p class="desc text-justify">{{ project.description }}</p>
+                                    <h3 class="cursor-pointer" [title]="project.title" (click)="navigate(project)">{{ project.title }}</h3>
+                                    <p class="desc text-justify" [title]="project.description">{{ project.description }}</p>
                                     <span *ngIf="project.status == 2" class="btn-tt cursor-pointer" (click)="navigate(project)">TÀI TRỢ</span>
                                     <span *ngIf="project.status != 2" class="btn-ct cursor-pointer" (click)="navigate(project)">CHI TIẾT</span>
                                 </div>

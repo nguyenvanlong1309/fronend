@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe(res => {
         this.toastService.success('Đăng nhập thành công')
         if (res.user.role == Role.ADMIN) {
-          this.router.navigate(['/admin', 'home']);
+          this.router.navigate(['/admin', 'dashboard']);
           return;
         }
         this.router.navigate(['/home']);

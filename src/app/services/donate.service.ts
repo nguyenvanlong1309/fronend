@@ -1,3 +1,4 @@
+import { DonateStatistic } from './../models/statistic.model';
 import { Donate, DonateTop } from 'src/app/models/donate.model';
 import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
@@ -52,5 +53,10 @@ export class DonateService {
     public findDonateByUsername(username: string): Observable<Donate[]> {
         this.spinnerService.show();
         return this.http.post<Donate[]>(`${this.urlAdmin}/username`, { username });
+    }
+
+    public statisitcDonate(year: number): Observable<DonateStatistic[]> {
+        this.spinnerService.show();
+        return this.http.post<DonateStatistic[]>(`${this.urlAdmin}/statistic`, { year });
     }
 }

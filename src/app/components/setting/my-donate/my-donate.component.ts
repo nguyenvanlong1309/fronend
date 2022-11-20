@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { ColDef, ValueGetterParams } from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from "@angular/core";
 import { CurrencyPipe, formatDate } from '@angular/common';
@@ -55,12 +55,12 @@ export class MyDonateComponent implements OnInit {
                     'top': '4px'
                 }
             },
-           
+
             {
                 headerName: 'SỐ TIỀN',
                 headerTooltip: 'SỐ TIỀN',
                 minWidth: 100,
-                
+
                 valueGetter: ({data}) => {
                     return this.currencyPipe.transform(data.money || 0, 'VND');
                 },

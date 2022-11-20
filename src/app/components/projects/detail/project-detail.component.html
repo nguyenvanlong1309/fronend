@@ -5,9 +5,9 @@
         </div>
         <div class="row py-3">
             <h5>{{ project.description }}</h5>
-            <div [innerHTML]="project.content | safe:'html'"></div>
+            <div class="contents" [innerHTML]="project.content | safe:'html'"></div>
         </div>
-        <div>
+        <div *ngIf="project.status === 2 || project.status === 3">
             <a class="btn-outline-reg h-5" [routerLink]="['/donate', 'business']" [queryParams]="{'project-id': project.id }" >
                 <i class="fas fa-city"></i> Doanh nghiệp tài trợ
             </a>
@@ -16,5 +16,4 @@
             </a> 
         </div>
     </div>
-      
 </div>

@@ -17,7 +17,7 @@
   transition: transform ease-in-out 0.25s;
   padding: 0;
 }
-  
+
 .hv:nth-child(1) {
   top: 0;
   left: 0;
@@ -27,7 +27,8 @@
   transform-origin: right;
   transition-delay: 0.25s;
 }
-  
+
+
 .list-posts:hover .hv:nth-child(1) {
   transform: scaleX(1);
   transform-origin: left;

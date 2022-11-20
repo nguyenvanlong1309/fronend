@@ -13,6 +13,14 @@ export const PROJECT_STATUS = [
     {
         id: 2,
         name: 'Đang vận động'
+    },
+    {
+        id: 3,
+        name: 'Sắp hết hạn'
+    },
+    {
+        id: 4,
+        name: 'Hủy bỏ'
     }
 ]
 

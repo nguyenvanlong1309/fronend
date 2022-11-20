@@ -33,7 +33,7 @@ export class DbpComponent implements OnInit {
 
 		const { url } = this.router;
 
-		if (url == '/admin/home') {
+		if (url == '/admin/dbp1') {
 			this.title = 'QUẢN LÝ BÀI ĐĂNG';
 			this.onLoadData = () => {
 				this.project$ = this.projectService.findPendingProject()
