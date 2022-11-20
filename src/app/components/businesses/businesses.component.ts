@@ -56,4 +56,8 @@ export class BusinessesComponent implements OnInit {
     }
   }
 
+  openVerticallyCentered(content) {
+		this.modalService.open(content, { centered: true });
+	}
+
 }

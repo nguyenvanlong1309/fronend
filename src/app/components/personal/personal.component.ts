@@ -10,6 +10,8 @@ import { ProjectService } from 'src/app/services/project.service';
 import { DonateService } from 'src/app/services/donate.service';
 import { Utils } from 'src/app/base/utils';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
@@ -32,7 +34,9 @@ export class PersonalComponent implements OnInit, OnDestroy {
     private activedRouter: ActivatedRoute,
     private projectService: ProjectService,
     private donateService: DonateService,
-    private toastService: ToastrService
+    private toastService: ToastrService,
+    private modalService: NgbModal
+
   ) { }
 
   public ngOnInit(): void {
@@ -94,4 +98,8 @@ export class PersonalComponent implements OnInit, OnDestroy {
       this.unsubscribe$?.next();
       this.unsubscribe$?.complete();
   }
+
+  openVerticallyCentered(content) {
+		this.modalService.open(content, { centered: true });
+	}
 }

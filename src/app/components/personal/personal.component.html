@@ -13,10 +13,6 @@
                         <input type="text" class="form-control" placeholder="Nguyễn Văn A" formControlName="fullName">
                     </div>
                     <div class="col-md-12">
-                        <label class="labels required">TÊN CÔNG BỐ</label>
-                        <input type="text" class="form-control" placeholder="Văn A" formControlName="publicName">
-                    </div>
-                    <div class="col-md-12">
                         <label class="labels required">CHẾ ĐỘ DONATE</label>
                         <div class="card w-100">
                             <div class="ul-card">
@@ -52,19 +48,19 @@
                         ></app-select>
                     </div>
                     <div class="col-md-12">
-                        <label class="labels required">SỐ TIỀN TÀI TRỢ</label>
-                        <input type="number" class="form-control" placeholder="10.000.000" formControlName="money">
+                      <label class="labels required">CHƯƠNG TRÌNH TỪ THIỆN</label>
+                      <input class="form-control" [value]="project.title" disabled>
                     </div>
                     <div class="col-md-12">
-                        <label class="labels required">CHƯƠNG TRÌNH TỪ THIỆN</label>
-                        <input class="form-control" [value]="project.title" disabled>
+                        <label class="labels required">SỐ TIỀN TÀI TRỢ</label>
+                        <input type="number" class="form-control" placeholder="10.000.000" formControlName="money">
                     </div>
                     <div class="col-md-12">
                         <label class="labels">LỜI NHẮN</label>
                         <textarea class="form-control" placeholder="Nhập lời nhắn" formControlName="comment"></textarea>
                     </div>
                     <div class="form-button text-center">
-                        <button class="btn-solid-reg">TÀI TRỢ</button>
+                        <button class="btn-solid-reg" (click)="openVerticallyCentered(content)">TÀI TRỢ</button>
                     </div>
 
                 </div>
@@ -103,22 +99,49 @@
                   </table>
               </div>
           </div>
-
-            <!-- <div class="col-lg-6">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">DỰ ÁN QUAN TRỌNG</h4>
-                </div>
-                <div class="mt-3">
-                    <app-project-card
-                        *ngFor="let p of project$ | async"
-                        [project]="p"
-                        [animatedBorder]="false"
-                    ></app-project-card>
-                </div>
-                <div class="form-button text-center">
-                    <a class="btn-solid-reg" [routerLink]="['/project']">XEM THÊM</a>
-                </div>
-            </div> -->
-        </div>
     </div>
+  </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <div class="container">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h3>HOÁ ĐƠN</h3>
+      <div class="row gap-2">
+        <div class="col-md-12">
+            <label class="labels">HỌ VÀ TÊN</label>
+            <input type="text" class="form-control" placeholder="Nguyễn Văn A" formControlName="fullName">
+        </div>
+        <div class="col-md-12">
+          <label class="labels">CHẾ ĐỘ DONATE</label>
+          <input type="text" class="form-control" placeholder="Công khai" formControlName="publicName">
+        </div>
+        <div class="col-md-12">
+            <label class="labels">SỐ ĐIỆN THOẠI</label>
+            <input type="text" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+        </div>
+        <div class="col-md-12">
+          <label class="labels">CHƯƠNG TRÌNH TỪ THIỆN</label>
+          <input class="form-control" [value]="project.title" disabled>
+        </div>
+        <div class="col-md-12">
+            <label class="labels">SỐ TIỀN TÀI TRỢ</label>
+            <input type="number" class="form-control" placeholder="10.000.000" formControlName="money">
+        </div>
+        <div class="col-md-12">
+          <label class="labels">NGÂN HÀNG</label>
+          <select class="order">
+              <option >MBBank</option>
+              <option >VietComBank</option>
+          </select>
+        </div>
+        <div class="form-button text-center">
+            <button class="btn-solid-reg">XÁC NHẬN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
