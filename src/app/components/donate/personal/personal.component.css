@@ -1,14 +1,7 @@
-.basic-1{
-  background: #f3f7fd;
-}
-/* Variables
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 .ul-card {
 	list-style-type: none;
 	padding-left: 50px;
 	margin: 0;
-
 }
 
 .li-card {
@@ -16,11 +9,6 @@
 	position: relative;
 	padding: 20px 0px;
 }
-
-
-
-/* Card
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .card {
 	display: flex;
 	flex-direction: column;
@@ -30,9 +18,6 @@
 	border-radius: 20px;
 }
 
-
-/* Radio Button
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .ip-card[type=radio] {
 	position: absolute;
 	visibility: hidden;
@@ -50,7 +35,6 @@
 	transition: transform .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-/* Reset */
 .ip-card#one ~ .check {
 	transform: translate(-50px, -33px);
 	background: #b2d7f5;
@@ -62,23 +46,6 @@
 }
 
 
-/* Radio Input #1 */
 .ip-card#one:checked ~ .check { transform: translate(-50px, 38px); }
 
-/* Radio Input #2  */
 .ip-card#two:checked ~ .check { transform: translate(-50px, -35px); }
-
-
-/*  */
-.charity{
-  padding: 0 0 0 20px;
-  width: 100%;
-  height: 40px;
-  border: 1px solid #c4d8dc;
-  border-radius: 0.25rem;
-}
-
-.table{
-  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.26);
-  border-radius: 0 !important;
-}

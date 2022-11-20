@@ -12,7 +12,6 @@ import { HomeComponent } from 'src/app/components/home/home.component';
 import { IntroduceComponent } from 'src/app/components/introduce/introduce.component';
 import { NewsComponent } from 'src/app/components/news/news.component';
 import { ProjectsComponent } from 'src/app/components/projects/projects.component';
-import { PostComponent } from 'src/app/components/post/post.component';
 
 import { FinanceComponent } from 'src/app/components/finance/finance.component';
 import { PersonalComponent } from 'src/app/components/donate/personal/personal.component';
@@ -49,7 +48,6 @@ const declarations: Array<Type<any> | any[]> = [
     FinanceComponent,
     
     ProjectsComponent,
-    PostComponent,
     SettingComponent,
     PostFormComponent,
     SelectComponent,
