@@ -3,7 +3,8 @@
       <button type="button" class="close" aria-label="Close" (click)="activedModal.close()">
         <span aria-hidden="true">&times;</span>
       </button>
-      <h3>THÊM BÀI VIẾT</h3>
+      <h3 *ngIf="!project">THÊM MỚI BÀI VIẾT</h3>
+      <h3 *ngIf="project">CẬP NHẬT BÀI VIẾT</h3>
       <form id="newsletterForm" [formGroup]="formGroup" (submit)="ngOnSubmit()">
           <div class="form-group">
               <label class="labels required">CHỌN TỈNH/THÀNH PHỐ</label>
@@ -11,9 +12,7 @@
                 [items]="city$ | async"
                 [bindLabel]="'name'"
                 [bindValue]="'id'"
-                [defaultFistItem]="true"
-                [defaultValue]="formGroup.get('cityId').value"
-                [control]="formGroup.get('cityId')"
+                formControlName="cityId"
               ></app-select>
           </div>
           <div class="form-group">
@@ -53,6 +52,29 @@
                 }"
               ></ng-container>
           </div>
+
+          <div class="form-group">
+            <label class="labels required">SỐ TIỀN MONG MUỐN</label>
+            <input class="form-control" placeholder="Số tiền mong muốn" formControlName="money">
+            <ng-container
+                [ngTemplateOutlet]="requiredError"
+                [ngTemplateOutletContext]="{
+                  control: formGroup.get('money'),
+                  message: 'Số tiền mong muôn không được trống'
+                }"
+              ></ng-container>
+          </div>
+
+          <div class="form-group">
+            <label class="labels required">Loại dự án</label>
+            <app-select
+              formControlName=""
+              [items]="typeProject"
+              [bindLabel]="'name'"
+              [bindValue]="'id'"
+              formControlName="type"
+            ></app-select>
+          </div>
           <div class="form-group" style="display: flex">
             <div class="col-md-6" style="padding-left: 0">
               <label class="labels required">BẮT ĐẦU</label>
@@ -66,7 +88,7 @@
                 }"
               ></ng-container>
             </div>
-            <div class="col-md-6" style="padding-right: 0">
+            <div *ngIf="formGroup.get('type').value == 0" class="col-md-6" style="padding-right: 0">
               <label class="labels required">HẠN KẾT THÚC</label>
               <input type="date" class="form-control" formControlName="endDate">
               <ng-container

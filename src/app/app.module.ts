@@ -1,3 +1,4 @@
+import { ChangePasswordComponent } from './components/shared/change-password/change-password.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
@@ -21,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     NotfoundComponent,
     SpinnerComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,

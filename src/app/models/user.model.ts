@@ -26,4 +26,10 @@ export interface UserResponseModel {
     address: string;
     phone: string;
     email: string;
+    status: 0 | 1;
+}
+
+export interface ChangePassword {
+    currentPassword: string;
+    newPassword: string;
 }

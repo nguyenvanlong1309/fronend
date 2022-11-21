@@ -1,0 +1,4 @@
+:host ::ng-deep .two-line .ag-header-cell-text {
+	white-space: break-spaces;
+    text-align: center;
+}

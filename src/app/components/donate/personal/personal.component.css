@@ -1,0 +1,51 @@
+.ul-card {
+	list-style-type: none;
+	padding-left: 50px;
+	margin: 0;
+}
+
+.li-card {
+	display: block;
+	position: relative;
+	padding: 20px 0px;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	width: 40%;
+	padding: 20px 25px;
+	border-radius: 20px;
+}
+
+.ip-card[type=radio] {
+	position: absolute;
+	visibility: hidden;
+}
+
+.lb-card {
+	cursor: pointer;
+	font-weight: 400;
+}
+
+.check {
+	width: 30px; height: 30px;
+	position: absolute;
+	border-radius: 50%;
+	transition: transform .6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.ip-card#one ~ .check {
+	transform: translate(-50px, -33px);
+	background: #b2d7f5;
+}
+.ip-card#two ~ .check {
+	transform: translate(-50px, -105px);
+	background: #37B984;
+	box-shadow: 0 6px 12px rgba(33, 150, 243, 0.35);
+}
+
+
+.ip-card#one:checked ~ .check { transform: translate(-50px, 38px); }
+
+.ip-card#two:checked ~ .check { transform: translate(-50px, -35px); }

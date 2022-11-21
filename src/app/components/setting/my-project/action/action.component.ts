@@ -36,7 +36,7 @@ export class MyProjectActionComponent implements ICellRendererAngularComp {
         ref.componentInstance.project = {
             ...this.params.data,
             startDate: formatDate(this.params.data.startDate, 'yyyy-MM-dd', 'en_US'),
-            endDate: formatDate(this.params.data.endDate, 'yyyy-MM-dd', 'en_US')
+            endDate: !this.params.data.endDate || formatDate(this.params.data.endDate, 'yyyy-MM-dd', 'en_US')
         };
 
         ref.closed.subscribe(res => {

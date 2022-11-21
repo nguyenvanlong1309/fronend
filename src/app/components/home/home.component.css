@@ -1,15 +1,10 @@
-:host ::ng-deep app-project-card  .d-flex{
-  /* box-shadow: 0px 7px 5px 7px rgba(0, 0, 0, 0.26);
-  border-radius: 0 !important; */
-  background-color: #f3f7fd;
-}
-
 .cls-1 {
   fill: #37B984;
 }
 
 .header-frame{
   background-color: #f3f7fd;
+  height: 7.375rem;
 }
 
 .w3-light-grey{
@@ -18,50 +13,7 @@
   text-align: center;
 }
 
-.header-frame {
-  height: 7.375rem;
-}
-
 .row {
   --bs-gutter-x: 0rem;
   --bs-gutter-y: 0;
-}
-
-/* campaign */
-.campaign-donation-stats{
-  margin-bottom: 1em;
-}
-
-.donation-status{
-  padding-right: 6px;
-}
-
-.amount{
-  font-weight: 650;
-  color: #e22c27;
-}
-
-.one{
-  font-weight: 650;
-  color: rgb(12, 12, 120);
-}
-
-.two{
-  font-weight: 650;
-  color: rgb(38, 38, 222);
-}
-
-.three{
-  font-weight: 650;
-  color: rgb(0, 159, 0);
-}
-
-.campaign-progress-bar{
-  margin-bottom: 0.5em;
-  overflow: hidden;
-}
-
-.bar{
-  width: 100%;
-  background-color: #008cb7;
 }

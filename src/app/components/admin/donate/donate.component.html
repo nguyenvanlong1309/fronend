@@ -1,0 +1,19 @@
+<div>
+  <div id="page-inner">
+    <h2>QUẢN LÝ TÀI TRỢ</h2>
+    <hr />
+    <ag-grid-angular
+      style="height: 500px"
+      class="w-100 ag-theme-alpine"
+      
+      [rowData]="donate$ | async"
+      [columnDefs]="columnDefs"
+      [tooltipShowDelay]="0"
+      [headerHeight]="56"
+      [rowHeight]="110"
+
+      (gridReady)="$event.api.sizeColumnsToFit()"
+      (gridSizeChanged)="$event.api.sizeColumnsToFit()"
+    ></ag-grid-angular>
+  </div>
+</div>

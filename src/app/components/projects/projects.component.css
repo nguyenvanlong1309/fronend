@@ -1,5 +1,57 @@
-.text-center{
-  border-bottom: 1px solid #37B984;
+:host ::ng-deep app-project-card > div {
+  padding: 15px 0;
+}
+
+:host ::ng-deep app-project-card p {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+  margin: 0;
+  height: 75px;
+}
+
+:host ::ng-deep app-project-card h3 {
+  color: var(--bs-link-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  margin: 0;
+  height: 48px;
+}
+
+:host ::ng-deep app-project-card .layout {
+  flex-direction: column !important;
+}
+
+:host ::ng-deep app-project-card .layout > div {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+:host ::ng-deep app-project-card .hoat-dong {
+  top: 20px;
+}
+
+:host ::ng-deep app-project-card img {
+  max-height: 216px;
+}
+
+:host ::ng-deep app-project-card .text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .image-container{
@@ -8,57 +60,11 @@
   background-color: #f3f7fd;
 }
 
-.ex-basic-2,
-.project-1{
+.ex-basic-2{
   background-color: #f3f7fd;
 }
 
-#aa-latest-blog{
-  padding-bottom: 150px;
-}
-
-.indefinite{
-  background-color: #5ad1e8;
-  text-decoration: none;
-}
-
-.complete{
-  background-color: #65df87;
-  text-decoration: none;
-}
-
-.motion{
-  background-color: #e85757;
-  text-decoration: none;
-}
-
-.project-1{
-  justify-content: center;
-  display: flex;
-  padding-top: 4rem;
-  text-align: center;
-}
-
-img{
-  cursor: pointer;
-}
-
-.col-md-4{
-  padding: 0 4rem 4rem 4rem;
-}
-
-
-.eleven{
-	border: 2px solid #000;
-	transition: all 0.3s ease;
-	transform: translate(0px 10px);
-}
-
-.eleven:hover{
+app-project-card:hover{
 	box-shadow: 0 7px 5px 0 rgb(59, 59, 59);
 	transform: translate(0px 0px);
-}
-
-p{
-  padding-top: 0;
 }

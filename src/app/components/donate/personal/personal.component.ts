@@ -1,12 +1,10 @@
-import { METHOD_DONATE } from './../../base/constant';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { METHOD_DONATE } from '../../../base/constant';
+import { Subject, takeUntil } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Project } from 'src/app/models/project.model';
-import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { ProjectService } from 'src/app/services/project.service';
 import { DonateService } from 'src/app/services/donate.service';
 import { Utils } from 'src/app/base/utils';
 
@@ -21,7 +19,6 @@ export class PersonalComponent implements OnInit, OnDestroy {
 
   private unsubscribe$: Subject<void> = new Subject();
 
-  public project$: Observable<Project[]>;
   public formGroup: FormGroup;
   public isLogin: boolean;
   public project: Project;
@@ -31,8 +28,6 @@ export class PersonalComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private activedRouter: ActivatedRoute,
-    private projectService: ProjectService,
     private donateService: DonateService,
     private toastService: ToastrService,
     private modalService: NgbModal
@@ -41,16 +36,7 @@ export class PersonalComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.isLogin = Boolean(this.authService.currentUser$.getValue());
-    this.project$ = this.projectService.findAll(2);
     this.ngOnInitForm();
-    this.activedRouter.queryParams.subscribe(res => {
-      if (!res['project-id']) return;
-      this.projectService.findById(res['project-id'])
-        .subscribe(p => {
-          this.project = p;
-          this.formGroup.get('projectId').setValue(p.id);
-        })
-    })
   }
 
   public ngOnInitForm(): void {
@@ -59,11 +45,11 @@ export class PersonalComponent implements OnInit, OnDestroy {
       publicName: [null, [Validators.required]],
       email: [null, [Validators.required]],
       phone: [null, [Validators.required]],
-      methodDonate: [null, [Validators.required]],
+      methodDonate: [0, [Validators.required]],
       money: [null, [Validators.required]],
       comment: [null],
       mode: ['0'],
-      projectId: [null],
+      projectId: [this.project.id],
     })
   }
 

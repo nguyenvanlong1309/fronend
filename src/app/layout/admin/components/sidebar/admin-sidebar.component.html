@@ -1,0 +1,21 @@
+<nav class="navbar-side">
+    <div class="sidebar-collapse">
+        <ul class="chinhul">
+            <li class="chinhli" [routerLinkActive]="'active-menu'">
+                <a [routerLink]="['/admin','dashboard']" class="fas fa-calendar-alt"> Dashboard</a>
+            </li>
+            <li class="chinhli" [routerLinkActive]="'active-menu'" >
+                <a [routerLink]="['/admin', 'dbp1']" class="fas fa-table"> Quản lý đăng bài</a>
+            </li>
+            <li class="chinhli" [routerLinkActive]="'active-menu'">
+                <a [routerLink]="['/admin','dbp']" class="fas fa-pen"> Quản lý bài viết</a>
+            </li>
+            <li class="chinhli" [routerLinkActive]="'active-menu'">
+                <a [routerLink]="['/admin','user']" class="fas fa-user"> Quản lý người dùng</a>
+            </li>
+            <li class="chinhli" [routerLinkActive]="'active-menu'">
+                <a [routerLink]="['/admin','donate']" class="fas fa-user-tie"> Quản lý Donate</a>
+            </li>
+        </ul>
+    </div>
+</nav>

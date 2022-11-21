@@ -1,3 +1,4 @@
+import { ChangePassword } from './../models/user.model';
 import { User, UserModel } from '../models/user.model';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -27,7 +28,6 @@ export class AuthService {
         return this.http.post<UserModel>(`${this.apiAuthUrl}/login`, login)
             .pipe(
                 tap(res => {
-                    this.spinnerService.hide();
                     this.currentUser$.next(res);
                 })
             );
@@ -41,5 +41,10 @@ export class AuthService {
     public logout(): void {
         this.currentUser$.next(null);
         this.router.navigate(['/auth', 'log-in']);
+    }
+
+    public changePassword(changePassword: ChangePassword): Observable<any> {
+        this.spinnerService.show();
+        return this.http.post<any>(`${this.apiAuthUrl}/change-password`, changePassword);
     }
 }

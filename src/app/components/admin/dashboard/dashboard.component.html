@@ -1,0 +1,42 @@
+<div>
+    <div id="page-inner">
+        <h2>DASHBOARD</h2>
+        <hr />
+        <div class="row">
+            <div class="form-group">
+                <label class="labels">Năm</label>
+                <select class="year" [(ngModel)]="year" (change)="onChangeYear()">
+                    <option *ngFor="let y of yearList">{{ y }}</option>
+                </select>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <div class="chart-container">
+                    <canvas id="DonateChart"></canvas>
+                </div>
+                <div class="panel panel-default">
+                    <h4>Biểu đồ thể hiện số tiền quyên góp theo tháng qua từng năm</h4>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12 text-center">
+                    <div class="chart-container">
+                        <canvas id="ProjectByStatusChart"></canvas>
+                    </div>
+                    <div class="panel panel-default">
+                        <h4>Biểu đồ thể hiện tổng các dự án</h4>
+                    </div>
+                </div>
+        
+                <div class="col-md-6 col-sm-12 col-xs-12 text-center">
+                    <div class="chart-container">
+                        <canvas id="ProjectInRegionChart"></canvas>
+                    </div>
+                    <div class="panel panel-default">
+                        <h4>Biểu đồ thể hiện số dự án theo vùng miền</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

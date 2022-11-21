@@ -10,17 +10,17 @@
                             <span class="hv"></span>
                             <span class="hv"></span>
                         </ng-container>
-                        <div class="d-flex" [class.flex-row-reverse]="project.status != 2">
+                        <div class="layout d-flex" [class.flex-row-reverse]="project.status != 2">
                             <div class="col-lg-6">
                                 <div class="image-container">
                                     <h5 [class]="'status' + project.status" class="hoat-dong ms-2">{{ status[project.status].name }}</h5>
-                                    <img class="img-fluid cursor-pointer" (click)="navigate(project)" [src]="project.avatar | img | safe:'resourceUrl'" alt="alternative">
+                                    <img class="img-fluid cursor-pointer w-100 h-100" (click)="navigate(project)" [src]="project.avatar | img | safe:'resourceUrl'" alt="alternative">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="text-container">
-                                    <h3 class="cursor-pointer" (click)="navigate(project)">{{ project.title }}</h3>
-                                    <p class="desc text-justify">{{ project.description }}</p>
+                                    <h3 class="cursor-pointer" [title]="project.title" (click)="navigate(project)">{{ project.title }}</h3>
+                                    <p class="desc text-justify" [title]="project.description">{{ project.description }}</p>
                                     <span *ngIf="project.status == 2" class="btn-tt cursor-pointer" (click)="navigate(project)">TÀI TRỢ</span>
                                     <span *ngIf="project.status != 2" class="btn-ct cursor-pointer" (click)="navigate(project)">CHI TIẾT</span>
                                 </div>

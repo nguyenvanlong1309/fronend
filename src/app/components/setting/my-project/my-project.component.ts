@@ -1,3 +1,5 @@
+import { COLUMN_STT } from 'src/app/base/constant';
+import { TYPE_PROJECT } from './../../../base/constant';
 import { CurrencyPipe, formatDate } from '@angular/common';
 import { Observable } from 'rxjs';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -16,7 +18,9 @@ import { MyProjectActionComponent } from './action/action.component';
 export class MyProjectComponent implements OnInit {
 
     public columnDefs: ColDef[];
-    public project$: Observable<Project[]>;
+    public data$: Observable<Project[]>;
+    public title: string = 'LỊCH SỬ ĐĂNG BÀI';
+    public onlyView: boolean = false;
 
     constructor(
         public activedModal: NgbActiveModal,
@@ -26,29 +30,18 @@ export class MyProjectComponent implements OnInit {
 
     public ngOnInit(): void {
         this.ngOnInitColumn();
-        this.loadDataProject();
+        if (!this.data$) {
+            this.loadDataProject();
+        }
     }
 
     public loadDataProject(): void {
-        this.project$ = this.projectService.findMyProject();
+        this.data$ = this.projectService.findMyProject();
     }
 
     private ngOnInitColumn(): void {
         this.columnDefs = [
-            {
-                headerName: 'STT',
-                headerTooltip: 'STT',
-                minWidth: 60,
-                maxWidth: 60,
-                cellStyle: {
-                    'display': 'flex',
-                    'align-items': 'center',
-                    'justify-content': 'center'
-                },
-                valueGetter: (params: ValueGetterParams) => {
-                    return params.node.rowIndex + 1;
-                }
-            },
+            COLUMN_STT,
             {
                 headerName: 'HÌNH ẢNH',
                 headerTooltip: 'HÌNH ẢNH',
@@ -74,6 +67,17 @@ export class MyProjectComponent implements OnInit {
                 }
             },
             {
+                headerName: 'LOẠI DỰ ÁN',
+                headerTooltip: 'LOẠI DỰ ÁN',
+                minWidth: 120,
+                valueGetter: ({data}) => {
+                    return TYPE_PROJECT[data.type].name;
+                },
+                cellStyle: {
+                    'top': '30px'
+                }
+            },
+            {
                 headerName: 'THỜI GIAN',
                 headerTooltip: 'THỜI GIAN',
                 minWidth: 200,
@@ -81,7 +85,7 @@ export class MyProjectComponent implements OnInit {
 
                 valueGetter: ({data}) => {
                     const startDate = formatDate(new Date(data.startDate), 'dd/MM/yyyy', 'en-US')
-                    const endDate = formatDate(new Date(data.endDate), 'dd/MM/yyyy', 'en-US')
+                    const endDate = data.endDate ? formatDate(new Date(data.endDate), 'dd/MM/yyyy', 'en-US') : '~'
                     return `${startDate} - ${endDate}`
                 },
                 cellStyle: {
@@ -116,7 +120,10 @@ export class MyProjectComponent implements OnInit {
                     'top': '30px'
                 }
             },
-            {
+        ];
+
+        if (!this.onlyView) {
+            this.columnDefs.push({
                 headerName: 'THAO TÁC',
                 headerTooltip: 'THAO TÁC',
                 minWidth: 110,
@@ -127,7 +134,7 @@ export class MyProjectComponent implements OnInit {
                     'justify-content': 'center'
                 },
                 cellRenderer: MyProjectActionComponent
-            }
-        ]
+            });
+        }
     }
 }

@@ -12,4 +12,6 @@ export interface Project {
     description: string;
     total: number;
     statusName: string;
+    type: 0 | 1;
+    money: number;
 }

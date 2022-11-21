@@ -11,4 +11,13 @@ export interface Donate {
     email: string;
     phone: string;
     title: string;
+    comment: string;
+    type: 0 | 1,
+    image: string;
+}
+
+export interface DonateTop {
+    publicName: string;
+    total: number;
+    count: number;
 }

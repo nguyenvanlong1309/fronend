@@ -1,0 +1,18 @@
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-brand {
+    padding: 0;
+    height: unset;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    font-weight: 600;
+}

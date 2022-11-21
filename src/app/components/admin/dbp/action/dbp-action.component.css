@@ -1,0 +1,16 @@
+.action:hover .menu {
+    display: flex !important;
+}
+
+.menu {
+    left: -88px;
+    top: 30px;
+    width: 100px;
+    background: #f2fef2;
+}
+
+span {
+    line-height: 28px;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+}

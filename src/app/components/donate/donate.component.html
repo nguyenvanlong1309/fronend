@@ -1,0 +1,25 @@
+<div *ngIf="project" id="details" class="py-4" style="background-color: #f3f7fd;">
+    <div class="container bg-white rounded py-3">
+        <div class="row">
+            <div class="col-lg-6">
+                <router-outlet (activate)="loadComponent($event)"></router-outlet>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <h4 class="text-left text-uppercase">Những cá nhân tài trợ nổi bật</h4>
+                    <ag-grid-angular
+                        style="height: 550px;"
+                        class="w-100 ag-theme-alpine mt-4"
+                        [headerHeight]="56"
+                        [rowHeight]="50"
+                        [columnDefs]="columnDefs"
+                        [rowData]="donateTop$ | async"
+                        [domLayout]="'autoHeight'"
+
+                        (gridReady)="$event.api.sizeColumnsToFit()"
+                    ></ag-grid-angular>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

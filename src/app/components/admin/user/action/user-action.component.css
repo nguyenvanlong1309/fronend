@@ -1,0 +1,24 @@
+.action {
+    z-index: 1;
+}
+
+.action:hover .menu {
+    display: flex !important;
+}
+
+.menu {
+    left: -120px;
+    top: 16px;
+    width: 120px;
+    background: #f2fef2;
+}
+
+button {
+    line-height: 28px;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 0 10px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-weight: 500;
+}

@@ -1,0 +1,17 @@
+<div>
+  <div id="page-inner">
+	<h2 class="mb-0">{{ title }}</h2>
+    <hr />
+	<ag-grid-angular
+		style="height: 500px;"
+		class="w-100 ag-theme-alpine"
+		[headerHeight]="56"
+		[rowHeight]="110"
+		[columnDefs]="columnDefs"
+		[rowData]="project$ | async"
+		[context]="this"
+
+		(gridReady)="$event.api.sizeColumnsToFit()"
+	></ag-grid-angular>
+  </div>
+</div>
