@@ -1,14 +1,12 @@
 import { Confirmation } from './../../../base/confirmation/confirmation.enum';
 import { BankComponent } from './../bank/bank.component';
 import { METHOD_DONATE } from '../../../base/constant';
-import { Observable, Subject, takeUntil, filter } from 'rxjs';
+import { Subject, takeUntil, filter } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Project } from 'src/app/models/project.model';
-import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { ProjectService } from 'src/app/services/project.service';
 import { DonateService } from 'src/app/services/donate.service';
 import { Utils } from 'src/app/base/utils';
 

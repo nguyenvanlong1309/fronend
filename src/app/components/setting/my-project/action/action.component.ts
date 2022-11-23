@@ -13,7 +13,7 @@ import { MyProjectComponent } from '../my-project.component';
     styleUrls: ['./action.component.css']
 })
 export class MyProjectActionComponent implements ICellRendererAngularComp {
-    
+
     public params: ICellRendererParams<Project, any>;
 
     constructor(
@@ -36,7 +36,7 @@ export class MyProjectActionComponent implements ICellRendererAngularComp {
         ref.componentInstance.project = {
             ...this.params.data,
             startDate: formatDate(this.params.data.startDate, 'yyyy-MM-dd', 'en_US'),
-            endDate: !this.params.data.endDate || formatDate(this.params.data.endDate, 'yyyy-MM-dd', 'en_US')
+            endDate: this.params.data.endDate ? formatDate(this.params.data.endDate, 'yyyy-MM-dd', 'en_US') : null
         };
 
         ref.closed.subscribe(res => {
