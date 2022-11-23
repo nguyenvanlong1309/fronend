@@ -9,6 +9,8 @@ import { Project } from 'src/app/models/project.model';
 import { ProjectService } from 'src/app/services/project.service';
 import { environment } from 'src/environments/environment';
 import { MyProjectActionComponent } from './action/action.component';
+import { Utils } from 'src/app/base/utils';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-my-project',
@@ -25,7 +27,8 @@ export class MyProjectComponent implements OnInit {
     constructor(
         public activedModal: NgbActiveModal,
         private projectService: ProjectService,
-        private currencyPipe: CurrencyPipe
+        private currencyPipe: CurrencyPipe,
+        private router: Router
     ) {}
 
     public ngOnInit(): void {
@@ -50,10 +53,15 @@ export class MyProjectComponent implements OnInit {
                 cellStyle: {
                     'display': 'flex',
                     'align-items': 'center',
-                    'justify-content': 'center'
+                    'justify-content': 'center',
+                    'cursor': 'pointer'
                 },
                 cellRenderer: (params: any) => {
                     return `<img src="${environment.IMAGE_STORE_URL}${params.data.avatar}" class="w-100 h-100" />`
+                },
+                onCellClicked: param => {
+                    this.navigate(param.data);
+                    this.activedModal.close();
                 }
             },
             {
@@ -63,7 +71,13 @@ export class MyProjectComponent implements OnInit {
                 field: 'title',
                 tooltipField: 'title',
                 cellStyle: {
-                    'top': '30px'
+                    'top': '30px',
+                    'color': '#007bff',
+                    'cursor': 'pointer'
+                },
+                onCellClicked: param => {
+                    this.navigate(param.data);
+                    this.activedModal.close();
                 }
             },
             {
@@ -136,5 +150,14 @@ export class MyProjectComponent implements OnInit {
                 cellRenderer: MyProjectActionComponent
             });
         }
+    }
+
+    public navigate(project: Project): void {
+        const title = Utils.toLowerCaseNonAccentVietnamese(project.title).replace(/\s/g, '-');
+        this.router.navigate(['/project',title], {
+            queryParams: {
+                id: project.id
+            }
+        });
     }
 }

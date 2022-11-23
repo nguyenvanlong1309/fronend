@@ -33,8 +33,28 @@
             <app-project-card
                 *ngFor="let p of project$ | async"
                 [project]="p"
+                [showMore]="true"
                 class="w-100 h-100"
             ></app-project-card>
+        </div>
+    </div>
+    <div class="w3-container summary text-center p-5">
+        <h3 class="w3-center sum-case">ĐẾN HÔM NAY CHÚNG TÔI ĐÃ LÀM ĐƯỢC:</h3>
+      
+        <div class="w3-row-padding w3-center about-us">
+            <div class="w3-quarter about-us-case">
+                <div class="sum-case">
+                    <p class="number" style="color: orange"><i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center me-2" style="color: orange"></i>{{ totalDonateAndProject.countProject }}</p>
+                    <p class="sum-case">TRƯỜNG HỢP</p>
+                </div>
+            </div>
+    
+            <div class="w3-quarter about-us-case">
+                <div class="sum-case">
+                    <p class="number" style="color: rgb(226, 63, 63)"><i class="fa fa-heart w3-margin-bottom w3-jumbo me-2" style="color: rgb(226, 63, 63)"></i>{{ totalDonateAndProject.totalDonate | currency:'VND' }}</p>
+                    <p class="sum-case">ĐỒNG</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container d-flex flex-column align-items-center mt-3">

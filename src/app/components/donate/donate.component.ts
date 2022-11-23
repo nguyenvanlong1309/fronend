@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from "@angular/core";
 import { Project } from "src/app/models/project.model";
@@ -15,7 +15,7 @@ import { DonateTop } from 'src/app/models/donate.model';
 })
 export class DonateComponent implements OnInit{
     
-    public donateTop$: Observable<DonateTop[]>;
+    public donateTop$: Observable<DonateTop[]>  = of([]);;
     public project: Project;
 
     constructor(

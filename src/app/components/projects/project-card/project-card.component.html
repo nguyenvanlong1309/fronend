@@ -18,11 +18,19 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="text-container">
-                                    <h3 class="cursor-pointer" [title]="project.title" (click)="navigate(project)">{{ project.title }}</h3>
-                                    <p class="desc text-justify" [title]="project.description">{{ project.description }}</p>
-                                    <span *ngIf="project.status == 2" class="btn-tt cursor-pointer" (click)="navigate(project)">TÀI TRỢ</span>
-                                    <span *ngIf="project.status != 2" class="btn-ct cursor-pointer" (click)="navigate(project)">CHI TIẾT</span>
+                                <div class="d-flex flex-column justify-content-between w-100 h-100">
+                                    <div class="text-container">
+                                        <h3 class="cursor-pointer" [title]="project.title" (click)="navigate(project)">{{ project.title }}</h3>
+                                        <p class="desc text-justify" [title]="project.description">{{ project.description }}</p>
+                                        <div *ngIf="showMore" class="d-flex flex-column gap-2">
+                                            <span class="text-success fw-bold">Đã góp được:&nbsp;&nbsp;<span class="text-danger">{{ (project.total || 0) | currency:'VND' }} </span> </span>
+                                            <span class="text-primary fw-bold">Cần huy động: <span class="text-danger">{{ (project.money || 0) | currency:'VND' }}</span> </span>
+                                        </div>    
+                                    </div>
+                                    <div class="p-4">
+                                        <span *ngIf="project.status == 2" class="btn-tt cursor-pointer" (click)="navigate(project)">TÀI TRỢ</span>
+                                        <span *ngIf="project.status != 2" class="btn-ct cursor-pointer" (click)="navigate(project)">CHI TIẾT</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

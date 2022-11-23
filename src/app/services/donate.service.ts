@@ -78,4 +78,8 @@ export class DonateService {
                 saveAs(blob, `${fileName}.xls`)
             }))
     }
+
+    public getTotalProjectAndDonate(): Observable<any> {
+        return this.http.get(`${this.url}/donate-and-project`);
+    }
 }

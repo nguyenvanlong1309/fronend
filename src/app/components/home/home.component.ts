@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project.model';
+import { DonateService } from 'src/app/services/donate.service';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +14,16 @@ export class HomeComponent implements OnInit {
 
   public project$: Observable<Project[]>;
   public status = PROJECT_STATUS;
+  public totalDonateAndProject;
 
   constructor(
     private projectService: ProjectService,
+    private donateService: DonateService
   ) { }
 
   ngOnInit(): void {
     this.project$ = this.projectService.findAll();
+    this.donateService.getTotalProjectAndDonate()
+      .subscribe(res => this.totalDonateAndProject = res);
   }
 }

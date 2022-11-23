@@ -1,5 +1,5 @@
 import { Utils } from './../../base/utils';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
@@ -16,7 +16,7 @@ import { ProjectService } from 'src/app/services/project.service';
 })
 export class FinanceComponent implements OnInit {
 
-  public donate$: Observable<DonateTop[]>;
+  public donate$: Observable<DonateTop[]> = of([]);
   public project$: Observable<Project[]>;
   public project: Project;
   public columnDefs: ColDef[] = [

@@ -67,8 +67,8 @@ export class ListDonateComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-      if (this.noShowDate) {
-        this.columnDefs.splice(1, 1);
-      }
+    if (this.noShowDate) {
+      this.columnDefs.splice(2, 1);
+    }
   }
 }

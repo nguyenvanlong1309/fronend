@@ -14,6 +14,7 @@ export class ProjectCardComponent implements OnInit {
 
     @Input() project: Project;
     @Input() animatedBorder: boolean = true;
+    @Input() showMore: boolean = false;
 
     public status = PROJECT_STATUS;
 
