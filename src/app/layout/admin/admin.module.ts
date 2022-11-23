@@ -16,12 +16,14 @@ import { ShowDetailComponent } from 'src/app/components/admin/user/show-detail/s
 import { UserActionComponent } from 'src/app/components/admin/user/action/user-action.component';
 import { CommentComponent } from 'src/app/components/admin/donate/comment/comment.component';
 import { UserFormComponent } from 'src/app/components/admin/user/user-form/user-form.component';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const imports = [
     AdminRouterModule,
     CommonModule,
     AgGridModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule
 ]
 

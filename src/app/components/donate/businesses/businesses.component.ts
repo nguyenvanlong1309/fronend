@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { takeUntil, Subject, filter } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankComponent } from '../bank/bank.component';
+import { DonateComponent } from '../donate.component';
 
 @Component({
   selector: 'app-businesses',
@@ -26,6 +27,7 @@ export class BusinessesComponent implements OnInit, OnDestroy {
   }
   public methodDonate = METHOD_DONATE;
   public moneyAsText: string;
+  public context: DonateComponent;
 
   constructor(
     private fb: FormBuilder,
@@ -94,6 +96,7 @@ export class BusinessesComponent implements OnInit, OnDestroy {
         .subscribe(res => {
           this.toastService.success('Tài trợ thành công');
           this.formGroup.reset();
+          this.context.loadDonateTop();
         })
     })
   }

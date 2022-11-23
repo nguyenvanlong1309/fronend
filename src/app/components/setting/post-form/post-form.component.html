@@ -55,7 +55,8 @@
 
           <div class="form-group">
             <label class="labels required">SỐ TIỀN MONG MUỐN</label>
-            <input class="form-control" placeholder="Số tiền mong muốn" formControlName="money">
+            <input type="number" class="form-control" placeholder="Số tiền mong muốn" formControlName="money">
+            <div class="text-success fw-bold money-text mt-1 ms-1">{{ moneyAsText }}</div>
             <ng-container
                 [ngTemplateOutlet]="requiredError"
                 [ngTemplateOutletContext]="{

@@ -76,7 +76,7 @@ export class FinanceComponent implements OnInit {
 
   public loadDonate(project: Project): void {
     this.project = project;
-    this.donate$ = this.donateService.findTopDonate(null, null, project.id);
+    this.donate$ = this.donateService.findListDonate(project.id);
   }
 
   public exportExcel(): void {

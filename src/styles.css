@@ -42,3 +42,8 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #6e778a;
 }
+
+/*  */
+.money-text::first-letter {
+	text-transform: uppercase;
+}

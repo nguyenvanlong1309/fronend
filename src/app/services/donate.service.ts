@@ -41,13 +41,18 @@ export class DonateService {
         return this.http.get<Donate[]>(`${this.url}/mine`);
     }
 
-    public findTopDonate(type: 0 | 1 | null, pageSize = DEFAULT_SIZE_TOP_DONATE, projectId?): Observable<DonateTop[]> {
+    public findListDonate(projectId?): Observable<DonateTop[]> {
+        this.spinnerService.show();
+        return this.http.get<DonateTop[]>(`${this.url}/list-donate`, { params: { projectId } })
+    }
+
+    public findTopDonate2(type: 0 | 1 | null, pageSize = DEFAULT_SIZE_TOP_DONATE, projectId?): Observable<DonateTop[]> {
         this.spinnerService.show();
         const params: any = {};
         if (type != null) params.type = type;
         if (pageSize != null) params.limit = pageSize;
         if (projectId) params.projectId = projectId;
-        return this.http.get<DonateTop[]>(`${this.url}/top-donate`, { params })
+        return this.http.get<DonateTop[]>(`${this.url}/top-donate2`, { params })
     }
 
     public findDonateByUsername(username: string): Observable<Donate[]> {

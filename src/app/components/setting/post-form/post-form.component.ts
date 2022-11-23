@@ -27,6 +27,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
     public avatarFile: {file: File, url: string};
     public project: Project;
     public typeProject;
+    public moneyAsText: string;
 
     constructor(
         private cityService: CityService,
@@ -61,6 +62,9 @@ export class PostFormComponent implements OnInit, OnDestroy {
             type: [0],
             money: [null, [Validators.required]]
         });
+        this.formGroup.get('money').valueChanges.subscribe(money => {
+            this.moneyAsText = Utils.moneyAsText(money);
+        })
         this.formGroup.get('startDate').setValidators([Validators.required, customValidateDate(this.formGroup, 'endDate')])
         this.formGroup.get('endDate').setValidators([Validators.required, customValidateDate(this.formGroup, 'startDate')])
         this.formGroup.get('type').valueChanges.subscribe(res => {

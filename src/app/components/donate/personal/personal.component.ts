@@ -5,12 +5,13 @@ import { Subject, takeUntil, filter } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Project } from 'src/app/models/project.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { DonateService } from 'src/app/services/donate.service';
 import { Utils } from 'src/app/base/utils';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DonateComponent } from '../donate.component';
 
 @Component({
   selector: 'app-personal',
@@ -27,6 +28,7 @@ export class PersonalComponent implements OnInit, OnDestroy {
   public isUseSessionUser: boolean;
   public methodDonate = METHOD_DONATE;
   public moneyAsText: string;
+  public context: DonateComponent;
 
   constructor(
     private fb: FormBuilder,
@@ -94,6 +96,7 @@ export class PersonalComponent implements OnInit, OnDestroy {
             this.formGroup.reset();
             this.formGroup.enable();
             this.isUseSessionUser = false;
+            this.context.loadDonateTop();
           })
       })
   }

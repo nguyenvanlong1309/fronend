@@ -77,6 +77,8 @@ export class SettingComponent implements OnInit {
 			centered: true,
 			animation: true,
 			size: 'lg',
+			backdrop : 'static',
+      		keyboard : false
 		});
 	}
 }

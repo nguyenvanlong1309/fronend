@@ -39,7 +39,8 @@ export class Utils {
   static readonly chuHangTram = ('không một' + this.defaultNumbers).split(' ');
   static readonly dvBlock = '1 nghìn triệu tỷ'.split(' ');
 
-  public static moneyAsText(money: number | string): string {
+  public static moneyAsText(money: number | string | null): string {
+    if (!money) return "";
     const convert_block_three = (number) => {
       if (number == '000') return '';
       const _a = number + ''; //Convert biến 'number' thành kiểu string

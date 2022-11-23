@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 import { COLUMN_STT } from 'src/app/base/constant';
 import { DonateTop } from 'src/app/models/donate.model';
@@ -9,10 +9,14 @@ import { DonateTop } from 'src/app/models/donate.model';
   templateUrl: './list-donate.component.html',
   styleUrls: ['./list-donate.component.css'],
 })
-export class ListDonateComponent {
+export class ListDonateComponent implements OnInit {
 
   @Input() 
   public donate: DonateTop[] = [];
+
+  @Input()
+  public noShowDate: boolean = false;
+
   public columnDefs: ColDef[] = [
     COLUMN_STT,
     {
@@ -61,4 +65,10 @@ export class ListDonateComponent {
   constructor(
     private currencyPipe: CurrencyPipe
   ) {}
+
+  public ngOnInit(): void {
+      if (this.noShowDate) {
+        this.columnDefs.splice(1, 1);
+      }
+  }
 }

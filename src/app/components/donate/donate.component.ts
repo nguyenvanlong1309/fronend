@@ -7,8 +7,6 @@ import { PersonalComponent } from './personal/personal.component';
 import { BusinessesComponent } from './businesses/businesses.component';
 import { DonateService } from 'src/app/services/donate.service';
 import { DonateTop } from 'src/app/models/donate.model';
-import { ColDef } from 'ag-grid-community';
-import { CurrencyPipe } from '@angular/common';
 
 @Component({
     selector: 'app-donate',
@@ -25,24 +23,28 @@ export class DonateComponent implements OnInit{
         private projectService: ProjectService,
         private donateService: DonateService,
         private _router: Router,
-        private currencyPipe: CurrencyPipe,
     ) {}
 
     public ngOnInit(): void {
         this.router.queryParams.subscribe(res => {
             if (!res['project-id']) return;
-            if (this._router.url.startsWith('/donate/business')) {
-                this.donateTop$ = this.donateService.findTopDonate(1);
-            } else {
-                this.donateTop$ = this.donateService.findTopDonate(0);
-            }
+            this.loadDonateTop();
             this.projectService.findById(res['project-id']).subscribe(res => {
                 this.project = res;
             })
         })
     }
 
+    public loadDonateTop(): void {
+        if (this._router.url.startsWith('/donate/business')) {
+            this.donateTop$ = this.donateService.findTopDonate2(1);
+        } else {
+            this.donateTop$ = this.donateService.findTopDonate2(0);
+        }
+    }
+
     public loadComponent(com: PersonalComponent | BusinessesComponent): void {
         com.project = this.project;
+        com.context = this;
     }
 }
