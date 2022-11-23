@@ -18,7 +18,6 @@ import { CurrencyPipe } from '@angular/common';
 export class DonateComponent implements OnInit{
     
     public donateTop$: Observable<DonateTop[]>;
-    public columnDefs: ColDef[];
     public project: Project;
 
     constructor(
@@ -32,7 +31,6 @@ export class DonateComponent implements OnInit{
     public ngOnInit(): void {
         this.router.queryParams.subscribe(res => {
             if (!res['project-id']) return;
-            this.ngOnInitColumn();
             if (this._router.url.startsWith('/donate/business')) {
                 this.donateTop$ = this.donateService.findTopDonate(1);
             } else {
@@ -42,43 +40,6 @@ export class DonateComponent implements OnInit{
                 this.project = res;
             })
         })
-    }
-
-    private ngOnInitColumn(): void {
-        this.columnDefs = [
-            {
-                headerName: 'TÊN',
-                headerTooltip: 'TÊN',
-
-                cellStyle: {
-                    'top': '4px'
-                },
-                field: 'publicName',
-                tooltipField: 'publicName',
-            },
-            {
-                headerName: 'SỐ TIỀN',
-                headerTooltip: 'SỐ TIỀN',
-
-                cellStyle: {
-                    'top': '4px'
-                },
-                valueGetter: ({data}) => {
-                    return this.currencyPipe.transform(data.total || 0, 'VND')
-                }
-            },
-
-            {
-                headerName: 'SỐ LẦN',
-                headerTooltip: 'SỐ LẦN',
-
-                cellStyle: {
-                    'top': '4px'
-                },
-                field: 'count',
-                tooltipField: 'count'
-            }
-        ]
     }
 
     public loadComponent(com: PersonalComponent | BusinessesComponent): void {

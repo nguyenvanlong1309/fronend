@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { SpinnerService } from "src/app/services/spinner.service";
 import { Observable } from 'rxjs';
 
@@ -10,12 +10,16 @@ import { Observable } from 'rxjs';
 export class SpinnerComponent implements OnInit {
 
     public spinnerObservable: Observable<boolean>;
-
+    public isLoading: boolean;
     constructor(
-        private spinnerService: SpinnerService
+        private spinnerService: SpinnerService,
+        private cdr: ChangeDetectorRef
     ) {}
 
     ngOnInit(): void {
-        this.spinnerObservable = this.spinnerService.spinner$.asObservable();
+        this.spinnerService.spinner$.subscribe(res => {
+            this.isLoading = res;
+            this.cdr.detectChanges();
+        })
     }
 }

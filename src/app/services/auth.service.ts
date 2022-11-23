@@ -47,4 +47,9 @@ export class AuthService {
         this.spinnerService.show();
         return this.http.post<any>(`${this.apiAuthUrl}/change-password`, changePassword);
     }
+
+    public forgetPassword(username: string): Observable<any> {
+        this.spinnerService.show();
+        return this.http.post<any>(`${this.apiAuthUrl}/forget-password`, { username });
+    }
 }

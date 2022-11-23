@@ -1,8 +1,14 @@
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil, Observable } from 'rxjs';
 import { ProjectService } from './../../../services/project.service';
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, TemplateRef } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Project } from "src/app/models/project.model";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DonateService } from 'src/app/services/donate.service';
+import { DonateTop } from 'src/app/models/donate.model';
+import { ColDef } from 'ag-grid-community';
+import { COLUMN_STT } from 'src/app/base/constant';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
     selector: 'app-project-detail',
@@ -18,6 +24,9 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
         private router: ActivatedRoute,
         private projectService: ProjectService,
         private _router: Router,
+        private ngbModal: NgbModal,
+        private donateService: DonateService,
+        private currencyPipe: CurrencyPipe,
     ) {}
 
     public ngOnInit(): void {

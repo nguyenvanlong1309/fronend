@@ -1,3 +1,4 @@
+import { Confirmation } from './../../../base/confirmation/confirmation.enum';
 import { Project } from 'src/app/models/project.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -5,7 +6,9 @@ import { METHOD_DONATE } from 'src/app/base/constant';
 import { Utils } from 'src/app/base/utils';
 import { DonateService } from 'src/app/services/donate.service';
 import { ToastrService } from 'ngx-toastr';
-import { takeUntil, Subject } from 'rxjs';
+import { takeUntil, Subject, filter } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BankComponent } from '../bank/bank.component';
 
 @Component({
   selector: 'app-businesses',
@@ -22,11 +25,13 @@ export class BusinessesComponent implements OnInit, OnDestroy {
     url: 'assets/images/noimage.png'
   }
   public methodDonate = METHOD_DONATE;
+  public moneyAsText: string;
 
   constructor(
     private fb: FormBuilder,
     private donateService: DonateService,
     private toastService: ToastrService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +47,9 @@ export class BusinessesComponent implements OnInit, OnDestroy {
       comment: [null],
       methodDonate: [0, [Validators.required]],
       projectId: [this.project.id, [Validators.required]]
+    });
+    this.formGroup.get('money').valueChanges.subscribe(res => {
+      this.moneyAsText = Utils.moneyAsText(res);
     })
   }
   
@@ -64,19 +72,30 @@ export class BusinessesComponent implements OnInit, OnDestroy {
 
   public ngSubmitForm(): void {
     Utils.beforeSubmitFomr(this.formGroup);
-    console.log(this.formGroup.value);
     if (this.formGroup.invalid) return;
-    const formData = new FormData();
-    formData.append('donate', new Blob([JSON.stringify(this.formGroup.value)], {
-      type: 'application/json'
-    }));
-    formData.append('avatar', this.avatar.file);
-    this.donateService.donateBusiness(formData)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(res => {
-        this.toastService.success('Tài trợ thành công');
-        this.formGroup.reset();
-      })
+
+    const ref = this.modalService.open(BankComponent, {
+      size: 'lg',
+      centered: true,
+      animation: true
+    });
+    const component = ref.componentInstance as BankComponent;
+    component.money = this.formGroup.get('money').value;
+    ref.closed
+    .pipe(filter(res => res == Confirmation.CONFIRM))
+    .subscribe(res => {
+      const formData = new FormData();
+      formData.append('donate', new Blob([JSON.stringify(this.formGroup.value)], {
+        type: 'application/json'
+      }));
+      formData.append('avatar', this.avatar.file);
+      this.donateService.donateBusiness(formData)
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(res => {
+          this.toastService.success('Tài trợ thành công');
+          this.formGroup.reset();
+        })
+    })
   }
 
   public ngOnDestroy(): void {

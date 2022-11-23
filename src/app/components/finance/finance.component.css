@@ -14,3 +14,14 @@ ul{
 .btn-solid-reg{
   color: #fff;
 }
+
+.project-focus,
+.project:hover {
+  background-color: RGBA(13, 110, 253, var(--bs-bg-opacity, 1)) !important;
+  padding-left: 10px;
+}
+
+.project-focus > span,
+.project:hover > span {
+  color: #fff !important;
+}

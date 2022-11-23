@@ -34,7 +34,8 @@ export class SignupComponent implements OnInit,OnDestroy {
       username: [null, [Validators.required]],
       password: [null, [Validators.required]],
       passwordConfirmation: [null, [Validators.required]],
-      phone: [null, [Validators.required]]
+      phone: [null, [Validators.required, Validators.pattern('^(0|\\+84)[0-9]{9}')]],
+      email: [null, [Validators.required, Validators.email]]
     })
   }
 

@@ -10,7 +10,7 @@
                 </div>
 
                 <!-- Chức năng đăng bài của PO -->
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center" *ngIf="isPO">
                   <a class="btn-solid-reg" (click)="openPostForm()">Đăng bài viết</a>
                 </div>
               </div>
@@ -53,7 +53,7 @@
                           <button class="history-hv btn-history px-0 ps-2 text-left" (click)="openMyDonate()">Lịch sử tài trợ</button>
                         </li>
                         <!-- PO -->
-                        <li class="li-history">
+                        <li class="li-history" *ngIf="isPO">
                           <button class="history-hv btn-history px-0 ps-2 text-left" (click)="openMyProject()">Lịch sử đăng bài</button>
                         </li>
                       </ul>

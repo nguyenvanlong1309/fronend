@@ -1,3 +1,4 @@
+import { BankComponent } from './../../components/donate/bank/bank.component';
 import { MapComponent } from './../../components/map/map.component';
 import { ProjectCardComponent } from './../../components/projects/project-card/project-card.component';
 import { ImagePipe } from './../../pipe/image.pipe';
@@ -28,6 +29,7 @@ import { MyProjectActionComponent } from 'src/app/components/setting/my-project/
 import { MyDonateComponent } from 'src/app/components/setting/my-donate/my-donate.component';
 import { BusinessesComponent } from 'src/app/components/donate/businesses/businesses.component';
 import { DonateComponent } from 'src/app/components/donate/donate.component';
+import { ListDonateComponent } from 'src/app/components/donate/list-donate/list-donate.component';
 
 const imports:  Array<Type<any> | ModuleWithProviders<{}> | any[]> = [
     CommonModule,
@@ -63,6 +65,9 @@ const declarations: Array<Type<any> | any[]> = [
     BusinessesComponent,
 
     MapComponent,
+
+    BankComponent,
+    ListDonateComponent,
 
     SafePipe,
     ImagePipe

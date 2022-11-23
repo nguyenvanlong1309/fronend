@@ -1,0 +1,12 @@
+<ag-grid-angular
+    class="w-100 ag-theme-alpine"
+    [headerHeight]="56"
+    [rowHeight]="50"
+    [columnDefs]="columnDefs"
+    [rowData]="donate"
+    [tooltipShowDelay]="0"
+    [domLayout]="'autoHeight'"
+    [overlayNoRowsTemplate]="'Chưa có ai tài trợ.'"
+
+    (gridReady)="$event.api.sizeColumnsToFit()"
+></ag-grid-angular>

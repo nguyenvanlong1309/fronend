@@ -22,6 +22,7 @@
 
                       <div class="form-group">
                           <button class="form-control-submit-button">Đăng nhập</button>
+                          <span class="text-primary cursor-pointer" (click)="ngOnOpenForgetPassword(forgetPassword)">Quên mật khẩu?</span>
                       </div>
                   </form>
                   <p style="color: #b0b0b0">Bạn chưa có tài khoản? Hãy<a class="btn-login" [routerLink]="['/auth', 'sign-up']"> Đăng ký</a></p>
@@ -29,19 +30,19 @@
                   <div class="form p-0">
                       <div class="icon-container">
                           <span class="fa-stack">
-                              <a [routerLink]="['/**']">
+                              <a>
                                   <i class="fas fa-circle fa-stack-2x"></i>
                                   <i class="fab fa-facebook-f fa-stack-1x"></i>
                               </a>
                           </span>
                           <span class="fa-stack">
-                              <a [routerLink]="['/**']">
+                              <a>
                                   <i class="fas fa-circle fa-stack-2x"></i>
                                   <i class="fab fa-twitter fa-stack-1x"></i>
                               </a>
                           </span>
                           <span class="fa-stack">
-                              <a [routerLink]="['/**']">
+                              <a>
                                   <i class="fas fa-circle fa-stack-2x"></i>
                                   <i class="fab fa-google fa-stack-1x"></i>
                               </a>
@@ -57,3 +58,20 @@
   </div>
 </header>
 
+<ng-template #forgetPassword>
+    <div>
+        <div class="modal-header">
+            Quên mật khẩu
+        </div>
+        <form class="d-flex flex-column" (submit)="ngOnSubmitForgetPassword()">
+            <div class="modal-body">
+                <label>Tên đăng nhập</label>
+                <input class="form-control" placeholder="Nhập tên đăng nhập" [(ngModel)]="usernameToForgetPassword" [ngModelOptions]="{standalone: true}"/>
+            </div>
+            <div class="modal-footer justify-content-center gap-2">
+                <button class="btn btn-primary">Lấy mật khẩu</button>
+                <button type="button" class="btn btn-secondary" (click)="modalRef.close()">Hủy</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

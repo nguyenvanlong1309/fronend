@@ -1,0 +1,16 @@
+.modal-body {
+    background: #f2f2f2;
+}
+
+.modal-body > div > .row {
+    transition: all .5s;
+}
+
+.bank-logo {
+    width: 100px;
+    height: 50px;
+}
+
+.none {
+    display: none;
+}

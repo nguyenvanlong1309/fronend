@@ -20,6 +20,7 @@ export class SettingComponent implements OnInit {
 	user: UserModel;
 	formGroup: FormGroup;
 	closeResult: string;
+	isPO: boolean;
 
 	constructor(
 		private authService: AuthService,
@@ -31,6 +32,7 @@ export class SettingComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.user = this.authService.currentUser$.getValue();
+		this.isPO = this.user.user.role === 'PO';
 		this.ngBuildForm();
 		this.formGroup.patchValue(this.user.user);
 	}

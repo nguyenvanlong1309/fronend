@@ -1,5 +1,7 @@
+import { Confirmation } from './../../../base/confirmation/confirmation.enum';
+import { BankComponent } from './../bank/bank.component';
 import { METHOD_DONATE } from '../../../base/constant';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil, filter } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Project } from 'src/app/models/project.model';
 import { ActivatedRoute } from '@angular/router';
@@ -26,6 +28,7 @@ export class PersonalComponent implements OnInit, OnDestroy {
   public project: Project;
   public isUseSessionUser: boolean;
   public methodDonate = METHOD_DONATE;
+  public moneyAsText: string;
 
   constructor(
     private fb: FormBuilder,
@@ -51,7 +54,10 @@ export class PersonalComponent implements OnInit, OnDestroy {
       money: [null, [Validators.required]],
       comment: [null],
       mode: ['0'],
-      projectId: [null],
+      projectId: [this.project.id],
+    });
+    this.formGroup.get('money').valueChanges.subscribe(res => {
+      this.moneyAsText = Utils.moneyAsText(res);
     })
   }
 
@@ -72,13 +78,25 @@ export class PersonalComponent implements OnInit, OnDestroy {
   public ngSubmitForm(): void {
     Utils.beforeSubmitFomr(this.formGroup);
     if (this.formGroup.invalid) return;
-    this.donateService.donatePersonal(this.formGroup.getRawValue())
-      .pipe(takeUntil(this.unsubscribe$))
+    const ref = this.modalService.open(BankComponent, {
+      size: 'lg',
+      centered: true,
+      animation: true
+    });
+    const component = ref.componentInstance as BankComponent;
+    component.money = this.formGroup.get('money').value;
+
+    ref.closed
+      .pipe(filter(res => res == Confirmation.CONFIRM))
       .subscribe(res => {
-        this.toastService.success('Tài trợ thành công');
-        this.formGroup.reset();
-        this.formGroup.enable();
-        this.isUseSessionUser = false;
+        this.donateService.donatePersonal(this.formGroup.getRawValue())
+          .pipe(takeUntil(this.unsubscribe$))
+          .subscribe(res => {
+            this.toastService.success('Tài trợ thành công');
+            this.formGroup.reset();
+            this.formGroup.enable();
+            this.isUseSessionUser = false;
+          })
       })
   }
 
@@ -86,8 +104,4 @@ export class PersonalComponent implements OnInit, OnDestroy {
       this.unsubscribe$?.next();
       this.unsubscribe$?.complete();
   }
-
-  openVerticallyCentered(content) {
-		this.modalService.open(content, { centered: true });
-	}
 }

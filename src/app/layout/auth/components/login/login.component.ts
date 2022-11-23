@@ -1,11 +1,12 @@
 import { ToastrService } from 'ngx-toastr';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Role } from 'src/app/base/role.enum';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,17 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   private unsubscribe$: Subject<void> = new Subject();
 
-  formGroup: FormGroup;
+  public formGroup: FormGroup;
+  public modalRef: NgbModalRef;
+  public usernameToForgetPassword: string;
 
   constructor(
     private fb: FormBuilder,
     private loginService: AuthService,
     private toastService: ToastrService,
     private router: Router,
+    private ngbModal: NgbModal,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +53,23 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
         this.router.navigate(['/home']);
       })
+  }
 
+  ngOnOpenForgetPassword(templateRef: TemplateRef<any>): void {
+    this.modalRef = this.ngbModal.open(templateRef, {
+      centered: true,
+      animation: true
+    })
+  }
+
+  ngOnSubmitForgetPassword(): void {
+    if (!this.usernameToForgetPassword) return;
+    this.authService.forgetPassword(this.usernameToForgetPassword)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(res => {
+        this.toastService.success('Mật khẩu đã được gửi tới Mail. Vui lòng kiểm tra.');
+        this.modalRef.close();
+      })
   }
 
   ngOnDestroy(): void {

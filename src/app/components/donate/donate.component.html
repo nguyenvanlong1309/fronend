@@ -7,17 +7,9 @@
             <div class="col-lg-6">
                 <div>
                     <h4 class="text-left text-uppercase">Những cá nhân tài trợ nổi bật</h4>
-                    <ag-grid-angular
-                        style="height: 550px;"
-                        class="w-100 ag-theme-alpine mt-4"
-                        [headerHeight]="56"
-                        [rowHeight]="50"
-                        [columnDefs]="columnDefs"
-                        [rowData]="donateTop$ | async"
-                        [domLayout]="'autoHeight'"
-
-                        (gridReady)="$event.api.sizeColumnsToFit()"
-                    ></ag-grid-angular>
+                    <app-list-donate
+                        [donate]="donateTop$ | async"
+                    ></app-list-donate>
                 </div>
             </div>
         </div>

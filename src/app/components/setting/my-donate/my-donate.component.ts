@@ -45,6 +45,17 @@ export class MyDonateComponent implements OnInit {
             },
 
             {
+                headerName: 'TÊN',
+                headerTooltip: 'TÊN',
+                minWidth: 120,
+                field: 'publicName',
+                tooltipField: 'publicName',
+                cellStyle: {
+                    'top': '4px'
+                }
+            },
+
+            {
                 headerName: 'THỜI GIAN',
                 headerTooltip: 'THỜI GIAN',
                 minWidth: 150,

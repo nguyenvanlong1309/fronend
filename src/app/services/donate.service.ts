@@ -1,11 +1,12 @@
 import { DonateStatistic } from './../models/statistic.model';
 import { Donate, DonateTop } from 'src/app/models/donate.model';
 import { environment } from './../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { SpinnerService } from './spinner.service';
 import { DEFAULT_SIZE_TOP_DONATE } from '../base/constant';
+import { saveAs } from 'file-saver';
 
 @Injectable({
     providedIn: 'root'
@@ -40,14 +41,13 @@ export class DonateService {
         return this.http.get<Donate[]>(`${this.url}/mine`);
     }
 
-    public findTopDonate(type: 0 | 1): Observable<DonateTop[]> {
+    public findTopDonate(type: 0 | 1 | null, pageSize = DEFAULT_SIZE_TOP_DONATE, projectId?): Observable<DonateTop[]> {
         this.spinnerService.show();
-        return this.http.get<DonateTop[]>(`${this.url}/top-donate`, {
-            params: {
-                limit: DEFAULT_SIZE_TOP_DONATE,
-                type: type,
-            }
-        })
+        const params: any = {};
+        if (type != null) params.type = type;
+        if (pageSize != null) params.limit = pageSize;
+        if (projectId) params.projectId = projectId;
+        return this.http.get<DonateTop[]>(`${this.url}/top-donate`, { params })
     }
 
     public findDonateByUsername(username: string): Observable<Donate[]> {
@@ -58,5 +58,19 @@ export class DonateService {
     public statisitcDonate(year: number): Observable<DonateStatistic[]> {
         this.spinnerService.show();
         return this.http.post<DonateStatistic[]>(`${this.urlAdmin}/statistic`, { year });
+    }
+
+    public exportFile(projectId: string, fileName): Observable<any> {
+        this.spinnerService.show();
+        return this.http.post(`${this.url}/export`, { projectId } , {
+            responseType: 'arraybuffer',
+            observe: 'response'
+        } )
+            .pipe(tap(res => {
+                const blob = new Blob([res.body], {
+                    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                })
+                saveAs(blob, `${fileName}.xls`)
+            }))
     }
 }

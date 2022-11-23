@@ -41,6 +41,8 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" [routerLink]="['/profile']"><span class="item-text">THÔNG TIN</span></a>
                       <div class="dropdown-items-divide-hr"></div>
+                      <a class="dropdown-item cursor-pointer" (click)="ngOnChangePassword()"><span class="item-text">ĐỔI MẬT KHẨU</span></a>
+                      <div class="dropdown-items-divide-hr"></div>
                       <a class="dropdown-item" (click)="ngLogout()" style="cursor: pointer"><span class="item-text">ĐĂNG XUẤT</span></a>
                   </div>
                 </li>
