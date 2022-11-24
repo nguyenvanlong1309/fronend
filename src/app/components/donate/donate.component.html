@@ -6,11 +6,23 @@
             </div>
             <div class="col-lg-6">
                 <div>
-                    <h4 class="text-left text-uppercase">Những cá nhân tài trợ nổi bật</h4>
-                    <app-list-donate
-                        [donate]="donateTop$ | async"
-                        [noShowDate]="true"
-                    ></app-list-donate>
+                  <h4 class="text-left text-uppercase">Những cá nhân tài trợ nổi bật</h4>
+                  <hr/>
+                  <div class="donate-g">
+                    <div class="wa2">
+                      <a class="date">1</a>
+                    </div>
+                    <div class="donate-g-2">
+                      <p>Nguyễn Văn A</p>
+                      <p>Số tiền : 10000</p>
+                      <p>Số lần donate : 3</p>
+                    </div>
+                  </div>
+
+                  <!-- <app-list-donate
+                      [donate]="donateTop$ | async"
+                      [noShowDate]="true"
+                  ></app-list-donate> -->
                 </div>
             </div>
         </div>
