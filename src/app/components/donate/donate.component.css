@@ -1,0 +1,31 @@
+.donate-g{
+  display: flex;
+  margin-top: 10px;
+}
+
+.wa2{
+  background-color: #c06a6a;
+  width: 50px;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3px;
+
+}
+
+.date{
+  text-decoration: none;
+  color: #000;
+  font-size: 36px;
+  line-height: 35px;
+}
+
+.donate-g-2{
+  padding-left:25px;
+}
+
+p{
+  margin-bottom: 0;
+  padding-top: 0;
+}
