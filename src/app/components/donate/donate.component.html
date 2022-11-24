@@ -8,17 +8,15 @@
                 <div>
                   <h4 class="text-left text-uppercase">Những cá nhân tài trợ nổi bật</h4>
                   <hr/>
-                  <div class="donate-g">
-                    <ng-container *ngFor="let d of donateTop$ | async; let i = index">
-                      <div class="wa2">
-                        <a class="date">{{ i + 1 }}</a>
-                      </div>
-                      <div class="donate-g-2">
-                        <p>{{ d.publicName }}</p>
-                        <p>Số tiền : {{ d.total | currency:'VND' }}</p>
-                        <p>Số lần donate : {{ d.count }}</p>
-                      </div>
-                    </ng-container>
+                  <div class="donate-g" *ngFor="let d of donateTop$ | async; let i = index">
+                    <div class="wa2">
+                      <a class="date">{{ i + 1 }}</a>
+                    </div>
+                    <div class="donate-g-2">
+                      <p>{{ d.publicName }}</p>
+                      <p>Số tiền : {{ d.total | currency:'VND' }}</p>
+                      <p>Số lần donate : {{ d.count }}</p>
+                    </div>
                   </div>
                 </div>
             </div>
