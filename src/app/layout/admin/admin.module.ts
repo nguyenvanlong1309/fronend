@@ -16,7 +16,8 @@ import { ShowDetailComponent } from 'src/app/components/admin/user/show-detail/s
 import { UserActionComponent } from 'src/app/components/admin/user/action/user-action.component';
 import { CommentComponent } from 'src/app/components/admin/donate/comment/comment.component';
 import { UserFormComponent } from 'src/app/components/admin/user/user-form/user-form.component';
-import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PostFormComponent } from 'src/app/components/setting/post-form/post-form.component';
 
 const imports = [
     AdminRouterModule,
@@ -45,6 +46,7 @@ const declarations = [
 
 @NgModule({
     imports: imports,
-    declarations: declarations
+    declarations: declarations,
+    entryComponents: [ PostFormComponent ]
 })
 export class AdminModule {}

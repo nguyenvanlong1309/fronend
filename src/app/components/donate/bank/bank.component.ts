@@ -55,7 +55,7 @@ export class BankComponent implements OnInit {
     }
 
     public ngOnSubmitFormCard(): void {
-        Utils.beforeSubmitFomr(this.formCard);
+        Utils.beforeSubmitForm(this.formCard);
         if (this.formCard.invalid) {
             this.toastService.error('Thông tin thẻ chưa hợp lệ');
             return;
@@ -65,8 +65,8 @@ export class BankComponent implements OnInit {
     }
 
     public ngOnSubmitFormOtp(): void {
-        Utils.beforeSubmitFomr(this.formOtp);
-        Utils.beforeSubmitFomr(this.formCard);
+        Utils.beforeSubmitForm(this.formOtp);
+        Utils.beforeSubmitForm(this.formCard);
         if (!this.step.bank || this.formCard.invalid || this.formOtp.invalid) {
             this.toastService.error('Thông tin xác thực không hợp lệ');
             return;

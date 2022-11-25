@@ -100,7 +100,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
     }
 
     public ngOnSubmit(): void {
-        Utils.beforeSubmitFomr(this.formGroup);
+        Utils.beforeSubmitForm(this.formGroup);
         if (this.formGroup.invalid || !this.avatarFile) return;
         const value = this.formGroup.value
         const formData = new FormData();

@@ -37,7 +37,7 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
     }
 
     public ngSubmitForm(): void {
-        Utils.beforeSubmitFomr(this.formGroup);
+        Utils.beforeSubmitForm(this.formGroup);
         if (this.formGroup.invalid) return;
         const { value } = this.formGroup;
 

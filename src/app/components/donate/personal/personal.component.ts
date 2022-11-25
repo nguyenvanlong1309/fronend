@@ -76,8 +76,11 @@ export class PersonalComponent implements OnInit, OnDestroy {
   }
 
   public ngSubmitForm(): void {
-    Utils.beforeSubmitFomr(this.formGroup);
-    if (this.formGroup.invalid) return;
+    Utils.beforeSubmitForm(this.formGroup);
+    if (this.formGroup.invalid) {
+      this.toastService.error('Thông tin không hợp lệ.');
+      return;
+    };
     const ref = this.modalService.open(BankComponent, {
       size: 'lg',
       centered: true,

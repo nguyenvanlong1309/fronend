@@ -1,13 +1,11 @@
-import { Utils } from './../../base/utils';
 import { Observable, of } from 'rxjs';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 import { COLUMN_STT } from 'src/app/base/constant';
 import { DonateTop } from 'src/app/models/donate.model';
 import { Project } from 'src/app/models/project.model';
 import { DonateService } from 'src/app/services/donate.service';
-import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-finance',
@@ -22,14 +20,24 @@ export class FinanceComponent implements OnInit {
   public columnDefs: ColDef[] = [
     COLUMN_STT,
     {
-      headerName: 'TÊN',
-      headerTooltip: 'TÊN',
+      headerName: 'TÊN NGƯỜI TÀI TRỢ',
+      headerTooltip: 'TÊN NGƯỜI TÀI TRỢ',
 
       cellStyle: {
           'top': '4px'
       },
       field: 'publicName',
       tooltipField: 'publicName',
+    },
+    {
+      headerName: 'TÊN DỰ ÁN',
+      headerTooltip: 'TÊN DỰ ÁN',
+
+      cellStyle: {
+          'top': '4px'
+      },
+      field: 'title',
+      tooltipField: 'title',
     },
     {
       headerName: 'NGÀY TÀI TRỢ',
@@ -67,20 +75,14 @@ export class FinanceComponent implements OnInit {
   constructor(
     private currencyPipe: CurrencyPipe,
     private donateService: DonateService,
-    private projectService: ProjectService,
   ) { }
 
   ngOnInit(): void {
-    this.project$ = this.projectService.findAll();
-  }
-
-  public loadDonate(project: Project): void {
-    this.project = project;
-    this.donate$ = this.donateService.findListDonate(project.id);
+    this.donate$ = this.donateService.findListDonate();
   }
 
   public exportExcel(): void {
-    this.donateService.exportFile(this.project.id, Utils.toLowerCaseNonAccentVietnamese(this.project.title).replace(/\s/g, '_'))
+    this.donateService.exportFile(formatDate(new Date(), 'dd_MM_yyyy', 'en_US'))
       .subscribe();    
   }
 }

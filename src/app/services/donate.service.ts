@@ -43,7 +43,7 @@ export class DonateService {
 
     public findListDonate(projectId?): Observable<DonateTop[]> {
         this.spinnerService.show();
-        return this.http.get<DonateTop[]>(`${this.url}/list-donate`, { params: { projectId } })
+        return this.http.get<DonateTop[]>(`${this.url}/list-donate`)
     }
 
     public findTopDonate2(type: 0 | 1 | null, pageSize = DEFAULT_SIZE_TOP_DONATE, projectId?): Observable<DonateTop[]> {
@@ -65,9 +65,9 @@ export class DonateService {
         return this.http.post<DonateStatistic[]>(`${this.urlAdmin}/statistic`, { year });
     }
 
-    public exportFile(projectId: string, fileName): Observable<any> {
+    public exportFile(fileName): Observable<any> {
         this.spinnerService.show();
-        return this.http.post(`${this.url}/export`, { projectId } , {
+        return this.http.post(`${this.url}/export`, { } , {
             responseType: 'arraybuffer',
             observe: 'response'
         } )

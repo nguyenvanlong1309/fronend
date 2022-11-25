@@ -1,7 +1,7 @@
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 export class Utils {
-  public static beforeSubmitFomr(form: FormGroup): void {
+  public static beforeSubmitForm(form: FormGroup): void {
     const controls = form.controls;
     for (let c in controls) {
       const control = controls[c];
@@ -14,7 +14,7 @@ export class Utils {
         control.markAsTouched();
         control.updateValueAndValidity();
       } else {
-        this.beforeSubmitFomr(control as FormGroup);
+        this.beforeSubmitForm(control as FormGroup);
       }
     }
   }

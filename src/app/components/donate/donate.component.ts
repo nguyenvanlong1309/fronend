@@ -17,6 +17,7 @@ export class DonateComponent implements OnInit{
     
     public donateTop$: Observable<DonateTop[]>  = of([]);;
     public project: Project;
+    public title: string;
 
     constructor(
         private router: ActivatedRoute,
@@ -38,8 +39,10 @@ export class DonateComponent implements OnInit{
     public loadDonateTop(): void {
         if (this._router.url.startsWith('/donate/business')) {
             this.donateTop$ = this.donateService.findTopDonate2(1);
+            this.title = 'Những doanh nghiệp tài trợ nổi bật';
         } else {
             this.donateTop$ = this.donateService.findTopDonate2(0);
+            this.title = 'Những cá nhân tài trợ nổi bật';
         }
     }
 

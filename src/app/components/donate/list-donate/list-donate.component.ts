@@ -17,6 +17,7 @@ export class ListDonateComponent implements OnInit {
   @Input()
   public noShowDate: boolean = false;
 
+  @Input()
   public columnDefs: ColDef[] = [
     COLUMN_STT,
     {

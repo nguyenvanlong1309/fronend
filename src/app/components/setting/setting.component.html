@@ -26,10 +26,28 @@
                       <div class="col-md-12">
                         <label class="labels required">SỐ ĐIỆN THOẠI</label>
                         <input class="form-control" placeholder="Nhập số điện thoại" formControlName="phone">
+                        <div class="text-danger" *ngIf="formControl.phone.invalid && (formControl.phone.touched || formControl.phone.dirty)">
+                          <div *ngIf="formControl.phone.errors.required">
+                            Số điện thoại không được trống
+                          </div>
+                          <div *ngIf="formControl.phone.errors.pattern">
+                            Số điện thoại không đúng định dạng
+                          </div>
+          
+                        </div>
                       </div>
                       <div class="col-md-12">
                         <label class="labels">EMAIL</label>
                         <input type="email" class="form-control" placeholder="Nhập Email" formControlName="email">
+                        <div class="text-danger" *ngIf="formControl.email.invalid && (formControl.email.touched || formControl.email.dirty)">
+                          <div *ngIf="formControl.email.errors.required">
+                            Email không được trống
+                          </div>
+                          <div *ngIf="formControl.email.errors.email">
+                            Email không đúng định dạng
+                          </div>
+          
+                        </div>
                       </div>
                       <div class="col-md-12">
                         <label class="labels required">TÊN TÀI KHOẢN</label>
@@ -41,7 +59,7 @@
                       </div>
 
                       <div class="text-center">
-                        <button class="btn-solid-reg profile-button">Chỉnh sửa</button>
+                        <button class="btn-solid-reg profile-button">Cập nhật</button>
                       </div>
                   </form>
               </div>

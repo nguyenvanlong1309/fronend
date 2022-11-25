@@ -22,6 +22,10 @@ export class SettingComponent implements OnInit {
 	closeResult: string;
 	isPO: boolean;
 
+	public get formControl() {
+		return this.formGroup.controls;
+	}
+
 	constructor(
 		private authService: AuthService,
 		private fb: FormBuilder,
@@ -40,16 +44,16 @@ export class SettingComponent implements OnInit {
 	ngBuildForm(): void {
 		this.formGroup = this.fb.group({
 			fullName: [null, [Validators.required]],
-			phone: [null],
+			phone: [null, [Validators.required, Validators.pattern("^(0|\\+84)[0-9]{9}")]],
 			username: [{ value: null, disabled: true }],
 			address: [null],
-			email: [null],
+			email: [null, [Validators.required, Validators.email]],
 			id: [null],
 		});
 	}
 
 	ngOnSubmit(): void {
-		Utils.beforeSubmitFomr(this.formGroup);
+		Utils.beforeSubmitForm(this.formGroup);
 		if (this.formGroup.invalid) return;
 		this.userService
 			.updateInfo(this.formGroup.getRawValue())

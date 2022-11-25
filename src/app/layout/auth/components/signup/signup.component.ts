@@ -5,6 +5,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { Utils } from 'src/app/base/utils';
 
 @Component({
   selector: 'app-signup',
@@ -16,6 +17,10 @@ export class SignupComponent implements OnInit,OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
 
   formGroup: FormGroup;
+
+  public get formControl() {
+    return this.formGroup.controls;
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -31,15 +36,17 @@ export class SignupComponent implements OnInit,OnDestroy {
   ngBuildForm(): void {
     this.formGroup = this.fb.group({
       fullName: [null, [Validators.required]],
-      username: [null, [Validators.required]],
+      username: [null, [Validators.required, Validators.minLength(5)]],
       password: [null, [Validators.required]],
       passwordConfirmation: [null, [Validators.required]],
       phone: [null, [Validators.required, Validators.pattern('^(0|\\+84)[0-9]{9}')]],
-      email: [null, [Validators.required, Validators.email]]
+      email: [null, [Validators.required, Validators.email]],
+      role: ['USER']
     })
   }
 
   ngSubmitForm(): void {
+    Utils.beforeSubmitForm(this.formGroup);
     if (this.formGroup.invalid) return;
     const { value } = this.formGroup;
     if (value.password != value.passwordConfirmation) {

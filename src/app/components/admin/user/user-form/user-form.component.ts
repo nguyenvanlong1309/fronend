@@ -45,7 +45,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     }
 
     public ngOnSubmit(): void {
-        Utils.beforeSubmitFomr(this.formGroup);
+        Utils.beforeSubmitForm(this.formGroup);
         if (this.formGroup.invalid) return;
 
         this.userService.updateInfo({

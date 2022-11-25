@@ -5,7 +5,6 @@ import { LoginComponent } from 'src/app/layout/auth/components/login/login.compo
 import { SignupComponent } from './components/signup/signup.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthenGuard } from 'src/app/guards/authen.guard';
 
 const routes: Routes = [
     {
