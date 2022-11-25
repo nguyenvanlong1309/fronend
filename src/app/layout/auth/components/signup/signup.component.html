@@ -5,6 +5,17 @@
         <h1>ĐĂNG KÝ</h1>
         <div class="form-container">
           <form [formGroup]="formGroup" (submit)="ngSubmitForm()" class="form py-0" id="form-1">
+            <!-- Phân quyền -->
+            <div class="form-group text-left">
+              <label class="required form-label">Mục đích truy cập</label>
+              <select class="form-control">
+                <!-- User -->
+                <option>Người tài trợ</option>
+                <!-- PO -->
+                <option>Người kêu gọi</option>
+              </select>
+            </div>
+
             <div class="form-group text-left">
               <label class="required form-label">Họ và tên</label>
               <input
@@ -13,6 +24,7 @@
                 formControlName="fullName"
               />
             </div>
+
             <div class="form-group text-left">
               <label class="required form-label">Số điện thoại</label>
               <input
@@ -21,6 +33,7 @@
                 formControlName="phone"
               />
             </div>
+
             <div class="form-group text-left">
               <label class="required form-label">Email</label>
               <input
