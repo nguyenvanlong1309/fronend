@@ -1,6 +1,6 @@
 import { Confirmation } from './../../../base/confirmation/confirmation.enum';
 import { BankComponent } from './../bank/bank.component';
-import { METHOD_DONATE } from '../../../base/constant';
+import { METHOD_DONATE, REGEX_PHONE_VIETNAME } from '../../../base/constant';
 import { Subject, takeUntil, filter } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Project } from 'src/app/models/project.model';
@@ -12,6 +12,7 @@ import { Utils } from 'src/app/base/utils';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DonateComponent } from '../donate.component';
+import { CustomValidators } from 'src/app/base/validators/custom.validator';
 
 @Component({
   selector: 'app-personal',
@@ -30,6 +31,10 @@ export class PersonalComponent implements OnInit, OnDestroy {
   public moneyAsText: string;
   public context: DonateComponent;
 
+  public get formControl() {
+    return this.formGroup.controls;
+  }
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -46,10 +51,10 @@ export class PersonalComponent implements OnInit, OnDestroy {
 
   public ngOnInitForm(): void {
     this.formGroup = this.fb.group({
-      fullName: [null, [Validators.required]],
-      publicName: [null, [Validators.required]],
-      email: [null, [Validators.required]],
-      phone: [null, [Validators.required]],
+      fullName: [null, [Validators.required, CustomValidators.onlyText]],
+      publicName: [null, [Validators.required, CustomValidators.onlyText]],
+      email: [null, [Validators.required, Validators.email]],
+      phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
       methodDonate: [0, [Validators.required]],
       money: [null, [Validators.required]],
       comment: [null],

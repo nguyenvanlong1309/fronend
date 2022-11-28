@@ -4,6 +4,14 @@
       <div class="col-md-12">
           <label class="labels required">TÊN DOANH NGHIỆP</label>
           <input class="form-control" placeholder="Nguyễn Văn A" formControlName="publicName">
+          <div class="text-danger" *ngIf="formControl.publicName.invalid && (formControl.publicName.touched || formControl.publicName.dirty)">
+            <div *ngIf="formControl.publicName.errors.required">
+              Tên doanh nghiệp không được trống
+            </div>
+            <div *ngIf="formControl.publicName.errors.pattern">
+              Tên doanh nghiệp không đúng định dạng
+            </div>
+        </div>
       </div>
       <div class="area-image">
           <label class="labels" style="margin-bottom: 0;">LOGO CÔNG TY</label>
@@ -16,10 +24,26 @@
       <div class="col-md-12">
           <label class="labels required">EMAIL</label>
           <input type="email" class="form-control" placeholder="vana@gmail.com" formControlName="email">
+          <div class="text-danger" *ngIf="formControl.email.invalid && (formControl.email.touched || formControl.email.dirty)">
+            <div *ngIf="formControl.email.errors.required">
+              Email không được trống
+            </div>
+            <div *ngIf="formControl.email.errors.email">
+              Email không đúng định dạng
+            </div>
+        </div>
       </div>
       <div class="col-md-12">
         <label class="labels required">SỐ ĐIỆN THOẠI</label>
         <input type="text" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+        <div class="text-danger" *ngIf="formControl.phone.invalid && (formControl.phone.touched || formControl.phone.dirty)">
+            <div *ngIf="formControl.phone.errors.required">
+              Số điện thoại không được trống
+            </div>
+            <div *ngIf="formControl.phone.errors.pattern">
+              Số điện thoại không đúng định dạng
+            </div>
+        </div>
       </div>
       <div class="col-md-12">
           <label class="labels required">HÌNH THỨC TÀI TRỢ</label>

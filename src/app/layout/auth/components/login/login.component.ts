@@ -7,6 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Role } from 'src/app/base/role.enum';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Utils } from 'src/app/base/utils';
 
 @Component({
   selector: 'app-login',
@@ -42,7 +43,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngSubmitForm(): void {
-    if (this.formGroup.invalid) return;
+    Utils.beforeSubmitForm(this.formGroup);
+    if (this.formGroup.invalid) {
+      this.toastService.error('Thông tin không hợp lệ.');
+      return;
+    };
     this.loginService.login(this.formGroup.value)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(res => {

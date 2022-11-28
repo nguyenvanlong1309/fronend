@@ -4,8 +4,8 @@ import { Project } from 'src/app/models/project.model';
 import { Component } from "@angular/core";
 import { ICellRendererAngularComp } from "ag-grid-angular";
 import { ICellRendererParams } from "ag-grid-community";
-import { PostFormComponent } from '../../post-form/post-form.component';
 import { MyProjectComponent } from '../my-project.component';
+import { PostFormComponent } from 'src/app/components/shared/post-form/post-form.component';
 
 @Component({
     selector: 'app-my-project-action',
@@ -31,7 +31,9 @@ export class MyProjectActionComponent implements ICellRendererAngularComp {
 
     public updateProject(): void {
         const ref = this.ngbModal.open(PostFormComponent, {
-            size: 'lg'
+            size: 'lg',
+            centered: true,
+            animation: true,
         })
         ref.componentInstance.project = {
             ...this.params.data,

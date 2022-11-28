@@ -2,7 +2,7 @@ import { Confirmation } from './../../../base/confirmation/confirmation.enum';
 import { Project } from 'src/app/models/project.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { METHOD_DONATE } from 'src/app/base/constant';
+import { METHOD_DONATE, REGEX_PHONE_VIETNAME } from 'src/app/base/constant';
 import { Utils } from 'src/app/base/utils';
 import { DonateService } from 'src/app/services/donate.service';
 import { ToastrService } from 'ngx-toastr';
@@ -10,6 +10,7 @@ import { takeUntil, Subject, filter } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankComponent } from '../bank/bank.component';
 import { DonateComponent } from '../donate.component';
+import { CustomValidators } from 'src/app/base/validators/custom.validator';
 
 @Component({
   selector: 'app-businesses',
@@ -29,6 +30,10 @@ export class BusinessesComponent implements OnInit, OnDestroy {
   public moneyAsText: string;
   public context: DonateComponent;
 
+  public get formControl() {
+    return this.formGroup.controls;
+  }
+
   constructor(
     private fb: FormBuilder,
     private donateService: DonateService,
@@ -42,8 +47,8 @@ export class BusinessesComponent implements OnInit, OnDestroy {
 
   ngBuildForm(): void {
     this.formGroup = this.fb.group({
-      publicName: [null, [Validators.required]],
-      phone: [null, [Validators.required, Validators.pattern('^(0|\\+84)[0-9]{9}')]],
+      publicName: [null, [Validators.required, CustomValidators.onlyText]],
+      phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
       email: [null, [Validators.required, Validators.email]],
       money: [null, [Validators.required]],
       comment: [null],

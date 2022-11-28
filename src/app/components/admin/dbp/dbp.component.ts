@@ -9,6 +9,7 @@ import { Project } from 'src/app/models/project.model';
 import { DbpActionComponent } from './action/dbp-action.component';
 import { CurrencyPipe, formatDate } from '@angular/common';
 import { COLUMN_STT } from 'src/app/base/constant';
+import { PostFormComponent } from '../../shared/post-form/post-form.component';
 
 @Component({
   selector: 'app-dbp',

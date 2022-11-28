@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PostFormComponent } from './post-form/post-form.component';
 import { UserService } from 'src/app/services/user.service';
 import { MyProjectComponent } from './my-project/my-project.component';
+import { PostFormComponent } from '../shared/post-form/post-form.component';
+import { REGEX_ONLY_TEXT, REGEX_PHONE_VIETNAME } from 'src/app/base/constant';
+import { CustomValidators } from 'src/app/base/validators/custom.validator';
 
 @Component({
   	selector: 'app-setting',
@@ -43,8 +45,8 @@ export class SettingComponent implements OnInit {
 
 	ngBuildForm(): void {
 		this.formGroup = this.fb.group({
-			fullName: [null, [Validators.required]],
-			phone: [null, [Validators.required, Validators.pattern("^(0|\\+84)[0-9]{9}")]],
+			fullName: [null, [Validators.required, CustomValidators.onlyText ]],
+			phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
 			username: [{ value: null, disabled: true }],
 			address: [null],
 			email: [null, [Validators.required, Validators.email]],
@@ -54,7 +56,10 @@ export class SettingComponent implements OnInit {
 
 	ngOnSubmit(): void {
 		Utils.beforeSubmitForm(this.formGroup);
-		if (this.formGroup.invalid) return;
+		if (this.formGroup.invalid) {
+			this.toastService.error('Thông tin không hợp lệ.');
+			return;
+		};
 		this.userService
 			.updateInfo(this.formGroup.getRawValue())
 			.subscribe((res) => {

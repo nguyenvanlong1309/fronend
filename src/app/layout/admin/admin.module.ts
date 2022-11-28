@@ -16,15 +16,14 @@ import { ShowDetailComponent } from 'src/app/components/admin/user/show-detail/s
 import { UserActionComponent } from 'src/app/components/admin/user/action/user-action.component';
 import { CommentComponent } from 'src/app/components/admin/donate/comment/comment.component';
 import { UserFormComponent } from 'src/app/components/admin/user/user-form/user-form.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PostFormComponent } from 'src/app/components/setting/post-form/post-form.component';
+import { SharedModule } from 'src/app/components/shared/shared.module';
 
 const imports = [
+    SharedModule,
     AdminRouterModule,
     CommonModule,
     AgGridModule,
     FormsModule,
-    NgbModule,
     ReactiveFormsModule
 ]
 
@@ -41,12 +40,11 @@ const declarations = [
     ShowDetailComponent,
     UserActionComponent,
     CommentComponent,
-    UserFormComponent
+    UserFormComponent,
 ]
 
 @NgModule({
     imports: imports,
     declarations: declarations,
-    entryComponents: [ PostFormComponent ]
 })
 export class AdminModule {}

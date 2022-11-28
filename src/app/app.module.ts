@@ -15,6 +15,7 @@ import { JwtService } from './services/jwt.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PostFormComponent } from './components/shared/post-form/post-form.component';
 
 
 @NgModule({
@@ -31,11 +32,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    NgbModule,
     FormsModule,
     ReactiveFormsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtService, multi: true}, CurrencyPipe ],
+  entryComponents: [ PostFormComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

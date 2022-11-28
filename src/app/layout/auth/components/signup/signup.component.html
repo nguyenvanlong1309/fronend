@@ -27,6 +27,10 @@
                 <div *ngIf="formControl.fullName.errors.required">
                   Họ và tên không được trống
                 </div>
+                <div *ngIf="formControl.fullName.errors.pattern">
+                  Họ và tên không đúng định dạng
+                </div>
+
               </div>
             </div>
 

@@ -22,6 +22,15 @@
                     <div class="col-md-12">
                       <label class="labels required">HỌ VÀ TÊN</label>
                       <input class="form-control" placeholder="Tên" formControlName="fullName">
+                      <div class="text-danger" *ngIf="formControl.fullName.invalid && (formControl.fullName.touched || formControl.fullName.dirty)">
+                        <div *ngIf="formControl.fullName.errors.required">
+                          Họ và tên không được trống
+                        </div>
+                        <div *ngIf="formControl.fullName.errors.pattern">
+                          Họ và tên không đúng định dạng
+                        </div>
+        
+                      </div>
                     </div>
                       <div class="col-md-12">
                         <label class="labels required">SỐ ĐIỆN THOẠI</label>
@@ -37,7 +46,7 @@
                         </div>
                       </div>
                       <div class="col-md-12">
-                        <label class="labels">EMAIL</label>
+                        <label class="labels required">EMAIL</label>
                         <input type="email" class="form-control" placeholder="Nhập Email" formControlName="email">
                         <div class="text-danger" *ngIf="formControl.email.invalid && (formControl.email.touched || formControl.email.dirty)">
                           <div *ngIf="formControl.email.errors.required">

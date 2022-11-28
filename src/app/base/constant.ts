@@ -1,6 +1,8 @@
 import { ColDef, ValueGetterParams } from 'ag-grid-community';
-export const DEFAULT_SIZE_TOP_DONATE = 10;
 
+export const DEFAULT_SIZE_TOP_DONATE = 10;
+export const REGEX_PHONE_VIETNAME = "^(0|\\+84)[0-9]{9}";
+export const REGEX_ONLY_TEXT = "([a-zA-Z]|\\s)+";
 export const PROJECT_STATUS = [
     {
         id: 0,

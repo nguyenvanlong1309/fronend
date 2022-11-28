@@ -8,6 +8,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { UserService } from 'src/app/services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { CustomValidators } from 'src/app/base/validators/custom.validator';
+import { REGEX_PHONE_VIETNAME } from 'src/app/base/constant';
 
 @Component({
     selector: 'app-user-form',
@@ -19,6 +21,10 @@ export class UserFormComponent implements OnInit, OnDestroy {
     private unsubscribe$: Subject<void> = new Subject();
     public formGroup: FormGroup;
     public user: UserResponseModel;
+
+    public get formControl() {
+        return this.formGroup.controls;
+    }
 
     constructor(
         private fb: FormBuilder,
@@ -35,9 +41,9 @@ export class UserFormComponent implements OnInit, OnDestroy {
     private ngOnBuildForm(): void {
         this.formGroup = this.fb.group({
             username: [null, [Validators.required]],
-            fullName: [null, [Validators.required]],
-            email: [null, [Validators.email]],
-            phone: [null, [Validators.required, Validators.pattern('^(0|\\+84)[0-9]{9}')]],
+            fullName: [null, [Validators.required, CustomValidators.onlyText]],
+            email: [null, [Validators.required, Validators.email]],
+            phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
             address: [null],
             role: [null, [Validators.required]],
         });
@@ -46,7 +52,10 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
     public ngOnSubmit(): void {
         Utils.beforeSubmitForm(this.formGroup);
-        if (this.formGroup.invalid) return;
+        if (this.formGroup.invalid) {
+            this.toastService.error('Thông tin không hợp lệ.');
+            return;
+        };
 
         this.userService.updateInfo({
             ...this.formGroup.value,

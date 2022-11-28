@@ -1,14 +1,14 @@
 import { formatDate } from '@angular/common';
 import { filter } from 'rxjs';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
-import { Component } from "@angular/core";
+import { ChangeDetectorRef, Component, TemplateRef } from "@angular/core";
 import { ICellRendererParams } from 'ag-grid-community';
 import { Project } from 'src/app/models/project.model';
 import { ProjectService } from 'src/app/services/project.service';
 import { ToastrService } from 'ngx-toastr';
 import { DbpComponent } from '../dbp.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PostFormComponent } from 'src/app/components/setting/post-form/post-form.component';
+import { PostFormComponent } from 'src/app/components/shared/post-form/post-form.component';
 
 @Component({
     selector: 'app-dbp-action',
@@ -23,7 +23,8 @@ export class DbpActionComponent implements ICellRendererAngularComp {
     constructor(
         private projectService: ProjectService,
         private toastService: ToastrService,
-        private ngbModal: NgbModal
+        private ngbModal: NgbModal,
+        private cdr: ChangeDetectorRef
     ) {}
 
     public agInit(params: ICellRendererParams<Project, any>): void {

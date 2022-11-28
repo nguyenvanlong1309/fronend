@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Utils } from 'src/app/base/utils';
+import { CustomValidators } from 'src/app/base/validators/custom.validator';
 
 @Component({
   selector: 'app-signup',
@@ -35,7 +36,7 @@ export class SignupComponent implements OnInit,OnDestroy {
 
   ngBuildForm(): void {
     this.formGroup = this.fb.group({
-      fullName: [null, [Validators.required]],
+      fullName: [null, [Validators.required, CustomValidators.onlyText]],
       username: [null, [Validators.required, Validators.minLength(5)]],
       password: [null, [Validators.required]],
       passwordConfirmation: [null, [Validators.required]],
@@ -47,7 +48,10 @@ export class SignupComponent implements OnInit,OnDestroy {
 
   ngSubmitForm(): void {
     Utils.beforeSubmitForm(this.formGroup);
-    if (this.formGroup.invalid) return;
+    if (this.formGroup.invalid) {
+      this.toastService.error('Thông tin không hợp lệ.');
+      return;
+    };
     const { value } = this.formGroup;
     if (value.password != value.passwordConfirmation) {
       this.toastService.error('Xác nhận mật khẩu không khớp.')
