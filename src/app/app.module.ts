@@ -15,7 +15,7 @@ import { JwtService } from './services/jwt.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PostFormComponent } from './components/shared/post-form/post-form.component';
+import { SharedModule } from './components/shared/shared.module';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { PostFormComponent } from './components/shared/post-form/post-form.compo
     AppComponent,
     NotfoundComponent,
     SpinnerComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,
@@ -33,10 +33,11 @@ import { PostFormComponent } from './components/shared/post-form/post-form.compo
     HttpClientModule,
     ToastrModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    SharedModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtService, multi: true}, CurrencyPipe ],
-  entryComponents: [ PostFormComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

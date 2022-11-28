@@ -4,7 +4,7 @@ import { Utils } from './../../../base/utils';
 import { TYPE_PROJECT } from './../../../base/constant';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from "@angular/core";
 import { CityService } from "src/app/services/city.service";
 import { City } from 'src/app/models/city.model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -20,12 +20,20 @@ import { environment } from 'src/environments/environment';
 })
 export class PostFormComponent implements OnInit, OnDestroy {
 
+    @Input()
+    public project: Project;
+
+    @Output()
+    public close: EventEmitter<void> = new EventEmitter();
+
+    @Output()
+    public submit: EventEmitter<void> = new EventEmitter();
+
     private unsubscribe$: Subject<void> = new Subject();
 
     public city$: Observable<City[]>;
     public formGroup: FormGroup;
     public avatarFile: {file: File, url: string};
-    public project: Project;
     public typeProject;
     public moneyAsText: string;
 
@@ -112,6 +120,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe(res => {
                 this.activedModal.close('OK');
+                this.submit.emit();
                 this.toastService.success(value.id ? 'Cập nhật thành công' :'Đăng bài thành công');
             })
     }

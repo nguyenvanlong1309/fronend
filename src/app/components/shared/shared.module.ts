@@ -13,7 +13,8 @@ import { SelectComponent } from "./select/select.component";
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
-        AngularEditorModule
+        AngularEditorModule,
+        NgbModule
     ],
     declarations: [
         PostFormComponent,

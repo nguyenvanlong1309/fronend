@@ -1,6 +1,6 @@
 <div class="modal-body">
     <div class="container">
-      <button type="button" class="close" aria-label="Close" (click)="activedModal.close()">
+      <button type="button" class="close" aria-label="Close" (click)="close.emit(); activedModal.close()">
         <span aria-hidden="true">&times;</span>
       </button>
       <h3 *ngIf="!project">THÊM MỚI BÀI VIẾT</h3>
