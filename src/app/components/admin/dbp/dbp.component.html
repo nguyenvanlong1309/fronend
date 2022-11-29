@@ -12,6 +12,7 @@
 		[context]="this"
 
 		(gridReady)="$event.api.sizeColumnsToFit()"
+		(gridSizeChanged)="$event.api.sizeColumnsToFit()"
 	></ag-grid-angular>
   </div>
 </div>

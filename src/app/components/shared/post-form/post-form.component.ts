@@ -4,7 +4,7 @@ import { Utils } from './../../../base/utils';
 import { TYPE_PROJECT } from './../../../base/constant';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CityService } from "src/app/services/city.service";
 import { City } from 'src/app/models/city.model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 import { formatDate } from '@angular/common';
 import { ProjectService } from 'src/app/services/project.service';
 import { environment } from 'src/environments/environment';
+import { EditorConfig } from '../editor/editor.config';
 
 @Component({
     selector: 'app-post-form',
@@ -20,17 +21,9 @@ import { environment } from 'src/environments/environment';
 })
 export class PostFormComponent implements OnInit, OnDestroy {
 
-    @Input()
-    public project: Project;
-
-    @Output()
-    public close: EventEmitter<void> = new EventEmitter();
-
-    @Output()
-    public submit: EventEmitter<void> = new EventEmitter();
-
     private unsubscribe$: Subject<void> = new Subject();
-
+    public project: Project;
+    public config = EditorConfig.editorConfig;
     public city$: Observable<City[]>;
     public formGroup: FormGroup;
     public avatarFile: {file: File, url: string};
@@ -81,7 +74,8 @@ export class PostFormComponent implements OnInit, OnDestroy {
             } else {
                 this.formGroup.get('endDate').setValidators([]);
             }
-            this.formGroup.get('endDate').updateValueAndValidity()
+            this.formGroup.get('endDate').updateValueAndValidity();
+            this.formGroup.get('startDate').updateValueAndValidity();
         })
     }
 
@@ -110,7 +104,10 @@ export class PostFormComponent implements OnInit, OnDestroy {
     public ngOnSubmit(): void {
         Utils.beforeSubmitForm(this.formGroup);
         if (this.formGroup.invalid || !this.avatarFile) return;
-        const value = this.formGroup.value
+        const value = this.formGroup.value;
+        if (value.type == 1) {
+            delete value.endDate;
+        }
         const formData = new FormData();
         formData.append('avatarFile', this.avatarFile.file);
         formData.append('project', new Blob([JSON.stringify(value)], {
@@ -120,7 +117,6 @@ export class PostFormComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe(res => {
                 this.activedModal.close('OK');
-                this.submit.emit();
                 this.toastService.success(value.id ? 'Cập nhật thành công' :'Đăng bài thành công');
             })
     }
@@ -134,10 +130,12 @@ export class PostFormComponent implements OnInit, OnDestroy {
 function customValidateDate(formGroup: FormGroup, formControlName: 'startDate' | 'endDate'): ValidatorFn {
     const comparedControl = formGroup.get(formControlName);
     return (control: AbstractControl): ValidationErrors | null => {
+        const type = formGroup.get('type').value;
+        if (type == 1) return null;
         const d1 = formatDate(control.value, 'yyyy-MM-dd', 'en-US');
         const d2 = formatDate(comparedControl.value, 'yyyy-MM-dd', 'en-US');
         
-        if (!comparedControl.value) return null;
+        if (!comparedControl?.value) return null;
 
         if (formControlName == 'startDate') {
             // => control = endDate

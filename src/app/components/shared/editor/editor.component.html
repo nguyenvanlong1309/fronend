@@ -2,6 +2,6 @@
     [config]="config"
 
     [(ngModel)]="ngModel"
+    [ngModelOptions]="{standalone: true}"
     (ngModelChange)="onChange()"
-    (blur)="onChange()"
 ></angular-editor>

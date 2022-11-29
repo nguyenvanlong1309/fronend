@@ -3,15 +3,7 @@
     <div class="menu p-3 d-none position-absolute">
         <div class="d-flex flex-column bg-white w-100">
             <span *ngIf="params.data.status == 0" class="text-center" (click)="approveProject()">Duyệt</span>
-            <span *ngIf="params.data.status != 0" class="text-center" (click)="updateProject(form)">Sửa</span>
+            <span *ngIf="params.data.status != 0" class="text-center" (click)="updateProject()">Sửa</span>
         </div>
     </div>
 </div>
-
-<ng-template #form>
-    <app-post-form 
-        [project]="project"
-        (close)="modalRef.close()"
-        (submit)="modalRef.close('OK')"
-    ></app-post-form>
-</ng-template>

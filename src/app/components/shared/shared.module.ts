@@ -1,4 +1,5 @@
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularEditorModule } from "@kolkov/angular-editor";
@@ -14,7 +15,8 @@ import { SelectComponent } from "./select/select.component";
         ReactiveFormsModule,
         FormsModule,
         AngularEditorModule,
-        NgbModule
+        NgbModule,
+        HttpClientModule,
     ],
     declarations: [
         PostFormComponent,
@@ -25,7 +27,6 @@ import { SelectComponent } from "./select/select.component";
     ],
     exports: [
         PostFormComponent,
-        EditorComponent,
         SelectComponent,
 
         SafePipe,

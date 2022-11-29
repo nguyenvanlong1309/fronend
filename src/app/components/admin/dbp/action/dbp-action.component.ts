@@ -7,7 +7,7 @@ import { Project } from 'src/app/models/project.model';
 import { ProjectService } from 'src/app/services/project.service';
 import { ToastrService } from 'ngx-toastr';
 import { DbpComponent } from '../dbp.component';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostFormComponent } from 'src/app/components/shared/post-form/post-form.component';
 @Component({
     selector: 'app-dbp-action',
@@ -20,12 +20,11 @@ export class DbpActionComponent implements ICellRendererAngularComp, OnDestroy {
     public params: ICellRendererParams<Project, any>;
     private context: DbpComponent;
     public project: Project;
-    public modalRef: NgbModalRef;
     
     constructor(
         private projectService: ProjectService,
         private toastService: ToastrService,
-        private ngbModal: NgbModal,
+        private ngbModal: NgbModal
     ) {}
 
     public agInit(params: ICellRendererParams<Project, any>): void {
@@ -51,14 +50,17 @@ export class DbpActionComponent implements ICellRendererAngularComp, OnDestroy {
             })
     }
 
-    public updateProject(template): void {
-        this.modalRef = this.ngbModal.open(template, {
-            centered: true,
-            animation: true,
-            size: 'lg',
-        });
-        
-        this.modalRef.closed
+    public updateProject(): void {
+        const ref = this.ngbModal.open(PostFormComponent, {
+			scrollable: true,
+			centered: true,
+			animation: true,
+			size: 'lg',
+			backdrop : 'static',
+      		keyboard : false
+		});
+        ref.componentInstance.project = this.project;
+        ref.closed
             .pipe(
                 filter(res => res === 'OK'),
                 takeUntil(this.unsubscribe$)

@@ -1,4 +1,4 @@
-<select class="text-center w-100 rounded" [(ngModel)]="ngModel" (change)="ngOnChange()">
+<select class="text-center w-100 rounded" [(ngModel)]="ngModel" [ngModelOptions]="{standalone: true}" (change)="ngOnChange()">
     <option *ngIf="placeholder" [value]="null">{{ placeholder }}</option>
     <option 
         *ngFor="let item of items" 

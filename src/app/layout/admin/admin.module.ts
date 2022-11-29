@@ -17,7 +17,7 @@ import { UserActionComponent } from 'src/app/components/admin/user/action/user-a
 import { CommentComponent } from 'src/app/components/admin/donate/comment/comment.component';
 import { UserFormComponent } from 'src/app/components/admin/user/user-form/user-form.component';
 import { SharedModule } from 'src/app/components/shared/shared.module';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const imports = [
     CommonModule,
@@ -26,6 +26,7 @@ const imports = [
     AdminRouterModule,
     AgGridModule,
     SharedModule,
+    NgbModule,
 ]
 
 const declarations = [
