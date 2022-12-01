@@ -8,7 +8,6 @@ import { ICellRendererParams } from 'ag-grid-community';
 import { UserService } from 'src/app/services/user.service';
 import { Confirmation } from 'src/app/base/confirmation/confirmation.enum';
 import { filter, Subject, takeUntil } from 'rxjs';
-import { UserFormComponent } from '../user-form/user-form.component';
 
 @Component({
     selector: 'app-user-action',
@@ -33,19 +32,6 @@ export class UserActionComponent implements ICellRendererAngularComp, OnDestroy 
 
     public refresh(params: ICellRendererParams<any, any>): boolean {
         return true;
-    }
-
-    public ngOnUpdateUser(): void {
-        const ref = this.ngbModal.open(UserFormComponent, {
-            centered: true,
-            animation: true,
-        });
-        ref.componentInstance.user = this.params.data;
-        ref.closed
-            .pipe(filter(res => res == Confirmation.CONFIRM))
-            .subscribe(res => {
-                this.context.ngOnLoadUser()
-            });
     }
 
     public ngOnLockUser(): void {

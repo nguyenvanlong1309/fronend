@@ -2,7 +2,6 @@
     <i class="fas fa-ellipsis-v"></i>
     <div class="menu p-3 d-none position-absolute">
         <div class="d-flex flex-column bg-white w-100">
-            <button class="text-center" (click)="ngOnUpdateUser()">Chỉnh sửa</button>
             <button *ngIf="params.data.status == 1" class="text-center" (click)="ngOnLockUser()">Khóa</button>
             <button *ngIf="params.data.status == 0" class="text-center" (click)="ngOnUnlockUser()">Mở khóa</button>
         </div>

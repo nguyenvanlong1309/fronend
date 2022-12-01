@@ -15,9 +15,8 @@ import { DbpActionComponent } from 'src/app/components/admin/dbp/action/dbp-acti
 import { ShowDetailComponent } from 'src/app/components/admin/user/show-detail/show-detail.component';
 import { UserActionComponent } from 'src/app/components/admin/user/action/user-action.component';
 import { CommentComponent } from 'src/app/components/admin/donate/comment/comment.component';
-import { UserFormComponent } from 'src/app/components/admin/user/user-form/user-form.component';
 import { SharedModule } from 'src/app/components/shared/shared.module';
-import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const imports = [
     CommonModule,
@@ -42,12 +41,10 @@ const declarations = [
     ShowDetailComponent,
     UserActionComponent,
     CommentComponent,
-    UserFormComponent,
 ]
 
 @NgModule({
     imports: imports,
     declarations: declarations,
-    providers: [ NgbActiveModal ]
 })
 export class AdminModule {}
