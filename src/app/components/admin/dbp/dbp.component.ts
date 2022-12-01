@@ -138,6 +138,7 @@ export class DbpComponent implements OnInit {
                     'top': '30px'
                 },
 				valueGetter: ({data}) => {
+					if (!data.modifiedDate) return null;
 					return formatDate(data.modifiedDate, 'dd/MM/yyyy', 'en_US');
 				}
 			});
