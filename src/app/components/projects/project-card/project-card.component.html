@@ -14,7 +14,7 @@
                             <div class="col-lg-6">
                                 <div class="image-container">
                                     <h5 [class]="'status' + project.status" class="hoat-dong ms-2">{{ status[project.status].name }}</h5>
-                                    <img class="img-fluid cursor-pointer w-100 h-100" (click)="navigate(project)" [src]="project.avatar | img | safe:'resourceUrl'" alt="alternative">
+                                    <img class="img-fluid cursor-pointer w-100 h-100" (click)="navigate(project)" [src]="project.avatar | img | safe:'resourceUrl'" alt="{{ project.title }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">

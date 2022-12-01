@@ -125,20 +125,47 @@ export class DbpComponent implements OnInit {
 					return this.currencyPipe.transform(data.money, 'VND');
 				}
             },
-			{
-				headerName: 'THAO TÁC',
-				headerTooltip: 'THAO TÁC',
-				minWidth: 110,
-				maxWidth: 110,
+			
+		];
 
-				cellRenderer: DbpActionComponent,
+		if (this.router.url !== '/admin/dbp1') {
+			this.columnDefs.push({
+				headerName: 'NGÀY SỬA',
+				headerTooltip: 'NGÀY SỬA',
+				minWidth: 120,
+				maxWidth: 120,
 				cellStyle: {
-                    'display': 'flex',
-                    'align-items': 'center',
-                    'justify-content': 'center',
-					'overflow': 'unset'
+                    'top': '30px'
                 },
-			}
-		]
+				valueGetter: ({data}) => {
+					return formatDate(data.modifiedDate, 'dd/MM/yyyy', 'en_US');
+				}
+			});
+			this.columnDefs.push({
+				headerName: 'NGƯỜI SỬA',
+				headerTooltip: 'NGƯỜI SỬA',
+				minWidth: 120,
+				cellStyle: {
+                    'top': '30px'
+                },
+				field: 'modifier',
+				tooltipField: 'modifier',
+			});
+		} 
+
+		this.columnDefs.push({
+			headerName: 'THAO TÁC',
+			headerTooltip: 'THAO TÁC',
+			minWidth: 110,
+			maxWidth: 110,
+
+			cellRenderer: DbpActionComponent,
+			cellStyle: {
+				'display': 'flex',
+				'align-items': 'center',
+				'justify-content': 'center',
+				'overflow': 'unset'
+			},
+		})
 	}
 }

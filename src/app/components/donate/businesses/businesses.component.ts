@@ -50,12 +50,16 @@ export class BusinessesComponent implements OnInit, OnDestroy {
       publicName: [null, [Validators.required, CustomValidators.onlyText]],
       phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
       email: [null, [Validators.required, Validators.email]],
-      money: [null, [Validators.required]],
+      money: [null, [Validators.required, Validators.min(1)]],
       comment: [null],
       methodDonate: [0, [Validators.required]],
       projectId: [this.project.id, [Validators.required]]
     });
     this.formGroup.get('money').valueChanges.subscribe(res => {
+      if (!res || res < 1) {
+        this.moneyAsText = '';
+        return;
+      }
       this.moneyAsText = Utils.moneyAsText(res);
     })
   }

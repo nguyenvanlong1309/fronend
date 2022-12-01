@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Utils } from 'src/app/base/utils';
 import { CustomValidators } from 'src/app/base/validators/custom.validator';
+import { REGEX_PHONE_VIETNAME } from 'src/app/base/constant';
 
 @Component({
   selector: 'app-signup',
@@ -40,7 +41,7 @@ export class SignupComponent implements OnInit,OnDestroy {
       username: [null, [Validators.required, Validators.minLength(5)]],
       password: [null, [Validators.required]],
       passwordConfirmation: [null, [Validators.required]],
-      phone: [null, [Validators.required, Validators.pattern('^(0|\\+84)[0-9]{9}')]],
+      phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
       email: [null, [Validators.required, Validators.email]],
       role: ['USER']
     })

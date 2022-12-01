@@ -1,8 +1,8 @@
 import { ChangePasswordComponent } from './../../../../components/shared/change-password/change-password.component';
-import { ChangePassword } from './../../../../models/user.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component } from "@angular/core";
 import { AuthService } from "src/app/services/auth.service";
+import { UserFormComponent } from 'src/app/components/admin/user/user-form/user-form.component';
 
 @Component({
     selector: 'app-admin-header',
@@ -15,6 +15,13 @@ export class AdminHeaderComponent {
         private authService: AuthService,
         private ngbModal: NgbModal
     ) {}
+
+    public ngOnAddAdmin() {
+        this.ngbModal.open(UserFormComponent, {
+            centered: true,
+            animation: true,
+        });
+    }
 
     public ngOnChangePassword(): void {
         this.ngbModal.open(ChangePasswordComponent, {
