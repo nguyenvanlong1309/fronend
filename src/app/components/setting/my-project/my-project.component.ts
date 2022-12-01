@@ -110,7 +110,7 @@ export class MyProjectComponent implements OnInit {
                 headerName: 'TRẠNG THÁI',
                 headerTooltip: 'TRẠNG THÁI',
 
-                minWidth: 100,
+                minWidth: 150,
                 maxWidth: 150,
 
                 field: 'statusName',
@@ -125,7 +125,7 @@ export class MyProjectComponent implements OnInit {
             {
                 headerName: 'TỔNG TIỀN',
                 headerTooltip: 'TỔNG TIỀN',
-                minWidth: 100,
+                minWidth: 120,
                 
                 valueGetter: ({data}) => {
                     return this.currencyPipe.transform(data.total || 0, 'VND');
@@ -137,7 +137,7 @@ export class MyProjectComponent implements OnInit {
             {
                 headerName: 'NGÀY SỬA',
                 headerTooltip: 'NGÀY SỬA',
-                minWidth: 100,
+                minWidth: 120,
                 
                 valueGetter: ({data}) => {
                     if (!data.modifiedDate) return null;
@@ -150,7 +150,7 @@ export class MyProjectComponent implements OnInit {
             {
                 headerName: 'NGƯỜI SỬA',
                 headerTooltip: 'NGƯỜI SỬA',
-                minWidth: 100,
+                minWidth: 120,
                 
                 field: 'modifier',
                 tooltipField: 'modifier',

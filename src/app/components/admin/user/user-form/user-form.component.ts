@@ -1,7 +1,7 @@
 import { Confirmation } from './../../../../base/confirmation/confirmation.enum';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Utils } from 'src/app/base/utils';
-import { UserResponseModel } from 'src/app/models/user.model';
+import { UserModel, UserResponseModel } from 'src/app/models/user.model';
 import { Subject, takeUntil } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from "@angular/core";
@@ -20,6 +20,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     private unsubscribe$: Subject<void> = new Subject();
     public formGroup: FormGroup;
     public user: UserResponseModel;
+    public session: UserModel = this.authService.currentUser$.getValue();
 
     public get formControl() {
         return this.formGroup.controls;
@@ -45,6 +46,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
             phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
             address: [null],
             role: [null, [Validators.required]],
+            password: [null, [Validators.required]]
         });
     }
 
@@ -54,10 +56,9 @@ export class UserFormComponent implements OnInit, OnDestroy {
             this.toastService.error('Thông tin không hợp lệ.');
             return;
         };
-        const session = this.authService.currentUser$.getValue();
         this.authService.regisUser({
             ...this.formGroup.value,
-            role: session.user.role
+            role: this.session.user.role
         })
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(res => {

@@ -102,7 +102,7 @@ export class DbpComponent implements OnInit {
                 headerName: 'TRẠNG THÁI',
                 headerTooltip: 'TRẠNG THÁI',
 
-                minWidth: 100,
+                minWidth: 150,
                 maxWidth: 150,
 
                 field: 'statusName',
@@ -117,7 +117,7 @@ export class DbpComponent implements OnInit {
 			{
                 headerName: 'SỐ TIỀN',
                 headerTooltip: 'SỐ TIỀN',
-                minWidth: 100,
+                minWidth: 150,
                 cellStyle: {
                     'top': '30px'
                 },
