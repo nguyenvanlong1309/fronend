@@ -1,7 +1,7 @@
-<angular-editor
+<ckeditor 
+    [(ngModel)]="ngModel"
+    [editor]="editor"
     [config]="config"
 
-    [(ngModel)]="ngModel"
-    [ngModelOptions]="{standalone: true}"
-    (ngModelChange)="onChange()"
-></angular-editor>
+    (change)="onChange()"
+></ckeditor>

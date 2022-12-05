@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "ck": "cd .\\src\\app\\components\\shared\\editor\\ck && npm i",
+    "build-ck": "cd .\\src\\app\\components\\shared\\editor\\ck && npm run build",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -18,7 +20,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-    "@kolkov/angular-editor": "^3.0.0-beta.0",
+    "@ckeditor/ckeditor5-angular": "^4.0.0",
     "@ng-bootstrap/ng-bootstrap": "^13.1.0",
     "@popperjs/core": "^2.10.2",
     "ag-grid-angular": "^28.2.1",
@@ -28,7 +30,6 @@
     "chart.js": "^4.0.1",
     "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.6.1",
     "ngx-toastr": "^15.2.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

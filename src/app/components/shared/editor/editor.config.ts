@@ -1,48 +1,19 @@
-import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { SummernoteOptions } from "ngx-summernote/lib/summernote-options";
 
 export class EditorConfig {
 
-    public static editorConfig: AngularEditorConfig = {
-        editable: true,
-        spellcheck: true,
-        height: 'auto',
-        minHeight: '300',
-        maxHeight: 'auto',
-        width: 'auto',
-        minWidth: '0',
-        translate: 'yes',
-        enableToolbar: true,
-        showToolbar: true,
-        placeholder: 'Enter text here...',
-        defaultParagraphSeparator: '',
-        defaultFontName: '',
-        defaultFontSize: '',
-        fonts: [
-          {class: 'arial', name: 'Arial'},
-          {class: 'times-new-roman', name: 'Times New Roman'},
-          {class: 'calibri', name: 'Calibri'},
-          {class: 'comic-sans-ms', name: 'Comic Sans MS'}
-        ],
-        customClasses: [
-          {
-            name: 'quote',
-            class: 'quote',
-          },
-          {
-            name: 'redText',
-            class: 'redText'
-          },
-          {
-            name: 'titleText',
-            class: 'titleText',
-            tag: 'h1',
-          },
-        ],
-        sanitize: true,
-        toolbarPosition: 'top',
-        toolbarHiddenButtons: [
-          ['bold', 'italic'],
-          ['fontSize']
-        ]
-    };
+    public static editorConfig: SummernoteOptions = {
+      placeholder: '',
+      tabsize: 2,
+      height: 200,
+      toolbar: [
+          ['misc', ['codeview', 'undo', 'redo']],
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+          ['fontsize', ['fontname', 'fontsize', 'color']],
+          ['para', ['style', 'ul', 'ol', 'paragraph', 'height']],
+          ['insert', ['table', 'picture', 'link', 'video', 'hr']]
+      ],
+      fontNames: ['Helvetica', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Roboto', 'Times']
+    }
 }

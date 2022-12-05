@@ -1,7 +1,8 @@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Component } from "@angular/core";
-import { EditorConfig } from "./editor.config";
+import { SummernoteOptions } from 'ngx-summernote/lib/summernote-options';
+import { EditorConfig } from './editor.config';
+import * as CkEditorClassic from './ck/build/ckeditor.js';
 
 @Component({
     selector: 'app-editor',
@@ -17,7 +18,10 @@ import { EditorConfig } from "./editor.config";
 })
 export class EditorComponent implements ControlValueAccessor {
     
-    public config: AngularEditorConfig = EditorConfig.editorConfig;
+    public editor = CkEditorClassic;
+    public config = {
+        shouldNotGroupWhenFull: false
+    }
     public ngModel: string;
     public _onChange = (value) => {};
     public onTouched = () => {}; 
@@ -30,6 +34,7 @@ export class EditorComponent implements ControlValueAccessor {
         this.markAsTouched();
         if (!this.disabled) {
             this._onChange(this.ngModel);
+            console.log(this.ngModel)
         }
     }
 
