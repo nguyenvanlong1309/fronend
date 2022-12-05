@@ -83,6 +83,14 @@
         <div class="col-md-12">
             <label class="labels required">SỐ TIỀN TÀI TRỢ</label>
             <input type="number" class="form-control" placeholder="10.000.000" formControlName="money">
+            <div class="text-danger" *ngIf="formControl.money.invalid && (formControl.money.touched || formControl.money.dirty)">
+                <div *ngIf="formControl.money.errors.required">
+                  Số tiền tài trợ không được trống
+                </div>
+                <div *ngIf="formControl.money.errors.min">
+                  Số tiền tài trợ ít nhất là 1 đồng.
+                </div>
+            </div>
             <div class="text-success fw-bold money-text mt-1 ms-1">{{ moneyAsText }}</div>
         </div>
         <div class="col-md-12">

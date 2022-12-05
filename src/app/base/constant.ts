@@ -6,23 +6,27 @@ export const REGEX_ONLY_TEXT = "([a-zA-Z]|\\s)+";
 export const PROJECT_STATUS = [
     {
         id: 0,
-        name: 'Chờ duyệt'
+        name: 'Chờ duyệt',
     },
     {
         id: 1,
-        name: 'Đã hoàn thành'
+        name: 'Đã hoàn thành',
+        classColor: 'bg-success',
     },
     {
         id: 2,
-        name: 'Đang vận động'
+        name: 'Đang vận động',
+        classColor: 'bg-primary',
     },
     {
         id: 3,
-        name: 'Sắp hết hạn'
+        name: 'Sắp hết hạn',
+        classColor: 'bg-warning',
     },
     {
         id: 4,
-        name: 'Hủy bỏ'
+        name: 'Hủy bỏ',
+        classColor: 'bg-danger'
     }
 ]
 

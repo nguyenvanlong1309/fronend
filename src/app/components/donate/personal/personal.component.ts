@@ -56,12 +56,16 @@ export class PersonalComponent implements OnInit, OnDestroy {
       email: [null, [Validators.required, Validators.email]],
       phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
       methodDonate: [0, [Validators.required]],
-      money: [null, [Validators.required]],
+      money: [null, [Validators.required, Validators.min(1)]],
       comment: [null],
       mode: ['0'],
       projectId: [this.project.id],
     });
     this.formGroup.get('money').valueChanges.subscribe(res => {
+      if (!res|| res < 1) {
+        this.moneyAsText = '';
+        return;
+      }
       this.moneyAsText = Utils.moneyAsText(res);
     })
   }

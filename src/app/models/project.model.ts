@@ -14,4 +14,6 @@ export interface Project {
     statusName: string;
     type: 0 | 1;
     money: number;
+    modifier: string;
+    modifiedDate: string;
 }

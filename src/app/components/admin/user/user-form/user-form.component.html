@@ -1,6 +1,10 @@
 <div>
-    <div class="modal-header">
-        <h3>Cập Nhật User</h3>
+    <div class="modal-header d-flex justify-content-between align-items-center">
+        <h3 class="mb-0" *ngIf="session.user.role != 'ADMIN'">Cập Nhật User</h3>
+        <h3 class="mb-0" *ngIf="session.user.role == 'ADMIN'">Thêm mới Admin</h3>
+        <button type="button" class="close" aria-label="Close" (click)="ngOnClose()">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
         <form [formGroup]="formGroup" class="d-flex flex-column gap-2">
@@ -32,7 +36,7 @@
             </div>
 
             <div>
-                <label class="labels">EMAIL</label>
+                <label class="labels required">EMAIL</label>
                 <input type="email" class="form-control" formControlName="email">
                 <div class="text-danger" *ngIf="formControl.email.invalid && (formControl.email.touched || formControl.email.dirty)">
                     <div *ngIf="formControl.email.errors.required">
@@ -47,14 +51,32 @@
             <div>
                 <label class="labels required">TÊN TÀI KHOẢN</label>
                 <input type="text" class="form-control" formControlName="username">
+                <div class="text-danger" *ngIf="formControl.username.invalid && (formControl.username.touched || formControl.username.dirty)">
+                    <div *ngIf="formControl.username.errors.required">
+                      Tên đăng nhập không được trống
+                    </div>
+                    <div *ngIf="formControl.username.errors.minlength">
+                      Tên đăng nhập phải lớn hơn 5 ký tự
+                    </div>
+                  </div>
             </div>
+
+            <div class="form-group text-left">
+                <label class="required form-label">Mật khẩu</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+                <span class="form-message"></span>
+              </div>
 
             <div>
                 <label class="labels">ĐỊA CHỈ</label>
                 <input type="text" class="form-control" formControlName="address">
             </div>
 
-            <div class="d-flex gap-4 form-control border-0">
+            <div *ngIf="session.user.role !== 'ADMIN'" class="d-flex gap-4 form-control border-0">
                 <div class="d-flex gap-2">
                     <input id="user" type="radio" value="USER" formControlName="role" />
                     <label for="user">Người dùng</label>

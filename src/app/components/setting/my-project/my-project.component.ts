@@ -4,7 +4,7 @@ import { CurrencyPipe, formatDate } from '@angular/common';
 import { Observable } from 'rxjs';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from "@angular/core";
-import { ColDef, ValueGetterParams } from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
 import { Project } from 'src/app/models/project.model';
 import { ProjectService } from 'src/app/services/project.service';
 import { environment } from 'src/environments/environment';
@@ -110,7 +110,7 @@ export class MyProjectComponent implements OnInit {
                 headerName: 'TRẠNG THÁI',
                 headerTooltip: 'TRẠNG THÁI',
 
-                minWidth: 100,
+                minWidth: 150,
                 maxWidth: 150,
 
                 field: 'statusName',
@@ -125,11 +125,35 @@ export class MyProjectComponent implements OnInit {
             {
                 headerName: 'TỔNG TIỀN',
                 headerTooltip: 'TỔNG TIỀN',
-                minWidth: 100,
+                minWidth: 120,
                 
                 valueGetter: ({data}) => {
                     return this.currencyPipe.transform(data.total || 0, 'VND');
                 },
+                cellStyle: {
+                    'top': '30px'
+                }
+            },
+            {
+                headerName: 'NGÀY SỬA',
+                headerTooltip: 'NGÀY SỬA',
+                minWidth: 120,
+                
+                valueGetter: ({data}) => {
+                    if (!data.modifiedDate) return null;
+                    return formatDate(new Date(data.modifiedDate), 'dd/MM/yyyy', 'en-US')
+                },
+                cellStyle: {
+                    'top': '30px'
+                }
+            },
+            {
+                headerName: 'NGƯỜI SỬA',
+                headerTooltip: 'NGƯỜI SỬA',
+                minWidth: 120,
+                
+                field: 'modifier',
+                tooltipField: 'modifier',
                 cellStyle: {
                     'top': '30px'
                 }
