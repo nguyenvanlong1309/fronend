@@ -1,7 +1,5 @@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Component } from "@angular/core";
-import { SummernoteOptions } from 'ngx-summernote/lib/summernote-options';
-import { EditorConfig } from './editor.config';
 import * as CkEditorClassic from './ck/build/ckeditor.js';
 
 @Component({

@@ -27,6 +27,7 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import { ImageResizeEditing, ImageResizeHandles } from '@ckeditor/ckeditor5-image';
 
 class Editor extends ClassicEditor {}
 
@@ -59,7 +60,9 @@ Editor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation,
 	Underline,
-	Base64UploadAdapter
+	Base64UploadAdapter,
+	ImageResizeEditing,
+	ImageResizeHandles,
 ];
 
 // Editor configuration.
