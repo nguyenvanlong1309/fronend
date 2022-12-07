@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
 import { formatDate } from '@angular/common';
 import { ProjectService } from 'src/app/services/project.service';
 import { environment } from 'src/environments/environment';
-import { EditorConfig } from '../editor/editor.config';
 
 @Component({
     selector: 'app-post-form',
@@ -23,7 +22,6 @@ export class PostFormComponent implements OnInit, OnDestroy {
 
     private unsubscribe$: Subject<void> = new Subject();
     public project: Project;
-    public config = EditorConfig.editorConfig;
     public city$: Observable<City[]>;
     public formGroup: FormGroup;
     public avatarFile: {file: File, url: string};
