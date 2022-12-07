@@ -15,3 +15,7 @@
 :host ::ng-deep .ck-editor__editable_inline > p {
     margin-bottom: 0;
 }
+
+::ng-deep .ck-balloon-panel {
+    z-index: 1000000 !important;
+}

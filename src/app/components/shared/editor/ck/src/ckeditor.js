@@ -97,10 +97,12 @@ Editor.defaultConfig = {
 	language: 'en',
 	image: {
 		toolbar: [
-			'imageTextAlternative',
 			'imageStyle:inline',
 			'imageStyle:block',
-			'imageStyle:side'
+			'imageStyle:side',
+			'|',
+			'toggleImageCaption',
+			'imageTextAlternative',
 		]
 	},
 	table: {

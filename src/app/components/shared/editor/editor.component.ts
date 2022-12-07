@@ -34,7 +34,6 @@ export class EditorComponent implements ControlValueAccessor {
         this.markAsTouched();
         if (!this.disabled) {
             this._onChange(this.ngModel);
-            console.log(this.ngModel)
         }
     }
 
