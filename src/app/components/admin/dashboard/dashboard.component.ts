@@ -115,12 +115,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
   handleDataProjectStatusChart(res: Region[]): void {
     const projects = res.flatMap(r => r.projects);
     const dataInitialzeProjectStatusChard = PROJECT_STATUS.reduce((data, cur, index) => {
+      if (cur.id === 3) return data;
       data.data.push(0);
       data.background.push(DashboardComponent.COLOR_CHAR[index] || 'black');
       return data;
     }, {data: [], background: []} as {data: number[], background: string[]})
     projects.forEach(p => {
-      dataInitialzeProjectStatusChard.data[p.status] = dataInitialzeProjectStatusChard.data[p.status] + 1;
+      if (p.status != 3)
+        dataInitialzeProjectStatusChard.data[p.status] = dataInitialzeProjectStatusChard.data[p.status] + 1;
     });
     this.projectByStatusChart.data.datasets = [dataInitialzeProjectStatusChard];
     this.projectByStatusChart.update();
