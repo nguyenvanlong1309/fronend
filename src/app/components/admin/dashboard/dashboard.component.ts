@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.projectByStatusChart = new Chart("ProjectByStatusChart", {
       type: 'pie',
       data: {
-        labels: PROJECT_STATUS.map(s => s.name),
+        labels: PROJECT_STATUS.filter(s => s.id != 3).map(s => s.name),
 	      datasets: []
       },
       options: {
