@@ -11,7 +11,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { ModuleWithProviders, NgModule, Type } from "@angular/core";
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { IntroduceComponent } from 'src/app/components/introduce/introduce.component';
+
 import { NewsComponent } from 'src/app/components/news/news.component';
+import { Tintuc1Component } from 'src/app/components/news/tintuc1/tintuc1.component';
+import { Tintuc2Component } from 'src/app/components/news/tintuc2/tintuc2.component';
+
 import { ProjectsComponent } from 'src/app/components/projects/projects.component';
 
 import { FinanceComponent } from 'src/app/components/finance/finance.component';
@@ -43,9 +47,12 @@ const declarations: Array<Type<any> | any[]> = [
     FooterComponent,
     HomeComponent,
     IntroduceComponent,
+
     NewsComponent,
+    Tintuc1Component,
+    Tintuc2Component,
+
     FinanceComponent,
-    
     ProjectsComponent,
     SettingComponent,
     ProjectCardComponent,

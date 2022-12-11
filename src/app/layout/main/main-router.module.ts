@@ -6,7 +6,11 @@ import { PersonalComponent } from "src/app/components/donate/personal/personal.c
 import { FinanceComponent } from "src/app/components/finance/finance.component";
 import { HomeComponent } from "src/app/components/home/home.component";
 import { IntroduceComponent } from "src/app/components/introduce/introduce.component";
+
 import { NewsComponent } from "src/app/components/news/news.component";
+import { Tintuc1Component } from 'src/app/components/news/tintuc1/tintuc1.component';
+import { Tintuc2Component } from 'src/app/components/news/tintuc2/tintuc2.component';
+
 import { ProjectDetailComponent } from "src/app/components/projects/detail/project-detail.component";
 import { ProjectsComponent } from "src/app/components/projects/projects.component";
 import { SettingComponent } from "src/app/components/setting/setting.component";
@@ -33,6 +37,14 @@ const routes: Routes = [
         {
           path:'news',
           component: NewsComponent
+        },
+        {
+          path:'tintuc1',
+          component: Tintuc1Component
+        },
+        {
+          path:'tintuc2',
+          component: Tintuc2Component
         },
         {
           path:'finace',

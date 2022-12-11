@@ -1,0 +1,169 @@
+.news{
+  display: flex;
+  padding-top: 4rem;
+  padding-left: 4rem;
+}
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+.wa2{
+  border: 2px solid #37B984;
+  width: 70px;
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.date{
+  color: #37B984;
+  font-size: 36px;
+  line-height: 35px;
+}
+
+.month{
+  color: #37B984;
+}
+
+.title-1{
+  margin-left: 10px;
+  padding-top: 11px;
+}
+
+.row{
+  display: flex;
+}
+
+.next-1{
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  padding: 4px 20px;
+  color: #f3f7fd;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #37B984;
+  transition: 0.5s;
+  background: #37B984;
+}
+
+.next-1:hover{
+  background-color: #f3f7fd;
+  color:#37B984;
+  border: 2px solid #37B984;
+}
+
+
+/* Slider */
+.slide-show{
+  margin: 0;
+  padding: 0;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider{
+  width: 1000px;
+  height: 550px;
+  /* border-radius: 10px; */
+  overflow: hidden;
+}
+
+.slides{
+  width: 500%;
+  height: 550px;
+  display: flex;
+}
+
+.slides input{
+  display: none;
+}
+
+.silde{
+  width: 20%;
+  transition: 2s;
+}
+
+.silde img{
+  width: 1000px;
+  height: 550px;
+}
+
+.navigasion-manual{
+  position: absolute;
+  width: 1000px;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn{
+  border: 2px solid red;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+
+.manual-btn:hover{
+  background: red;
+}
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first{
+  margin-left: -60%;
+}
+
+.navigasion-auto{
+  position: absolute;
+  display: flex;
+  width: 1000px;
+  justify-content: center;
+  margin-top: 510px;
+
+}
+
+.navigasion-auto div{
+  border: 2px solid red;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.navigasion-auto div:not(:last-child){
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigasion-auto .auto-btn1{
+  background: red;
+}
+#radio2:checked ~ .navigasion-auto .auto-btn2{
+  background: red;
+}
+#radio3:checked ~ .navigasion-auto .auto-btn3{
+  background: red;
+}
+#radio4:checked ~ .navigasion-auto .auto-btn4{
+  background: red;
+}
