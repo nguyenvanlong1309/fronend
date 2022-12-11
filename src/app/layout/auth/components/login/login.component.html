@@ -1,7 +1,18 @@
-<header id="header" class="ex-2-header pt-4">
-  <div class="container">
+<header id="header" class="ex-2-header wrapper">
+  <div class="container bg-bubbles">
+    <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
       <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-12" style="margin-top: 3rem;">
               <h1>ĐĂNG NHẬP</h1>
               <div class="form-container">
                   <form (submit)="ngSubmitForm()" [formGroup]="formGroup" class="form pt-0" id="form-2" style="padding-bottom: 2rem;">
@@ -20,42 +31,21 @@
                         </div>
                       </div>
 
-                      <div class="form-group">
+                      <div class="form-group" style="padding-top: 15px">
                           <button class="form-control-submit-button">Đăng nhập</button>
-                          <span class="text-primary cursor-pointer" (click)="ngOnOpenForgetPassword(forgetPassword)">Quên mật khẩu?</span>
+                      </div>
+                      <div style="margin-top: 10px">
+                        <span class="text-primary cursor-pointer" (click)="ngOnOpenForgetPassword(forgetPassword)">Quên mật khẩu?</span>
                       </div>
                   </form>
-                  <p style="color: #b0b0b0">Bạn chưa có tài khoản? Hãy<a class="btn-login" [routerLink]="['/auth', 'sign-up']"> Đăng ký</a></p>
-                  <h5 style="color: #b0b0b0">Đăng Nhập Bằng Mạng Xã Hội</h5>
-                  <div class="form p-0">
-                      <div class="icon-container">
-                          <span class="fa-stack">
-                              <a>
-                                  <i class="fas fa-circle fa-stack-2x"></i>
-                                  <i class="fab fa-facebook-f fa-stack-1x"></i>
-                              </a>
-                          </span>
-                          <span class="fa-stack">
-                              <a>
-                                  <i class="fas fa-circle fa-stack-2x"></i>
-                                  <i class="fab fa-twitter fa-stack-1x"></i>
-                              </a>
-                          </span>
-                          <span class="fa-stack">
-                              <a>
-                                  <i class="fas fa-circle fa-stack-2x"></i>
-                                  <i class="fab fa-google fa-stack-1x"></i>
-                              </a>
-                          </span>
-                      </div>
-                  </div>
+                  <p style="color: #b0b0b0; padding-top: 0; margin-bottom: 1.5rem;">Bạn chưa có tài khoản? Hãy<a class="btn-login" [routerLink]="['/auth', 'sign-up']"> Đăng ký</a></p>
                   <div>
                     <a class="btn-login" [routerLink]="['/home']">Về trang chủ</a>
                   </div>
               </div>
           </div>
       </div>
-  </div>
+    </div>
 </header>
 
 <ng-template #forgetPassword>
