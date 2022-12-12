@@ -60,15 +60,6 @@ a{
   border: 2px solid #37B984;
 }
 
-.i-pov-1{
-  color: #fff;
-}
-
-.i-pov-1:hover{
-  color: #37B984;
-}
-
-
 /* Slider */
 .slide-show{
   margin: 0;
@@ -78,10 +69,12 @@ a{
   align-items: center;
 }
 
+
 .img-slider{
   width: 1000px;
   height: 550px;
 }
+
 
 /*  */
 .btn-outline-reg{

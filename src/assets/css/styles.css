@@ -26,7 +26,7 @@ Table Of Contents:
 /*****************************************
 Colors:
 - Backgrounds, buttons, bullets, icons - blue #37B984
-- Backgrounds, light button, light body text - light gray #f3f7fd
+- Backgrounds, light button, light body text - light gray #fff
 - Headings text - black #333
 - Body text - dark gray #555
 ******************************************/
@@ -1462,8 +1462,7 @@ input[type='checkbox'] {
 }
 
 .footer {
-	padding-top: 3rem;
-	padding-bottom: 0.5rem;
+	padding-top: 1rem;
 	background-color: #37B984;
 }
 
@@ -1511,7 +1510,6 @@ input[type='checkbox'] {
 /*     15. Copyright     */
 /*************************/
 .copyright {
-	padding-top: 1rem;
 	padding-bottom: 0.375rem;
 	background-color: #37B984;
 	text-align: center;

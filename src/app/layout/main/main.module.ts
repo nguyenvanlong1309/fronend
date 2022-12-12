@@ -15,6 +15,7 @@ import { IntroduceComponent } from 'src/app/components/introduce/introduce.compo
 import { NewsComponent } from 'src/app/components/news/news.component';
 import { Tintuc1Component } from 'src/app/components/news/tintuc1/tintuc1.component';
 import { Tintuc2Component } from 'src/app/components/news/tintuc2/tintuc2.component';
+import { Tintuc3Component } from 'src/app/components/news/tintuc3/tintuc3.component';
 
 import { ProjectsComponent } from 'src/app/components/projects/projects.component';
 
@@ -31,6 +32,7 @@ import { BusinessesComponent } from 'src/app/components/donate/businesses/busine
 import { DonateComponent } from 'src/app/components/donate/donate.component';
 import { ListDonateComponent } from 'src/app/components/donate/list-donate/list-donate.component';
 import { SharedModule } from 'src/app/components/shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const imports:  Array<Type<any> | ModuleWithProviders<{}> | any[]> = [
     CommonModule,
@@ -39,6 +41,7 @@ const imports:  Array<Type<any> | ModuleWithProviders<{}> | any[]> = [
     MainRouterModule,
     AgGridModule,
     SharedModule,
+    NgbModule,
 ]
 
 const declarations: Array<Type<any> | any[]> = [
@@ -51,6 +54,7 @@ const declarations: Array<Type<any> | any[]> = [
     NewsComponent,
     Tintuc1Component,
     Tintuc2Component,
+    Tintuc3Component,
 
     FinanceComponent,
     ProjectsComponent,

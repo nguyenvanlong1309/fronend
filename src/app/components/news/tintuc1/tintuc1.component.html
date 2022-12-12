@@ -16,6 +16,7 @@
         <div class="wa2">
           <a class="date">16</a>
           <a class="month">Th11</a>
+          <a class="year">2022</a>
         </div>
       </div>
       <div>
@@ -40,45 +41,23 @@
             Cô Thu là giáo viên cấp 2 đã nghỉ hưu. Trong một lần đi tập dưỡng sinh, cô nghe kể trường thiếu giáo viên Toán nên tình nguyện đến dạy ở đây từ 4 năm trước. "Các em có hoàn cảnh khó khăn, thiếu thốn tình thương, một số em khá bướng bỉnh nên việc dạy đòi hỏi phải kiên trì, yêu thương", nữ giáo viên 64 tuổi chia sẻ.
           </p>
           <div class="slide-show">
-            <div class="slider">
-              <div class="slides">
-                <input type="radio" name="radio-btn" id="radio1">
-                <input type="radio" name="radio-btn" id="radio2">
-                <input type="radio" name="radio-btn" id="radio3">
-                <input type="radio" name="radio-btn" id="radio4">
-
-                <div class="silde first">
-                  <img src="/assets/images/tintuc/tintuc1/tintuc1.jpg" alt="">
+            <ngb-carousel *ngIf="images">
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img class="img-slider" src="/assets/images/tintuc/tintuc1/tintuc1.jpg" alt="">
                 </div>
-                <div class="silde">
-                  <img src="/assets/images/tintuc/tintuc1/tintuc2.jpg" alt="">
-
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img class="img-slider" src="/assets/images/tintuc/tintuc1/tintuc2.jpg" alt="">
                 </div>
-                <div class="silde">
-                  <img src="/assets/images/tintuc/tintuc1/tintuc1.jpg" alt="">
-
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img class="img-slider" src="/assets/images/tintuc/tintuc1/tintuc2.jpg" alt="">
                 </div>
-                <div class="silde">
-                  <img src="/assets/images/tintuc/tintuc1/tintuc2.jpg" alt="">
-                </div>
-
-                <div class="navigasion-auto">
-                  <div class="auto-btn1"></div>
-                  <div class="auto-btn2"></div>
-                  <div class="auto-btn3"></div>
-                  <div class="auto-btn4"></div>
-                </div>
-
-              </div>
-
-              <div class="navigasion-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
-                <label for="radio4" class="manual-btn"></label>
-              </div>
-
-            </div>
+              </ng-template>
+            </ngb-carousel>
           </div>
           <p>
             Bà Huỳnh Thị Thu Loan, Hiệu trưởng trường Bồ Đề Phương Duy, chia sẻ ngoài học các môn trong chương trình giáo dục phổ thông, các em còn được học thêm một số môn kỹ năng như võ thuật, âm nhạc, múa lân. Trường cũng rèn học sinh về kỷ luật, lối sống, cử giám thị theo dõi sinh hoạt hàng ngày của các em. Năm giờ sáng, học sinh phải dậy tập thể dục, sau khi ăn sáng sẽ thay nhau trực nhật, soạn tập vở để lên lớp. Khu lưu trú có 3 phòng nam, 2 phòng nữ riêng biệt, học sinh nội trú muốn ra ngoài phải được giám thị cho phép.
@@ -98,10 +77,13 @@
           <p>
             Sau bữa cơm chiều, chú tiểu Hoàng Tăng Phúc băng qua một con đường nhỏ để đến gần khu vực chánh điện. Nhìn Phúc nhỏ hơn nhiều so với tuổi 17, năm nay em mới học đến lớp 5. Nhiều năm trước, cha mẹ Phúc đến Campuchia tìm việc rồi sinh ra Phúc và em gái. Do cha mẹ bận buôn bán nên hai anh em không được đi học. Một thời gian sau, cha của em mất, mẹ có gia đình khác, Phúc phải đến làm thuê cho các quán ăn.
           </p>
+          <p style="text-align: right;">
+            <em> Nguồn: VnExpress</em>
+          </p>
+          <div style="margin-top: 50px; text-align: right;">
+            <span class="next-1 fa fa-angle-double-right" [routerLink]="['/tintuc2']">Tiếp theo</span>
+          </div>
         </div>
-        <div style="margin-top: 50px">
-          <span class="next-1 fa fa-angle-double-right" [routerLink]="['/tintuc2']">Tiếp theo</span>
-      </div>
     </div>
   </div>
 </div>

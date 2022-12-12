@@ -57,14 +57,19 @@
 .image-container{
   padding-top: 50px;
   text-align: center;
-  background-color: #f3f7fd;
+  background-color: #fff;
 }
 
 .ex-basic-2{
   background-color: #f3f7fd;
 }
 
-app-project-card:hover{
+.project-hv{
+  margin-left: 10px;
+  border: 1px solid rgb(59, 59, 59);
+}
+
+.project-hv:hover{
 	box-shadow: 0 7px 5px 0 rgb(59, 59, 59);
 	transform: translate(0px 0px);
 }
