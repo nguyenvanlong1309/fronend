@@ -1,3 +1,16 @@
 .ex-basic-2{
   background-color: #f3f7fd;
 }
+
+.introduces{
+  width: 600px;
+  height: 340px;
+}
+
+.we-introduce{
+  display: flex;
+}
+
+.text-center{
+  font-weight: 600;
+}

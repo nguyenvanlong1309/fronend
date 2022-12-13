@@ -43,6 +43,7 @@ export class SignupComponent implements OnInit,OnDestroy {
       passwordConfirmation: [null, [Validators.required]],
       phone: [null, [Validators.required, Validators.pattern(REGEX_PHONE_VIETNAME)]],
       email: [null, [Validators.required, Validators.email]],
+      address: [null],
       role: ['USER']
     })
   }

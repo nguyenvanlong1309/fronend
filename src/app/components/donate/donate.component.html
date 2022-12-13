@@ -4,7 +4,7 @@
             <div class="col-lg-6">
                 <router-outlet (activate)="loadComponent($event)"></router-outlet>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" style="padding-left: 85px">
                 <div>
                   <h4 class="text-left text-uppercase">{{ title }}</h4>
                   <hr/>
@@ -13,9 +13,9 @@
                       <a class="date">{{ i + 1 }}</a>
                     </div>
                     <div class="donate-g-2">
-                      <p>{{ d.publicName }}</p>
-                      <p>Số tiền : {{ d.total | currency:'VND' }}</p>
-                      <p>Số lần donate : {{ d.count }}</p>
+                      <a class="donates">{{ d.publicName }}</a>
+                      <a class="donates">Số tiền : {{ d.total | currency:'VND' }}</a>
+                      <a class="donates">Số lần donate : {{ d.count }}</a>
                     </div>
                   </div>
                 </div>
