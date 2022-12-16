@@ -9,6 +9,8 @@ import { Role } from 'src/app/base/role.enum';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Utils } from 'src/app/base/utils';
 
+import { CustomValidators } from 'src/app/base/validators/custom.validator';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,6 +23,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   public formGroup: FormGroup;
   public modalRef: NgbModalRef;
   public usernameToForgetPassword: string;
+
+  public get formControl() {
+    return this.formGroup.controls;
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -37,7 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngBuildForm(): void {
     this.formGroup = this.fb.group({
-      username: [null, [Validators.required]],
+      username: [null, [Validators.required, Validators.minLength(5)]],
       password: [null, [Validators.required]]
     })
   }

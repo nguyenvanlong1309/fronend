@@ -13,8 +13,8 @@ import { REGEX_ONLY_TEXT, REGEX_PHONE_VIETNAME } from 'src/app/base/constant';
 import { CustomValidators } from 'src/app/base/validators/custom.validator';
 
 @Component({
-  	selector: 'app-setting',
-  	templateUrl: './setting.component.html',
+  selector: 'app-setting',
+  templateUrl: './setting.component.html',
 	styleUrls: ['./setting.component.css'],
 })
 export class SettingComponent implements OnInit {

@@ -18,9 +18,20 @@
                   <form (submit)="ngSubmitForm()" [formGroup]="formGroup" class="form pt-0" id="form-2" style="padding-bottom: 2rem;">
 
                       <div class="form-group text-left">
-                          <label class="form-label required">Tên đăng nhập</label>
-                          <input placeholder="Tên đăng nhập" class="form-control" formControlName="username">
-                          <span class="form-message"></span>
+                        <label class="required form-label">Tên đăng nhập</label>
+                        <input
+                          placeholder="Nhập tên đăng nhập"
+                          class="form-control"
+                          formControlName="username"
+                        />
+                        <div class="text-danger" *ngIf="formControl.username.invalid && (formControl.username.touched || formControl.username.dirty)">
+                          <div *ngIf="formControl.username.errors.required">
+                            Tên đăng nhập không được trống
+                          </div>
+                          <div *ngIf="formControl.username.errors.minlength">
+                            Tên đăng nhập phải lớn hơn 5 ký tự
+                          </div>
+                        </div>
                       </div>
 
                       <div class="form-group text-left">
