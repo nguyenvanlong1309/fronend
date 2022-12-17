@@ -57,7 +57,7 @@ export class UserComponent implements OnInit {
 				field: 'username',
 				tooltipField: 'username'
 			},
-			
+
 			{
 				headerName: 'SỐ ĐIỆN THOẠI',
 				headerTooltip: 'SỐ ĐIỆN THOẠI',

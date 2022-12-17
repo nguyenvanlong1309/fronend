@@ -83,6 +83,6 @@ export class FinanceComponent implements OnInit {
 
   public exportExcel(): void {
     this.donateService.exportFile(formatDate(new Date(), 'dd_MM_yyyy', 'en_US'))
-      .subscribe();    
+      .subscribe();
   }
 }
