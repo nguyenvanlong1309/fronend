@@ -50,6 +50,15 @@ export class DbpActionComponent implements ICellRendererAngularComp, OnDestroy {
             })
     }
 
+    public lockProject(): void {
+        this.projectService.lockProject(this.params.data.id)
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe(res => {
+                this.toastService.success('Phê duyệt thành công');
+                this.context.onLoadData();
+            })
+    }
+
     public updateProject(): void {
         const ref = this.ngbModal.open(PostFormComponent, {
 			scrollable: true,

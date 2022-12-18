@@ -53,6 +53,11 @@ export class ProjectService {
         return this.http.get<Project>(`${this.urlAdmin}/approve/${projectId}`);
     }
 
+    public lockProject(projectId): Observable<Project> {
+      this.spinnerService.show();
+      return this.http.get<Project>(`${this.urlAdmin}/lock/${projectId}`);
+  }
+
     public findProjectByUsername(username: string): Observable<Project[]> {
         this.spinnerService.show();
         return this.http.post<Project[]>(`${this.urlAdmin}/username`, { username });
