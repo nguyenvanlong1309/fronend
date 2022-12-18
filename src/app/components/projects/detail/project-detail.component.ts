@@ -29,6 +29,8 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
         private currencyPipe: CurrencyPipe,
     ) {}
 
+    images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
     public ngOnInit(): void {
         this.router.queryParams.subscribe(res => {
             this.projectService.findById(res.id)
