@@ -1,10 +1,28 @@
 <nav class="navbar navbar-default navbar-cls-top">
     <div class="navbar-header d-flex justify-content-between w-100 align-items-center px-4">
-        <a class="navbar-brand text-left fas fa-home ms-0">ADMIN</a>
-        <div class="d-flex gap-2">
+        <a class="navbar-brand text-left fas fa-user ms-0" style="cursor: context-menu;"> ADMIN</a>
+
+        <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+          <button class="mr-2" id="dropdownManual" (focus)="myDrop.open()"></button>
+          <button class="mr-2" (click)="$event.stopPropagation(); myDrop.open();">
+            <button class="custom-btn btn-12">
+              <span style="color: #fff">Click! <li class="far fa-hand-point-up"></li></span>
+              <span style="color: #fff">Menu <li class="fas fa-stream"></li></span>
+            </button>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownManual" class="menu-admin">
+            <button (click)="ngOnAddAdmin()" class="down-menu"><li class="fa fa-edit"></li> Thêm admin</button>
+            <button (click)="ngOnChangePassword()" class="down-menu"><li class="fa fa-exchange-alt"></li> Đổi mật khẩu</button>
+            <button (click)="ngOnLogout()" class="down-menu"><i class="fa fa-sign-out"></i> Đăng xuất</button>
+          </div>
+        </div>
+
+
+
+        <!-- <div class="d-flex gap-2">
             <button (click)="ngOnAddAdmin()">Thêm admin</button>
             <button (click)="ngOnChangePassword()">Đổi mật khẩu</button>
             <button (click)="ngOnLogout()">Đăng xuất</button>
-        </div>
+        </div> -->
     </div>
 </nav>

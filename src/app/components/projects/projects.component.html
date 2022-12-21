@@ -10,7 +10,7 @@
   <div class="container mt-2">
       <div class="row" style="row-gap: 10px;">
         <app-project-card
-          class="col-md-4 project-hv"
+          class="project-hv"
           *ngFor="let project of project$ | async"
           [project]="project"
           [animatedBorder]="false"
