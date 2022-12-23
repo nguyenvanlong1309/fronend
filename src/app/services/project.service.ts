@@ -53,6 +53,11 @@ export class ProjectService {
         return this.http.get<Project>(`${this.urlAdmin}/approve/${projectId}`);
     }
 
+    public cancelProject(projectId): Observable<Project> {
+        this.spinnerService.show();
+        return this.http.get<Project>(`${this.urlAdmin}/cancel/${projectId}`);
+    }
+
     public lockProject(projectId): Observable<Project> {
       this.spinnerService.show();
       return this.http.get<Project>(`${this.urlAdmin}/lock/${projectId}`);

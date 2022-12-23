@@ -1,3 +1,7 @@
+:host ::ng-deep .contents img {
+  width: 100%;
+}
+
 .title {
   border-bottom: 1px solid #37B984;
 }

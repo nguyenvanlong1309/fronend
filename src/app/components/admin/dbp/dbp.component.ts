@@ -10,6 +10,7 @@ import { DbpActionComponent } from './action/dbp-action.component';
 import { CurrencyPipe, formatDate } from '@angular/common';
 import { COLUMN_STT } from 'src/app/base/constant';
 import { PostFormComponent } from '../../shared/post-form/post-form.component';
+import { Utils } from 'src/app/base/utils';
 
 @Component({
   selector: 'app-dbp',
@@ -64,6 +65,14 @@ export class DbpComponent implements OnInit {
         },
         cellRenderer: (params: any) => {
           return `<img src="${environment.IMAGE_STORE_URL}${params.data.avatar}" class="w-100 h-100" />`
+        },
+        onCellClicked: ({data}) => {
+          const title = Utils.toLowerCaseNonAccentVietnamese(data.title).replace(/\s/g, '-');
+          this.router.navigate(['/project',title], {
+              queryParams: {
+                  id: data.id
+              }
+          });
         }
       },
       {

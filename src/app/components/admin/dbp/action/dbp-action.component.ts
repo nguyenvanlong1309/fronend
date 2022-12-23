@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 import { DbpComponent } from '../dbp.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostFormComponent } from 'src/app/components/shared/post-form/post-form.component';
+import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
+import { Confirmation } from 'src/app/base/confirmation/confirmation.enum';
 @Component({
     selector: 'app-dbp-action',
     templateUrl: './dbp-action.component.html',
@@ -47,6 +49,27 @@ export class DbpActionComponent implements ICellRendererAngularComp, OnDestroy {
             .subscribe(res => {
                 this.toastService.success('Phê duyệt thành công');
                 this.context.onLoadData();
+            })
+    }
+
+    public cancelProject(): void {
+        const ref = this.ngbModal.open(ConfirmationComponent, {
+            animation: true,
+            centered: true,
+        });
+        ref.componentInstance.content = {
+            title: 'Xác nhận',
+            message: 'Bạn có chắc chắn muốn hủy?'
+        };
+        ref.closed
+            .pipe(filter(res => res === Confirmation.CONFIRM))
+            .subscribe(res => {
+                this.projectService.cancelProject(this.project.id)
+                    .pipe(takeUntil(this.unsubscribe$))
+                    .subscribe(res => {
+                        this.toastService.success('Hủy bỏ thành công');
+                        this.context.onLoadData();
+                    })
             })
     }
 

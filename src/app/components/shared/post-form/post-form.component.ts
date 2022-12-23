@@ -133,6 +133,13 @@ function customValidateDate(formGroup: FormGroup, formControlName: 'startDate' |
         const d1 = formatDate(control.value, 'yyyy-MM-dd', 'en-US');
         const d2 = formatDate(comparedControl.value, 'yyyy-MM-dd', 'en-US');
         
+        if (formControlName === 'startDate') {
+            const now = formatDate(new Date(), 'yyyy-MM-dd', 'en-US');
+            if (d1 <= now) {
+                return { isInvalid: true };
+            }
+        }
+
         if (!comparedControl?.value) return null;
 
         if (formControlName == 'startDate') {

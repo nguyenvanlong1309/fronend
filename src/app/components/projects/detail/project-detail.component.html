@@ -78,5 +78,14 @@
                 <i class="fas fa-address-book"></i> Cá nhân tài trợ
             </a>
         </div>
+
+        <div *ngIf="project.status === 0 && isAdmin">
+          <button class="btn-outline-reg h-5" (click)="approveProject()">
+            <i class="fas fa-address-book"></i> Duyệt bài viết
+          </button>
+          <button class="btn-outline-reg h-5" (click)="cancelProject()">
+            <i class="fas fa-address-book"></i> Hủy bài viết
+          </button>
+        </div>
     </div>
 </div>
