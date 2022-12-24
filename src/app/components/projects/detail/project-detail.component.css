@@ -4,6 +4,14 @@
 
 .title {
   border-bottom: 1px solid #37B984;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date-project{
+  font-weight: 400;
 }
 
 .btn-outline-reg{

@@ -1,3 +1,14 @@
 .header_navbar-user-name{
   margin-left: 5px;
 }
+
+.user-home-main{
+  background-color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

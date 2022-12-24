@@ -41,9 +41,12 @@
             </ul>
 
         </div>
-        <span class="nav-item dropdown " *ngIf="isLoggedIn">
-          <img src="assets/images/logo-ui.png" alt="" class="header_navbar-user-img" style="border-radius: 50%; cursor:pointer">
-          <span class="header_navbar-user-name" style="color: #cce7dc">{{ user.fullName }}</span>
+        <span class="nav-item dropdown " *ngIf="isLoggedIn" style="display: flex">
+          <!-- <img src="assets/images/logo-ui.png" alt="" class="header_navbar-user-img" style="border-radius: 50%; cursor:pointer"> -->
+          <div class="user-home-main" >
+            <i class="fas fa-user" style="color: #37B984"></i>
+          </div>
+          <span class="header_navbar-user-name" style="color: #cce7dc; display: flex; align-items: center;">{{ user.fullName }}</span>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" [routerLink]="['/profile']"><span class="item-text">THÔNG TIN</span></a>
               <div class="dropdown-items-divide-hr"></div>
