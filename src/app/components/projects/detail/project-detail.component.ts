@@ -34,7 +34,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         const user = this.authService.currentUser$.getValue();
-        this.isAdmin = user.user.role === Role.ADMIN;
+        this.isAdmin = user && user.user.role === Role.ADMIN;
         this.router.queryParams.subscribe(res => {
             this.projectService.findById(res.id)
                 .pipe(takeUntil(this.unsubscribe$))

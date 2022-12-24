@@ -4,6 +4,9 @@
 
 .title {
   border-bottom: 1px solid #37B984;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .btn-outline-reg{
