@@ -12,3 +12,7 @@
   justify-content: center;
   cursor: pointer;
 }
+
+.dropdown-menu {
+  box-shadow: 0 7px 5px 0 rgb(59, 59, 59);
+}

@@ -33,7 +33,7 @@ p,
 	height: 3.125rem;
 	border: 2px solid #fff;
 	border-radius: 1.5rem;
-	background-color: #37B984;
+	background: #37B984;
 	color: #fff;
 	font: 700 0.875rem/0 "Open Sans", sans-serif;
 	cursor: pointer;
@@ -42,8 +42,8 @@ p,
 
 .form-control-submit-button:hover {
 	color: #37B984;
-  border: 2px solid #fff;
-	background-color: #fff;
+  border: 2px solid #37B984;
+	background: #fff;
 }
 
 .container{

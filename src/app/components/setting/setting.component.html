@@ -11,7 +11,8 @@
 
                 <!-- Chức năng đăng bài của PO -->
                 <div class="d-flex justify-content-center" *ngIf="isPO">
-                  <a class="btn-solid-reg" (click)="openPostForm()">Đăng bài viết</a>
+                  <!-- <a class="btn-solid-reg" (click)="openPostForm()">Đăng bài viết</a> -->
+                  <button class="custom-btn btn-4" (click)="openPostForm()"><span>Đăng bài viết</span></button>
                 </div>
               </div>
               <div class="col-md-5 border-right">
@@ -68,7 +69,8 @@
                       </div>
 
                       <div class="text-center">
-                        <button class="btn-solid-reg profile-button">Cập nhật</button>
+                        <button class="custom-btn btn-4 profile-button"><span>Cập nhật</span></button>
+                        <!-- <button class="btn-solid-reg profile-button">Cập nhật</button> -->
                       </div>
                   </form>
               </div>

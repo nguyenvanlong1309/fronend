@@ -77,10 +77,10 @@
 }
 
 .text-project {
-  font: 600 60px/1 'Source Sans Pro', Arial, sans-serif;
+  font: 600 50px/1 'Source Sans Pro', Arial, sans-serif;
   /* text-transform: uppercase; */
   background: #37B984;
-  width: 600px;
+  width: 500px;
   margin-bottom: 20px;
   border-radius: 77px;
   color: #fff;
