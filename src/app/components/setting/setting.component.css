@@ -17,6 +17,17 @@
   height:50px;
 }
 
+.user-setting{
+  background: #37B984;
+  margin: 25px 0;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* 4 */
 .custom-btn {
   width: 130px;
