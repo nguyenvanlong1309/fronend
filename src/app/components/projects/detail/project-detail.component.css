@@ -25,6 +25,97 @@
   border-radius: 40px;
 }
 
+.custom-btn {
+  width: 220px;
+  height: 50px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+/* 15 */
+.btn-15 {
+  background: rgb(168, 168, 168);
+  color: #000;
+  border: none;
+  z-index: 1;
+}
+.btn-15:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #12a53c;
+  border-radius: 5px;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+.btn-15:hover {
+  color: #fff;
+}
+.btn-15:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn-15:active {
+  top: 2px;
+}
+
+
+/* 16 */
+.btn-16 {
+  border: none;
+  color: #000;
+  z-index: 1;
+  background: rgb(168, 168, 168);
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  color: #fff;
+  background-color: red;
+  z-index: -1;
+  border-radius: 5px;
+  box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-16:hover {
+  color: #fff;
+}
+.btn-16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-16:active {
+  top: 2px;
+}
+
 .ex-basic-2{
   background: #f3f7fd;
 }
@@ -41,7 +132,7 @@ img{
 
 .snip1582 {
   text-decoration: none;
-  background-color: #c43535;
+  background-color: #963b3b;
   border: none;
   color: #ffffff;
   cursor: pointer;
@@ -74,7 +165,7 @@ img{
 }
 
 .snip1582:before {
-  border-color: #c43535;
+  border-color: #963b3b;
   border-top-width: 2px;
   left: 0px;
   top: -5px;
@@ -82,14 +173,14 @@ img{
 
 .snip1582:after {
   border-bottom-width: 2px;
-  border-color: #c43535;
+  border-color: #963b3b;
   bottom: -5px;
   right: 0px;
 }
 
 .snip1582:hover,
 .snip1582.hover {
-  background-color: #c43535;
+  background-color: #963b3b;
 }
 
 .snip1582:hover:before,

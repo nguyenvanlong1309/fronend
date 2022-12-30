@@ -1,4 +1,4 @@
-<div *ngIf="project" class="bg-white">
+<div *ngIf="project" class="" style="background: #f3f7fd">
     <div class="row ">
         <div class="col-lg-12">
             <div class="tab-content" id="argoTabsContent">
@@ -25,7 +25,7 @@
                                         <div *ngIf="showMore" class="d-flex flex-column gap-2">
                                             <span class="text-success fw-bold">Đã góp được:&nbsp;&nbsp;<span class="text-danger">{{ (project.total || 0) | currency:'VND' }} </span> </span>
                                             <span class="text-primary fw-bold">Cần huy động: <span class="text-danger">{{ (project.money || 0) | currency:'VND' }}</span> </span>
-                                        </div>    
+                                        </div>
                                     </div>
                                     <div class="p-4">
                                         <span *ngIf="project.status == 2" class="btn-tt cursor-pointer" (click)="navigate(project)">TÀI TRỢ</span>

@@ -14,7 +14,7 @@ import { DonateTop } from 'src/app/models/donate.model';
     styleUrls: ['./donate.component.css']
 })
 export class DonateComponent implements OnInit{
-    
+
     public donateTop$: Observable<DonateTop[]>  = of([]);;
     public project: Project;
     public title: string;
