@@ -216,9 +216,10 @@ a.white {
 }
 
 .btn-outline-reg{
+  width: 211px;
+  height: 50px;
 	margin-right: 14px;
 	margin-bottom: 10px;
-	margin-left:auto;
 	border-radius: 14px;
 	display: inline-block;
 	padding: 1rem 1.5rem 1rem 1.5rem;

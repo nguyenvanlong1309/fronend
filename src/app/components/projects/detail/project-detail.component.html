@@ -12,16 +12,16 @@
             <div class="contents" [innerHTML]="project.content | safe:'html'"></div>
         </div>
 
-        <div *ngIf="project.status === 2 || project.status === 3">
-            <a class="btn-outline-reg h-5" [routerLink]="['/donate', 'business']" [queryParams]="{'project-id': project.id }" >
+        <div *ngIf="project.status === 2 || project.status === 3" class="btn-donate-project">
+            <a class="snip1582" [routerLink]="['/donate', 'business']" [queryParams]="{'project-id': project.id }" >
                 <i class="fas fa-city"></i> Doanh nghiệp tài trợ
             </a>
-            <a class="btn-outline-reg h-5" [routerLink]="['/donate', 'personal']" [queryParams]="{'project-id': project.id}">
+            <a class="snip1582" [routerLink]="['/donate', 'personal']" [queryParams]="{'project-id': project.id}" style="text-align:center;">
                 <i class="fas fa-address-book"></i> Cá nhân tài trợ
             </a>
         </div>
 
-        <div *ngIf="project.status === 0 && isAdmin">
+        <div *ngIf="project.status === 0 && isAdmin" >
           <button class="btn-outline-reg h-5" (click)="approveProject()">
             <i class="fas fa-address-book"></i> Duyệt bài viết
           </button>
