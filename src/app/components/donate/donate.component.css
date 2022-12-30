@@ -4,19 +4,20 @@
 }
 
 .wa2{
-  background-color: #c06a6a;
-  width: 40px;
-  /* min-height: 55px; */
+  background-color: #94b6d9;
+  width: 45px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-right: 3px;
+  border-radius: 50%;
 
 }
 
 .date{
   text-decoration: none;
-  color: #000;
+  color: rgb(255, 255, 255);
   font-size: 22px;
   line-height: 35px;
 }
@@ -29,11 +30,22 @@
 
 .donates{
   color: #000;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
 }
 
 p{
   margin-bottom: 0;
   padding-top: 0;
+}
+
+.dot{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.item{
+  width: 46%;
+  align-items: center;
 }
