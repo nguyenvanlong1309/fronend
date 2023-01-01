@@ -1,114 +1,114 @@
 <div class="modal-body">
-  <div class="container">
-    <button type="button" class="close" aria-label="Close" (click)="activedModal.close()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <h3 *ngIf="!project">THÊM MỚI BÀI VIẾT</h3>
-    <h3 *ngIf="project">CẬP NHẬT BÀI VIẾT</h3>
-    <form id="newsletterForm" [formGroup]="formGroup" (submit)="ngOnSubmit()">
-        <div class="form-group">
-            <label class="labels required">CHỌN TỈNH/THÀNH PHỐ</label>
+    <div class="container">
+      <button type="button" class="close" aria-label="Close" (click)="activedModal.close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h3 *ngIf="!project">THÊM MỚI BÀI VIẾT</h3>
+      <h3 *ngIf="project">CẬP NHẬT BÀI VIẾT</h3>
+      <form id="newsletterForm" [formGroup]="formGroup" (submit)="ngOnSubmit()">
+          <div class="form-group">
+              <label class="labels required">CHỌN TỈNH/THÀNH PHỐ</label>
+              <app-select
+                [items]="city$ | async"
+                [bindLabel]="'name'"
+                [bindValue]="'id'"
+                formControlName="cityId"
+              ></app-select>
+          </div>
+          <div class="form-group">
+              <label class="labels required">TIÊU ĐỀ</label>
+              <input class="form-control" placeholder="Tiêu đề" formControlName="title">
+              <ng-container
+                [ngTemplateOutlet]="requiredError"
+                [ngTemplateOutletContext]="{
+                  control: formGroup.get('title'),
+                  message: 'Tiêu đề không được trống'
+                }"
+              ></ng-container>
+          </div>
+          <div class="form-group">
+            <label class="labels required">HÌNH ẢNH</label>
+            <input *ngIf="!avatarFile" type="file" class="form-control" (change)="ngOnChangeAvatarFile($event)">
+            <div *ngIf="avatarFile" class="preview-image position-relative w-100">
+              <span class="btn-delete-image" (click)="deleteAvatarFile()">&times;</span>
+              <img [src]="avatarFile.url | safe:'resourceUrl'" class="w-100 h-100" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="labels required">MÔ TẢ</label>
+            <textarea class="form-control" formControlName="description"></textarea>
+          </div>
+          <div class="form-group">
+              <label class="labels required">NỘI DUNG</label>
+              <app-editor formControlName="content"></app-editor>
+              <ng-container
+                [ngTemplateOutlet]="requiredError"
+                [ngTemplateOutletContext]="{
+                  control: formGroup.get('content'),
+                  message: 'Nội dung không được trống'
+                }"
+              ></ng-container>
+          </div>
+
+          <div class="form-group">
+            <label class="labels required">SỐ TIỀN MONG MUỐN</label>
+            <input type="number" class="form-control" placeholder="Số tiền mong muốn" formControlName="money">
+            <div class="text-success fw-bold money-text mt-1 ms-1">{{ moneyAsText }}</div>
+            <ng-container
+                [ngTemplateOutlet]="requiredError"
+                [ngTemplateOutletContext]="{
+                  control: formGroup.get('money'),
+                  message: 'Số tiền mong muôn không được trống'
+                }"
+              ></ng-container>
+          </div>
+
+          <div class="form-group">
+            <label class="labels required">Loại dự án</label>
             <app-select
-              [items]="city$ | async"
+              [items]="typeProject"
               [bindLabel]="'name'"
               [bindValue]="'id'"
-              formControlName="cityId"
+              formControlName="type"
             ></app-select>
-        </div>
-        <div class="form-group">
-            <label class="labels required">TIÊU ĐỀ</label>
-            <input class="form-control" placeholder="Tiêu đề" formControlName="title">
-            <ng-container
-              [ngTemplateOutlet]="requiredError"
-              [ngTemplateOutletContext]="{
-                control: formGroup.get('title'),
-                message: 'Tiêu đề không được trống'
-              }"
-            ></ng-container>
-        </div>
-        <div class="form-group">
-          <label class="labels required">HÌNH ẢNH</label>
-          <input *ngIf="!avatarFile" type="file" class="form-control" (change)="ngOnChangeAvatarFile($event)">
-          <div *ngIf="avatarFile" class="preview-image position-relative w-100">
-            <span class="btn-delete-image" (click)="deleteAvatarFile()">&times;</span>
-            <img [src]="avatarFile.url | safe:'resourceUrl'" class="w-100 h-100" />
           </div>
-        </div>
-        <div class="form-group">
-          <label class="labels required">MÔ TẢ</label>
-          <textarea class="form-control" formControlName="description"></textarea>
-        </div>
-        <div class="form-group">
-            <label class="labels required">NỘI DUNG</label>
-            <app-editor formControlName="content"></app-editor>
-            <ng-container
-              [ngTemplateOutlet]="requiredError"
-              [ngTemplateOutletContext]="{
-                control: formGroup.get('content'),
-                message: 'Nội dung không được trống'
-              }"
-            ></ng-container>
-        </div>
-
-        <div class="form-group">
-          <label class="labels required">SỐ TIỀN MONG MUỐN</label>
-          <input type="number" class="form-control" placeholder="Số tiền mong muốn" formControlName="money">
-          <div class="text-success fw-bold money-text mt-1 ms-1">{{ moneyAsText }}</div>
-          <ng-container
-              [ngTemplateOutlet]="requiredError"
-              [ngTemplateOutletContext]="{
-                control: formGroup.get('money'),
-                message: 'Số tiền mong muôn không được trống'
-              }"
-            ></ng-container>
-        </div>
-
-        <div class="form-group">
-          <label class="labels required">Loại dự án</label>
-          <app-select
-            [items]="typeProject"
-            [bindLabel]="'name'"
-            [bindValue]="'id'"
-            formControlName="type"
-          ></app-select>
-        </div>
-        <div class="form-group" style="display: flex">
-          <div class="col-md-6" style="padding-left: 0">
-            <label class="labels required">BẮT ĐẦU</label>
-            <input type="date" class="form-control" formControlName="startDate">
-            <ng-container
-              [ngTemplateOutlet]="requiredError"
-              [ngTemplateOutletContext]="{
-                control: formGroup.get('startDate'),
-                message: 'Bắt đầu không được trống',
-                invalid: 'Bắt đầu không hợp lệ'
-              }"
-            ></ng-container>
+          <div class="form-group" style="display: flex">
+            <div class="col-md-6" style="padding-left: 0">
+              <label class="labels required">BẮT ĐẦU</label>
+              <input type="date" class="form-control" formControlName="startDate">
+              <ng-container
+                [ngTemplateOutlet]="requiredError"
+                [ngTemplateOutletContext]="{
+                  control: formGroup.get('startDate'),
+                  message: 'Bắt đầu không được trống',
+                  invalid: 'Bắt đầu không hợp lệ'
+                }"
+              ></ng-container>
+            </div>
+            <div *ngIf="formGroup.get('type').value == 0" class="col-md-6" style="padding-right: 0">
+              <label class="labels required">HẠN KẾT THÚC</label>
+              <input type="date" class="form-control" formControlName="endDate">
+              <ng-container
+                [ngTemplateOutlet]="requiredError"
+                [ngTemplateOutletContext]="{
+                  control: formGroup.get('endDate'),
+                  message: 'Hạn kết thúc không được trống',
+                  invalid: 'Hạn kết thúc không hợp lệ'
+                }"
+              ></ng-container>
+            </div>
           </div>
-          <div *ngIf="formGroup.get('type').value == 0" class="col-md-6" style="padding-right: 0">
-            <label class="labels required">HẠN KẾT THÚC</label>
-            <input type="date" class="form-control" formControlName="endDate">
-            <ng-container
-              [ngTemplateOutlet]="requiredError"
-              [ngTemplateOutletContext]="{
-                control: formGroup.get('endDate'),
-                message: 'Hạn kết thúc không được trống',
-                invalid: 'Hạn kết thúc không hợp lệ'
-              }"
-            ></ng-container>
+          <div class="form-group text-center">
+            <button class="custom-btn btn-post-ariticle">{{ project ? 'Cập nhật' : 'Đăng bài' }}</button>
           </div>
-        </div>
-        <div class="form-group text-center">
-          <button class="custom-btn btn-10">{{ project ? 'Cập nhật' : 'Đăng bài' }}</button>
-        </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 
 
-<ng-template #requiredError let-message="message" let-invalid="invalid" let-control="control">
-  <div class="text-danger" *ngIf="control.invalid && (control.dirty || control.touched)">
-    <div *ngIf="control.errors.required">{{ message }}</div>
-    <div *ngIf="control.errors.isInvalid">{{ invalid }}</div>
-  </div>
-</ng-template>
+  <ng-template #requiredError let-message="message" let-invalid="invalid" let-control="control">
+    <div class="text-danger" *ngIf="control.invalid && (control.dirty || control.touched)">
+      <div *ngIf="control.errors.required">{{ message }}</div>
+      <div *ngIf="control.errors.isInvalid">{{ invalid }}</div>
+    </div>
+  </ng-template>

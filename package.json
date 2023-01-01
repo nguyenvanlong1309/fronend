@@ -25,7 +25,6 @@
     "@popperjs/core": "^2.10.2",
     "ag-grid-angular": "^28.2.1",
     "ag-grid-community": "^28.2.1",
-    "angular": "^1.8.3",
     "angular-material": "^1.2.5",
     "bootstrap": "^5.2.2",
     "chart.js": "^4.0.1",

@@ -7,8 +7,8 @@
               <small  *ngIf="project.type == 0">&nbsp;-&nbsp;{{ project.endDate | date:'dd-MM-yyyy' }}</small>
             </div>
         </div>
-        <div class="row py-3">
-            <h5>{{ project.description }}</h5>
+        <div class="row py-3" style="display: flex; flex-direction: row; justify-content: center;">
+            <h5 style="width: 80%">{{ project.description }}</h5>
             <div class="contents" [innerHTML]="project.content | safe:'html'"></div>
         </div>
 

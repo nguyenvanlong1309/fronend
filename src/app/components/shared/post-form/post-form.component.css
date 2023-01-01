@@ -39,7 +39,7 @@
 }
 
 /* 10 */
-.btn-10 {
+.btn-post-ariticle {
   background: rgb(22,9,240);
   background: linear-gradient(0deg, rgba(22,9,240,1) 0%, rgba(49,110,244,1) 100%);
   color: #fff;
@@ -48,7 +48,7 @@
   overflow: hidden;
   z-index: 1;
 }
-.btn-10:after {
+.btn-post-ariticle:after {
   position: absolute;
   content: " ";
   top: 0;
@@ -60,12 +60,12 @@
   -webkit-transform: scale(.1);
   transform: scale(.1);
 }
-.btn-10:hover {
+.btn-post-ariticle:hover {
   color: #fff;
   border: none;
   background: transparent;
 }
-.btn-10:hover:after {
+.btn-post-ariticle:hover:after {
   background: rgb(0,3,255);
   background: linear-gradient(0deg, rgba(2,126,251,1) 0%,  rgba(0,3,255,1)100%);
   -webkit-transform: scale(1);
