@@ -45,13 +45,13 @@
 }
 
 /* 15 */
-.btn-15 {
+.btn-browse-port {
   background: rgb(168, 168, 168);
   color: #000;
   border: none;
   z-index: 1;
 }
-.btn-15:after {
+.btn-browse-port:after {
   position: absolute;
   content: "";
   width: 0;
@@ -66,26 +66,26 @@
    4px 4px 5px 0px rgba(0,0,0,.1);
   transition: all 0.3s ease;
 }
-.btn-15:hover {
+.btn-browse-port:hover {
   color: #fff;
 }
-.btn-15:hover:after {
+.btn-browse-port:hover:after {
   left: 0;
   width: 100%;
 }
-.btn-15:active {
+.btn-browse-port:active {
   top: 2px;
 }
 
 
 /* 16 */
-.btn-16 {
+.btn-cancle-port {
   border: none;
   color: #000;
   z-index: 1;
   background: rgb(168, 168, 168);
 }
-.btn-16:after {
+.btn-cancle-port:after {
   position: absolute;
   content: "";
   width: 0;
@@ -104,15 +104,15 @@
    4px 4px 5px 0px #0001;
   transition: all 0.3s ease;
 }
-.btn-16:hover {
+.btn-cancle-port:hover {
   color: #fff;
 }
-.btn-16:hover:after {
+.btn-cancle-port:hover:after {
   left: auto;
   right: 0;
   width: 100%;
 }
-.btn-16:active {
+.btn-cancle-port:active {
   top: 2px;
 }
 
@@ -130,7 +130,7 @@ img{
   height: 300px;
 }
 
-.snip1582 {
+.btn-donation {
   text-decoration: none;
   background-color: #963b3b;
   border: none;
@@ -151,8 +151,8 @@ img{
   height: 45px;
 }
 
-.snip1582:before,
-.snip1582:after {
+.btn-donation:before,
+.btn-donation:after {
   border-color: transparent;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -164,29 +164,29 @@ img{
   width: 24px;
 }
 
-.snip1582:before {
+.btn-donation:before {
   border-color: #963b3b;
   border-top-width: 2px;
   left: 0px;
   top: -5px;
 }
 
-.snip1582:after {
+.btn-donation:after {
   border-bottom-width: 2px;
   border-color: #963b3b;
   bottom: -5px;
   right: 0px;
 }
 
-.snip1582:hover,
-.snip1582.hover {
+.btn-donation:hover,
+.btn-donation.hover {
   background-color: #963b3b;
 }
 
-.snip1582:hover:before,
-.snip1582.hover:before,
-.snip1582:hover:after,
-.snip1582.hover:after {
+.btn-donation:hover:before,
+.btn-donation.hover:before,
+.btn-donation:hover:after,
+.btn-donation.hover:after {
   height: 100%;
   width: 100%;
 }

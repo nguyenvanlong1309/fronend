@@ -43,7 +43,7 @@ button {
 }
 
 /* 12 */
-.btn-12{
+.btn-menu-click{
   position: relative;
   right: 20px;
   bottom: 20px;
@@ -55,7 +55,7 @@ button {
   -webkit-perspective: 230px;
   perspective: 230px;
 }
-.btn-12 span {
+.btn-menu-click span {
   background: rgb(45, 211, 137);
   background: linear-gradient(0deg, rgb(45, 211, 137 ,1) 0%, rgb(37, 202, 144) 100%);
   display: block;
@@ -74,7 +74,7 @@ button {
   -webkit-transition: all .3s;
   transition: all .3s;
 }
-.btn-12 span:nth-child(1) {
+.btn-menu-click span:nth-child(1) {
   box-shadow:
    -7px -7px 20px 0px #fff9,
    -4px -4px 5px 0px #fff9,
@@ -87,7 +87,7 @@ button {
   -moz-transform-origin: 50% 50% -20px;
   transform-origin: 50% 50% -20px;
 }
-.btn-12 span:nth-child(2) {
+.btn-menu-click span:nth-child(2) {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   transform: rotateX(0deg);
@@ -95,7 +95,7 @@ button {
   -moz-transform-origin: 50% 50% -20px;
   transform-origin: 50% 50% -20px;
 }
-.btn-12:hover span:nth-child(1) {
+.btn-menu-click:hover span:nth-child(1) {
   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
@@ -103,7 +103,7 @@ button {
   -moz-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
-.btn-12:hover span:nth-child(2) {
+.btn-menu-click:hover span:nth-child(2) {
   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
