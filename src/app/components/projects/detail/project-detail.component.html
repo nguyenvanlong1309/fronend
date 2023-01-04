@@ -12,6 +12,11 @@
             <div class="contents" [innerHTML]="project.content | safe:'html'"></div>
         </div>
 
+        <div class="d-flex flex-column gap-2">
+            <span class="text-success fw-bold">Đã góp được:&nbsp;&nbsp;<span class="text-danger">{{ (project.total || 0) | currency:'VND' }} </span> </span>
+            <span class="text-primary fw-bold">Cần huy động: <span class="text-danger">{{ (project.money || 0) | currency:'VND' }}</span> </span>
+        </div>
+
         <div *ngIf="project.status === 2 || project.status === 3" class="btn-donate-project">
             <a class="btn-donation" [routerLink]="['/donate', 'business']" [queryParams]="{'project-id': project.id }" >
                 <i class="fas fa-city"></i> Doanh nghiệp tài trợ

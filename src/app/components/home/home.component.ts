@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.project$ = this.projectService.findAll();
+    // lấy 5 bài đăng mới nhất
+    this.project$ = this.projectService.findAll(5);
     this.donateService.getTotalProjectAndDonate()
       .subscribe(res => this.totalDonateAndProject = res);
   }

@@ -67,8 +67,9 @@ export class DbpComponent implements OnInit {
           return `<img src="${environment.IMAGE_STORE_URL}${params.data.avatar}" class="w-100 h-100" />`
         },
         onCellClicked: ({data}) => {
+          if (this.router.url !== '/admin/dbp1') return;
           const title = Utils.toLowerCaseNonAccentVietnamese(data.title).replace(/\s/g, '-');
-          this.router.navigate(['/project',title], {
+          this.router.navigate(['/admin/project',title], {
               queryParams: {
                   id: data.id
               }
@@ -132,6 +133,18 @@ export class DbpComponent implements OnInit {
         },
         valueGetter: ({ data }) => {
           return this.currencyPipe.transform(data.money, 'VND');
+        }
+      },
+
+      this.router.url === '/admin/dbp' && {
+        headerName: 'TỔNG TIỀN',
+        headerTooltip: 'TỔNG TIỀN',
+        minWidth: 150,
+        cellStyle: {
+          'top': '30px'
+        },
+        valueGetter: ({ data }) => {
+          return this.currencyPipe.transform(data.total ?? 0, 'VND');
         }
       },
 
