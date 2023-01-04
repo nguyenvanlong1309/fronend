@@ -16,6 +16,9 @@
             <span class="text-success fw-bold">Đã góp được:&nbsp;&nbsp;<span class="text-danger">{{ (project.total || 0) | currency:'VND' }} </span> </span>
             <span class="text-primary fw-bold">Cần huy động: <span class="text-danger">{{ (project.money || 0) | currency:'VND' }}</span> </span>
         </div>
+        <div style="margin: 30px 0">
+          <em>(*) Lưu ý: Tiền chuyển thẳng trực tiếp vào tài khoản chủ dự án mà không thông qua trang web thì chúng tôi sẽ không chịu trách nhiệm về vấn đề sao kê tiền của bạn khi xảy ra vấn đề</em>
+        </div>
 
         <div *ngIf="project.status === 2 || project.status === 3" class="btn-donate-project">
             <a class="btn-donation" [routerLink]="['/donate', 'business']" [queryParams]="{'project-id': project.id }" >

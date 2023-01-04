@@ -1,12 +1,15 @@
 <nav class="navbar navbar-default navbar-cls-top">
     <div class="navbar-header d-flex justify-content-between w-100 align-items-center px-4">
-        <a class="navbar-brand text-left fas fa-user ms-0" style="cursor: context-menu;"> ADMIN</a>
+        <a class="navbar-brand text-left  ms-0" style="cursor: context-menu;">
+          <i class="fas fa-user"></i>
+           ADMIN
+        </a>
 
         <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
           <button class="mr-2" id="dropdownManual" (focus)="myDrop.open()"></button>
           <button class="mr-2" (click)="$event.stopPropagation(); myDrop.open();">
             <button class="custom-btn btn-menu-click">
-              <span style="color: #fff"><li class="far fa-hand-point-up"></li></span>
+              <span style="color: #fff"><li class="fas fa-stream"></li></span>
               <span style="color: #fff"><li class="fas fa-stream"></li></span>
             </button>
           </button>

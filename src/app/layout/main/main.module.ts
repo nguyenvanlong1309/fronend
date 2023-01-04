@@ -16,6 +16,7 @@ import { NewsComponent } from 'src/app/components/news/news.component';
 import { Tintuc1Component } from 'src/app/components/news/tintuc1/tintuc1.component';
 import { Tintuc2Component } from 'src/app/components/news/tintuc2/tintuc2.component';
 import { Tintuc3Component } from 'src/app/components/news/tintuc3/tintuc3.component';
+import { Tintuc4Component } from 'src/app/components/news/tintuc4/tintuc4.component';
 
 import { ProjectsComponent } from 'src/app/components/projects/projects.component';
 
@@ -55,6 +56,7 @@ const declarations: Array<Type<any> | any[]> = [
     Tintuc1Component,
     Tintuc2Component,
     Tintuc3Component,
+    Tintuc4Component,
 
     FinanceComponent,
     ProjectsComponent,

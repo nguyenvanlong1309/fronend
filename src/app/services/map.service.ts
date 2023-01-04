@@ -9,13 +9,13 @@ import { Map } from '../models/map.model';
 })
 export class MapService {
 
-    private url: string = `${environment.API_URL}/maps`
+  private url: string = `${environment.API_URL}/maps`
 
-    constructor(
-        private http: HttpClient
-    ) {}
+  constructor(
+      private http: HttpClient
+  ) {}
 
-    public findAll(): Observable<Map[]> {
-        return this.http.get<Map[]>(this.url);
-    }
+  public findAll(): Observable<Map[]> {
+      return this.http.get<Map[]>(this.url);
+  }
 }

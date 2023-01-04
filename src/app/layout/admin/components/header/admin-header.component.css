@@ -112,3 +112,13 @@ button {
   -moz-transform: rotateX(-90deg);
   transform: rotateX(-90deg);
 }
+
+.fa-user{
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 4px;
+  border-radius: 50%;
+  color: #37B984;
+}

@@ -29,10 +29,10 @@
 
 <ng-template #step1>
     <div class="d-flex flex-wrap gap-2">
-        <button 
+        <button
             *ngFor="let bank of bank$ | async"
-            class="border-0 oulint-0 bank-logo bg-white" 
-            [title]="bank.shortName" 
+            class="border-0 oulint-0 bank-logo bg-white"
+            [title]="bank.shortName"
             (click)="step.bank = bank; formCard.reset(); ngOnNextStep()"
         >
             <img [src]="bank.logo | safe:'resourceUrl'" class="w-100 h-100" />
