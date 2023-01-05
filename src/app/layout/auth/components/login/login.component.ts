@@ -1,20 +1,28 @@
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Role } from 'src/app/base/role.enum';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { Utils } from 'src/app/base/utils';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
 
+import { Role } from 'src/app/base/role.enum';
+import { AuthService } from 'src/app/services/auth.service';
+import { Utils } from 'src/app/base/utils';
 import { CustomValidators } from 'src/app/base/validators/custom.validator';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation()
+  ]
 })
 export class LoginComponent implements OnInit, OnDestroy {
 

@@ -1,11 +1,16 @@
-import { MyDonateComponent } from 'src/app/components/setting/my-donate/my-donate.component';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
+
+import { AuthService } from 'src/app/services/auth.service';
+import { MyDonateComponent } from 'src/app/components/setting/my-donate/my-donate.component';
 import { Utils } from './../../base/utils';
 import { UserModel } from './../../models/user.model';
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from 'src/app/services/user.service';
 import { MyProjectComponent } from './my-project/my-project.component';
 import { PostFormComponent } from '../shared/post-form/post-form.component';
@@ -16,6 +21,10 @@ import { CustomValidators } from 'src/app/base/validators/custom.validator';
   selector: 'app-setting',
   templateUrl: './setting.component.html',
 	styleUrls: ['./setting.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation()
+  ]
 })
 export class SettingComponent implements OnInit {
 	isModal: boolean = false;

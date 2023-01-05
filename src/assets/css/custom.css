@@ -219,7 +219,7 @@ color: #8d8888;
 }
 .active-menu {
     background-color:#a8a7a799!important;
-    border-radius: 0.75rem;
+    /* border-radius: 0.75rem; */
 }
 
 .arrow {
@@ -339,6 +339,7 @@ color: #8d8888;
 
 .chinhli{
     padding: 15px 10px;
+    cursor: pointer;
 }
 
 .chinhli a {
@@ -353,7 +354,7 @@ color: #8d8888;
     outline: 0;
     background-color: #a8a7a799;
     font-weight: bold;
-    border-radius: 0.75rem;
+    /* border-radius: 0.75rem; */
     text-decoration: none;
 }
 

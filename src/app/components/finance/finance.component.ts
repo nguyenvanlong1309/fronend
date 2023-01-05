@@ -1,7 +1,12 @@
 import { Observable, of } from 'rxjs';
 import { CurrencyPipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
 import { ColDef } from 'ag-grid-community';
+
 import { COLUMN_STT } from 'src/app/base/constant';
 import { DonateTop } from 'src/app/models/donate.model';
 import { Project } from 'src/app/models/project.model';
@@ -10,7 +15,11 @@ import { DonateService } from 'src/app/services/donate.service';
 @Component({
   selector: 'app-finance',
   templateUrl: './finance.component.html',
-  styleUrls: ['./finance.component.css']
+  styleUrls: ['./finance.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation()
+  ]
 })
 export class FinanceComponent implements OnInit {
 

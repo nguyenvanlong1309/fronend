@@ -3,3 +3,7 @@ nav {
     top: 40px;
     padding-top: 15px;
 }
+
+.fas:hover{
+  color: #000;
+}

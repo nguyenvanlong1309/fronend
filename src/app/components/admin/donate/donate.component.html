@@ -1,11 +1,11 @@
-<div>
+<div class="tabs" *ngIf="'tabs'" [@fadeInOnEnter] [@fadeOutOnLeave]>
   <div id="page-inner">
     <h2>QUẢN LÝ TÀI TRỢ</h2>
     <hr />
     <ag-grid-angular
       style="height: 500px"
       class="w-100 ag-theme-alpine"
-      
+
       [rowData]="donate$ | async"
       [columnDefs]="columnDefs"
       [tooltipShowDelay]="0"

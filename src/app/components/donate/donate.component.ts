@@ -1,6 +1,11 @@
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from "@angular/core";
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
+
 import { Project } from "src/app/models/project.model";
 import { ProjectService } from 'src/app/services/project.service';
 import { PersonalComponent } from './personal/personal.component';
@@ -11,7 +16,11 @@ import { DonateTop } from 'src/app/models/donate.model';
 @Component({
     selector: 'app-donate',
     templateUrl: './donate.component.html',
-    styleUrls: ['./donate.component.css']
+    styleUrls: ['./donate.component.css'],
+    animations: [
+      fadeInOnEnterAnimation(),
+      fadeOutOnLeaveAnimation()
+    ]
 })
 export class DonateComponent implements OnInit{
 

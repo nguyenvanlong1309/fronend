@@ -1,6 +1,11 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
+
 import { COLUMN_STT } from 'src/app/base/constant';
 import { UserService } from 'src/app/services/user.service';
 import { ShowDetailComponent } from './show-detail/show-detail.component';
@@ -11,6 +16,10 @@ import { UserActionComponent } from './action/user-action.component';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation()
+  ]
 })
 export class UserComponent implements OnInit {
 

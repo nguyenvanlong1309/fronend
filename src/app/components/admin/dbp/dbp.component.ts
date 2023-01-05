@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ColDef, ValueGetterParams } from 'ag-grid-community';
-import { environment } from 'src/environments/environment';
+import { CurrencyPipe, formatDate } from '@angular/common';
 import { Router } from '@angular/router';
-import { ProjectService } from 'src/app/services/project.service';
 import { Observable } from 'rxjs';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
+
+import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project.model';
 import { DbpActionComponent } from './action/dbp-action.component';
-import { CurrencyPipe, formatDate } from '@angular/common';
+import { environment } from 'src/environments/environment';
 import { COLUMN_STT } from 'src/app/base/constant';
 import { PostFormComponent } from '../../shared/post-form/post-form.component';
 import { Utils } from 'src/app/base/utils';
@@ -15,7 +20,11 @@ import { Utils } from 'src/app/base/utils';
 @Component({
   selector: 'app-dbp',
   templateUrl: './dbp.component.html',
-  styleUrls: ['./dbp.component.css']
+  styleUrls: ['./dbp.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation()
+  ]
 })
 export class DbpComponent implements OnInit {
 

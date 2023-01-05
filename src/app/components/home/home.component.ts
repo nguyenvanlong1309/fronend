@@ -1,6 +1,12 @@
-import { PROJECT_STATUS } from './../../base/constant';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+
+} from 'angular-animations';
+
+import { PROJECT_STATUS } from './../../base/constant';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/models/project.model';
 import { DonateService } from 'src/app/services/donate.service';
@@ -8,7 +14,12 @@ import { DonateService } from 'src/app/services/donate.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation(),
+
+  ]
 })
 export class HomeComponent implements OnInit {
 

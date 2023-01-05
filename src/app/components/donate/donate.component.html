@@ -1,5 +1,5 @@
 <div *ngIf="project" id="details" class="py-4" style="background-color: #fff;">
-    <div class="container bg-white rounded py-3">
+    <div class="container bg-white rounded py-3" *ngIf="'container'" [@fadeInOnEnter] [@fadeOutOnLeave]>
         <div class="row">
             <div class="col-lg-6">
                 <router-outlet (activate)="loadComponent($event)"></router-outlet>

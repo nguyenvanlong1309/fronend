@@ -2,9 +2,14 @@ import { takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
+
+import { AuthService } from 'src/app/services/auth.service';
 import { Utils } from 'src/app/base/utils';
 import { CustomValidators } from 'src/app/base/validators/custom.validator';
 import { REGEX_PHONE_VIETNAME } from 'src/app/base/constant';
@@ -12,7 +17,11 @@ import { REGEX_PHONE_VIETNAME } from 'src/app/base/constant';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation()
+  ]
 })
 export class SignupComponent implements OnInit,OnDestroy {
 

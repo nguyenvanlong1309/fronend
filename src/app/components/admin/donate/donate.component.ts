@@ -1,20 +1,29 @@
-import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
+import { CurrencyPipe, formatDate } from '@angular/common';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
+
+import { environment } from 'src/environments/environment';
 import { COLUMN_STT } from 'src/app/base/constant';
 import { Donate } from 'src/app/models/donate.model';
 import { DonateService } from 'src/app/services/donate.service';
-import { CurrencyPipe, formatDate } from '@angular/common';
 import { CommentComponent } from './comment/comment.component';
 
 @Component({
   selector: 'app-donate',
   templateUrl: './donate.component.html',
   styleUrls: ['./donate.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation()
+  ]
 })
 export class DonateComponent implements OnInit {
-	
+
 	public columnDefs: ColDef[];
 	public donate$: Observable<Donate[]>
 
@@ -72,7 +81,7 @@ export class DonateComponent implements OnInit {
 				headerName: 'NGÀY TÀI TRỢ',
 				headerTooltip: 'NGÀY TÀI TRỢ',
 				minWidth: 140,
-				maxWidth: 140,	
+				maxWidth: 140,
 
 				field: 'createdDate',
 				tooltipField: 'createdDate',
@@ -88,7 +97,7 @@ export class DonateComponent implements OnInit {
 				headerName: 'SỐ ĐIỆN THOẠI',
 				headerTooltip: 'SỐ ĐIỆN THOẠI',
 				minWidth: 140,
-				maxWidth: 140,	
+				maxWidth: 140,
 
 				field: 'phone',
 				tooltipField: 'phone',

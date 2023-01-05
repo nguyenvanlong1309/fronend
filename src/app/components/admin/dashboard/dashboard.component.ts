@@ -4,6 +4,7 @@ import { Statistic } from './../../../models/statistic.model';
 import { Subject, takeUntil } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
+
 import { Chart } from 'chart.js/auto';
 import { DonateService } from 'src/app/services/donate.service';
 import { RegionService } from 'src/app/services/region.service';
@@ -12,6 +13,7 @@ import { RegionService } from 'src/app/services/region.service';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
+
 })
 
 
@@ -25,12 +27,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public projectInRegionChart: any;
   public yearList: Array<number>;
   public year: number;
-  
+
   constructor(
     private donateService: DonateService,
     private regionService: RegionService,
   ) {}
-  
+
   ngOnInit(): void {
     this.year = new Date().getFullYear();
     this.yearList = Array.from({length: 11}, (v, index) => this.year - index);
@@ -146,7 +148,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.donateChart.update();
       })
   }
- 
+
   ngOnDestroy(): void {
       this.unsubscribe$.next();
       this.unsubscribe$.complete();

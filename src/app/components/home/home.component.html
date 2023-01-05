@@ -1,4 +1,4 @@
-<div class="tabs page-scroll">
+<div class="tabs page-scroll" *ngIf="'tabs'" [@fadeInOnEnter] [@fadeOutOnLeave]>
   <header id="header" class="header">
       <div class="container">
           <div class="header-content">
@@ -61,7 +61,7 @@
 
             <div class="w3-quarter about-us-case">
                 <div class="sum-case">
-                    <p class="number" style="color: blue"><i class="fa fa-city w3-margin-bottom w3-jumbo w3-center me-2" style="color: blue"></i>{{ totalDonateAndProject?.countProvince || 0 }}</p>
+                    <p class="number" style="color: rgb(55, 218, 230)"><i class="fa fa-city w3-margin-bottom w3-jumbo w3-center me-2" style="color: rgb(55, 218, 230)"></i>{{ totalDonateAndProject?.countProvince || 0 }}</p>
                     <p class="sum-case">TỈNH</p>
                 </div>
             </div>

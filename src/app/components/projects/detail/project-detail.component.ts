@@ -1,20 +1,29 @@
 import { filter, Subject, takeUntil } from 'rxjs';
-import { ProjectService } from './../../../services/project.service';
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Project } from "src/app/models/project.model";
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
+
+import { ProjectService } from './../../../services/project.service';
+import { Project } from "src/app/models/project.model";
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Role } from 'src/app/base/role.enum';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationComponent } from 'src/app/components/admin/shared/confirmation/confirmation.component';
 import { Confirmation } from 'src/app/base/confirmation/confirmation.enum';
 
 @Component({
     selector: 'app-project-detail',
     templateUrl: './project-detail.component.html',
-    styleUrls: ['./project-detail.component.css']
+    styleUrls: ['./project-detail.component.css'],
+    animations: [
+      fadeInOnEnterAnimation(),
+      fadeOutOnLeaveAnimation()
+    ]
 })
 export class ProjectDetailComponent implements OnInit, OnDestroy {
 
