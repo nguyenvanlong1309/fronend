@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ViewportScroller } from '@angular/common';
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
@@ -32,6 +33,10 @@ export class SettingComponent implements OnInit {
 	formGroup: FormGroup;
 	closeResult: string;
 	isPO: boolean;
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event){
+    this.pageYoffset = window.pageYOffset;
+  }
 
 	public get formControl() {
 		return this.formGroup.controls;
@@ -42,8 +47,14 @@ export class SettingComponent implements OnInit {
 		private fb: FormBuilder,
 		private modalService: NgbModal,
 		private userService: UserService,
-		private toastService: ToastrService
+		private toastService: ToastrService,
+    private scroll: ViewportScroller,
+
 	) {}
+
+  scrollToTop(){
+    this.scroll.scrollToPosition([0,0]);
+  }
 
 	ngOnInit(): void {
 		this.user = this.authService.currentUser$.getValue();

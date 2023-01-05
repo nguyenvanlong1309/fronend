@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
@@ -20,10 +21,19 @@ import { Project } from 'src/app/models/project.model';
 export class ProjectsComponent implements OnInit {
 
   public project$: Observable<Project[]>;
+  pageYoffset = 0;
+    @HostListener('window:scroll', ['$event']) onScroll(event){
+      this.pageYoffset = window.pageYOffset;
+    }
 
   constructor(
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private scroll: ViewportScroller,
   ) {}
+
+  scrollToTop(){
+    this.scroll.scrollToPosition([0,0]);
+  }
 
   ngOnInit(): void {
     this.project$ = this.projectService.findAll();

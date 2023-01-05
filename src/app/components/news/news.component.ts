@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
@@ -15,7 +16,16 @@ import {
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event){
+    this.pageYoffset = window.pageYOffset;
+  }
+  constructor(
+    private scroll: ViewportScroller,
+  ) { }
+  scrollToTop(){
+    this.scroll.scrollToPosition([0,0]);
+  }
 
   ngOnInit(): void {
   }

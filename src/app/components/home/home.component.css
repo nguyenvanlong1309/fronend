@@ -119,3 +119,24 @@ animation: typewriter 4s steps(44) 1s 1 normal both,
 		left: -100%;
 	}
 }
+
+.scroll-to-top {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  position: fixed;
+  color: #fff;
+  background:#247a58;
+  width: 45px;
+  height: 45px;
+  bottom: 30px;
+  right: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+ }
+
+ .scroll-to-top:hover {
+  background:#0c2b1f;
+ }

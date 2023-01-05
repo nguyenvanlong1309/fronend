@@ -104,3 +104,24 @@
 	              0 10px 10px rgba(0,0,0,.2),
 	              0 20px 20px rgba(0,0,0,.3);
 }
+
+.scroll-to-top {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  position: fixed;
+  color: #fff;
+  background:#247a58;
+  width: 45px;
+  height: 45px;
+  bottom: 30px;
+  right: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+ }
+
+ .scroll-to-top:hover {
+  background:#0c2b1f;
+ }

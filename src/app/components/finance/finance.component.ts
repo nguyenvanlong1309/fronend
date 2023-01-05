@@ -1,6 +1,8 @@
 import { Observable, of } from 'rxjs';
 import { CurrencyPipe, formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
@@ -26,6 +28,10 @@ export class FinanceComponent implements OnInit {
   public donate$: Observable<DonateTop[]> = of([]);
   public project$: Observable<Project[]>;
   public project: Project;
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event){
+    this.pageYoffset = window.pageYOffset;
+  };
   public columnDefs: ColDef[] = [
     COLUMN_STT,
     {
@@ -84,10 +90,15 @@ export class FinanceComponent implements OnInit {
   constructor(
     private currencyPipe: CurrencyPipe,
     private donateService: DonateService,
+    private scroll: ViewportScroller,
+
   ) { }
 
   ngOnInit(): void {
     this.donate$ = this.donateService.findListDonate();
+  }
+  scrollToTop(){
+    this.scroll.scrollToPosition([0,0]);
   }
 
   public exportExcel(): void {

@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener} from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
-
 } from 'angular-animations';
 
 import { PROJECT_STATUS } from './../../base/constant';
@@ -26,11 +26,20 @@ export class HomeComponent implements OnInit {
   public project$: Observable<Project[]>;
   public status = PROJECT_STATUS;
   public totalDonateAndProject;
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event){
+    this.pageYoffset = window.pageYOffset;
+  }
 
   constructor(
     private projectService: ProjectService,
-    private donateService: DonateService
+    private donateService: DonateService,
+    private scroll: ViewportScroller,
   ) { }
+
+  scrollToTop(){
+    this.scroll.scrollToPosition([0,0]);
+  }
 
   ngOnInit(): void {
     // lấy 5 bài đăng mới nhất

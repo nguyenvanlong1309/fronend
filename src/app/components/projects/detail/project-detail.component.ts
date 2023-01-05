@@ -1,8 +1,9 @@
 import { filter, Subject, takeUntil } from 'rxjs';
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, HostListener } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ViewportScroller } from '@angular/common';
 import {
   fadeInOnEnterAnimation,
   fadeOutOnLeaveAnimation,
@@ -31,6 +32,10 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     public project: Project;
     public images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
     public isAdmin: boolean = false;
+    pageYoffset = 0;
+    @HostListener('window:scroll', ['$event']) onScroll(event){
+      this.pageYoffset = window.pageYOffset;
+    }
 
     constructor(
         private router: ActivatedRoute,
@@ -38,8 +43,13 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
         private _router: Router,
         private toastService: ToastrService,
         private authService: AuthService,
-        private modalService: NgbModal
+        private modalService: NgbModal,
+        private scroll: ViewportScroller,
     ) {}
+
+    scrollToTop(){
+      this.scroll.scrollToPosition([0,0]);
+    }
 
     public ngOnInit(): void {
         const user = this.authService.currentUser$.getValue();
